@@ -40,7 +40,7 @@ export default function Header() {
         <div className="flex items-center gap-2 mx-auto md:mx-0">
           <div className="h-16 sm:h-20 flex justify-center">
             <img 
-              src="https://i.postimg.cc/XqHBKs27/logo-up.png" 
+              src="https://i.postimg.cc/TPCnRjmx/cortado.png" 
               alt="Legacy Capital Logo" 
               className="h-full"
             />
