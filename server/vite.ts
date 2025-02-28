@@ -30,8 +30,9 @@ export async function setupVite(app: Express, server: Server) {
     allowedHosts: true,
   };
 
+  let vite: any;
   try {
-    const vite = await createViteServer({
+    vite = await createViteServer({
       ...viteConfig,
       configFile: false,
       customLogger: {
@@ -73,7 +74,9 @@ export async function setupVite(app: Express, server: Server) {
       res.status(200).set({ "Content-Type": "text/html" }).end(page);
     } catch (e) {
       log(`❌ Error during Vite transformIndexHtml: ${e}`, "vite", "error");
-      vite.ssrFixStacktrace(e as Error);
+      if (vite) {
+        vite.ssrFixStacktrace(e as Error);
+      }
       next(e);
     }
   });
