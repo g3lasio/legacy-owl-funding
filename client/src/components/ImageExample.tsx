@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Image from './ui/image';
 import { motion } from "framer-motion";
@@ -20,6 +19,20 @@ export default function ImageExample() {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Oportunidades de inversión exclusivas
           </p>
+          <div className="flex justify-center gap-8 mt-6">
+            <Image 
+              image="https://i.postimg.cc/4NH1yxyK/Legacy-logo-white.png" 
+              height="60px" 
+              width="180px"
+              className="bg-gray-800 p-4" 
+            />
+            <Image 
+              image="https://i.postimg.cc/pTdfH23L/Legacy-negro.png" 
+              height="60px" 
+              width="180px"
+              className="bg-gray-100 p-4" 
+            />
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -34,7 +47,7 @@ export default function ImageExample() {
             <h3 className="text-xl font-bold mt-2">Propiedad Premium</h3>
             <p className="text-muted-foreground">Miami, Florida</p>
           </motion.div>
-          
+
           {/* Ejemplo con imagen personalizada */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -50,7 +63,7 @@ export default function ImageExample() {
             <h3 className="text-xl font-bold mt-2">Residencia Exclusiva</h3>
             <p className="text-muted-foreground">Los Ángeles, California</p>
           </motion.div>
-          
+
           {/* Otro ejemplo con imagen personalizada */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
