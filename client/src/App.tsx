@@ -6,7 +6,7 @@ import PrivacyPage from './pages/privacy';
 import QualifyPage from './pages/qualify';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import './App.css';
+// No need to import App.css - we're using global styles from index.css
 
 function App() {
   return (
