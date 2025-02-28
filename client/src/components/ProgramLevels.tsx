@@ -4,12 +4,14 @@ import { Check } from "lucide-react";
 
 const levels = [
   {
-    name: "Founder",
+    name: "Legacy Founder",
     description: "For investors building their credit profile",
     features: [
       "Access to starter projects",
+      "Credit score between 650 - 680",
       "Credit improvement guidance",
       "Basic educational resources",
+      "proffit sharing 50%",
       "Community access"
     ]
   },

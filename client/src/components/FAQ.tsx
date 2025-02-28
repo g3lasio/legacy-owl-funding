@@ -9,24 +9,29 @@ import {
 const faqs = [
   {
     question: "How does credit-based investing work?",
-    answer: "Our program leverages your credit score to access investment opportunities. Instead of using your own capital, we use your creditworthiness to secure funding for premium real estate projects."
+    answer:
+      "Our program leverages your credit score to access investment opportunities. Instead of using your own capital, we use your creditworthiness to secure funding for premium real estate projects.",
   },
   {
     question: "What credit score do I need to qualify?",
-    answer: "For our Legacy VIP program, we require a minimum credit score of 680. However, our Founder program is available for those working to improve their credit score."
+    answer:
+      "For our Legacy VIP program, we require a minimum credit score of 680. However, our Founder program is available for those working to improve their credit score.",
   },
   {
     question: "How are returns distributed?",
-    answer: "Returns are distributed based on your program level. Legacy VIP members receive 60% of project profits, while Legacy Executive members receive 75%. Distributions are made upon project completion."
+    answer:
+      "Returns are distributed based on your program level. Legacy VIP members receive 60% of project profits, while Legacy Executive members receive 75%. Distributions are made upon project completion.",
   },
   {
     question: "What types of real estate projects do you invest in?",
-    answer: "We focus on premium real estate opportunities including fix-and-flip projects, new construction developments, and multi-family properties. All projects undergo rigorous due diligence."
+    answer:
+      "our diversified real estate strategy. We combine proven methods—fix and flip projects that rapidly generate cash flow, development ventures that build long-term value, and the lucrative potential of tax liens and deeds—with strategic joint venture agreements. This unique blend minimizes risk while amplifying profit potential, ensuring that your investment grows steadily and robustly. All projects undergo rigorous due diligence.",
   },
   {
     question: "How long does it take to see returns?",
-    answer: "Project timelines vary, but typically range from 6-18 months. We maintain a pipeline of projects to provide regular investment opportunities for our members."
-  }
+    answer:
+      "Project timelines vary, but typically range from 6-18 months. We maintain a pipeline of projects to provide regular investment opportunities for our members.",
+  },
 ];
 
 export default function FAQ() {
@@ -55,9 +60,7 @@ export default function FAQ() {
                 <AccordionTrigger className="text-left">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent>
-                  {faq.answer}
-                </AccordionContent>
+                <AccordionContent>{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>

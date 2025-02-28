@@ -6,12 +6,12 @@ const benefits = [
   {
     icon: DollarSign,
     title: "No Capital Required",
-    description: "Access premium real estate investments using your credit score instead of cash."
+    description: "Imagine investing in high-performing real estate projects without spending your own money. At Legacy, your credit score becomes your greatest asset. With a solid rating, you unlock premium opportunities usually reserved for large investors. Here, your credit works as your personal goldmine—no capital needed, just your financial credibility."
   },
   {
     icon: TrendingUp,
     title: "High Returns",
-    description: "Participate in carefully selected projects with significant profit potential."
+    description: "Legacy drives high returns through diversified real estate investments. Our strategy blends fast cash flow from fix-and-flips, long-term growth from developments, and lucrative opportunities from tax liens and deeds, all executed via strategic joint ventures. This balanced approach minimizes risk while maximizing profit, ensuring steady growth for your investment."
   },
   {
     icon: Shield,
