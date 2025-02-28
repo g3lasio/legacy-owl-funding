@@ -59,9 +59,11 @@ export default function Header() {
               {item.name}
             </a>
           ))}
-          <Button size="lg" className="font-quantico tracking-wide" onClick={() => window.location.href = "/qualify"}>
-            Join Now
-          </Button>
+          <Link href="/qualify">
+            <Button size="lg" className="font-quantico tracking-wide">
+              Join Now
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Navigation */}
@@ -82,9 +84,11 @@ export default function Header() {
                   {item.name}
                 </a>
               ))}
-              <Button size="lg" className="font-quantico tracking-wide mt-4" onClick={() => window.location.href = "/qualify"}>
-                Join Now
-              </Button>
+              <Link href="/qualify">
+                <Button size="lg" className="font-quantico tracking-wide mt-4">
+                  Join Now
+                </Button>
+              </Link>
             </div>
           </SheetContent>
         </Sheet>

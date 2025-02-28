@@ -312,3 +312,166 @@ export default function QualifyPage() {
     </div>
   );
 }
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+// Definir el esquema de validación
+const qualifySchema = z.object({
+  name: z.string().min(3, "El nombre es demasiado corto"),
+  email: z.string().email("Email inválido"),
+  phone: z.string().min(10, "Número de teléfono inválido"),
+  creditScore: z.enum(["excelente", "bueno", "regular", "malo"]),
+  investmentInterest: z.enum(["alto", "medio", "bajo"])
+});
+
+type QualifyFormData = z.infer<typeof qualifySchema>;
+
+export default function QualifyPage() {
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  
+  const { register, handleSubmit, formState: { errors } } = useForm<QualifyFormData>({
+    resolver: zodResolver(qualifySchema)
+  });
+  
+  const onSubmit = async (data: QualifyFormData) => {
+    try {
+      setSubmitStatus("loading");
+      // Aquí implementarías la lógica para enviar los datos al backend
+      // Simulamos una demora para mostrar el estado "loading"
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Simulación de éxito
+      setSubmitStatus("success");
+    } catch (error) {
+      setSubmitStatus("error");
+      console.error("Error al enviar formulario:", error);
+    }
+  };
+  
+  return (
+    <section className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-background to-background/80">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-2xl mx-auto"
+        >
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 text-center">
+            ¿Calificas para nuestro <span className="text-gradient">programa exclusivo</span>?
+          </h1>
+          <p className="text-lg text-center mb-10">
+            Complete el siguiente formulario para verificar si cumple con los requisitos para participar en nuestras oportunidades de inversión premium.
+          </p>
+          
+          <div className="bg-card rounded-lg shadow-lg p-6 md:p-8 border border-border">
+            {submitStatus === "success" ? (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center py-8"
+              >
+                <div className="mb-6 text-primary text-6xl flex justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold mb-2">¡Solicitud enviada con éxito!</h3>
+                <p className="mb-6">Nuestro equipo revisará su información y se pondrá en contacto con usted pronto.</p>
+                <Button size="lg">Volver al inicio</Button>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Nombre completo</Label>
+                  <Input 
+                    id="name" 
+                    {...register("name")}
+                    className={errors.name ? "border-destructive" : ""}
+                  />
+                  {errors.name && (
+                    <p className="text-destructive text-sm">{errors.name.message}</p>
+                  )}
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="email">Correo electrónico</Label>
+                  <Input 
+                    id="email" 
+                    type="email" 
+                    {...register("email")}
+                    className={errors.email ? "border-destructive" : ""}
+                  />
+                  {errors.email && (
+                    <p className="text-destructive text-sm">{errors.email.message}</p>
+                  )}
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Teléfono</Label>
+                  <Input 
+                    id="phone" 
+                    type="tel" 
+                    {...register("phone")}
+                    className={errors.phone ? "border-destructive" : ""}
+                  />
+                  {errors.phone && (
+                    <p className="text-destructive text-sm">{errors.phone.message}</p>
+                  )}
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="creditScore">Puntaje de crédito aproximado</Label>
+                  <select 
+                    id="creditScore" 
+                    {...register("creditScore")}
+                    className="w-full rounded-md border border-input bg-background px-3 py-2"
+                  >
+                    <option value="excelente">Excelente (720+)</option>
+                    <option value="bueno">Bueno (680-719)</option>
+                    <option value="regular">Regular (620-679)</option>
+                    <option value="malo">Por debajo de 620</option>
+                  </select>
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="investmentInterest">Nivel de interés en inversiones</Label>
+                  <select 
+                    id="investmentInterest" 
+                    {...register("investmentInterest")}
+                    className="w-full rounded-md border border-input bg-background px-3 py-2"
+                  >
+                    <option value="alto">Alto - Listo para invertir</option>
+                    <option value="medio">Medio - Explorando opciones</option>
+                    <option value="bajo">Bajo - Solo obteniendo información</option>
+                  </select>
+                </div>
+                
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full mt-6"
+                  disabled={submitStatus === "loading"}
+                >
+                  {submitStatus === "loading" ? "Enviando..." : "Verificar calificación"}
+                </Button>
+                
+                {submitStatus === "error" && (
+                  <p className="text-destructive text-center mt-4">
+                    Ocurrió un error al enviar el formulario. Por favor, intente de nuevo.
+                  </p>
+                )}
+              </form>
+            )}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}

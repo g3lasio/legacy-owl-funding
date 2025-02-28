@@ -28,3 +28,20 @@ function App() {
 }
 
 export default App;
+import React from 'react';
+import { Route, Switch } from 'wouter';
+import HomePage from './pages/home';
+import QualifyPage from './pages/qualify';
+import Header from './components/Header';
+
+export default function App() {
+  return (
+    <>
+      <Header />
+      <Switch>
+        <Route path="/" component={HomePage} />
+        <Route path="/qualify" component={QualifyPage} />
+      </Switch>
+    </>
+  );
+}
