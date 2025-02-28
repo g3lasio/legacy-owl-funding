@@ -54,8 +54,8 @@ export default function ValueProposition() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Card className="h-full">
-                <CardContent className="pt-6">
-                  <div className="mb-4 p-3 bg-primary/10 w-fit rounded-lg">
+                <CardContent className="pt-6 flex flex-col items-center text-center">
+                  <div className="mb-4 p-3 bg-primary/10 rounded-lg">
                     <benefit.icon className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
