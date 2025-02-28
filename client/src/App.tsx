@@ -1,47 +1,26 @@
-import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "@/components/ui/toaster";
-import NotFound from "@/pages/not-found";
-import Home from "@/pages/Home";
-import PrivacyPolicy from "@/pages/privacy";
-import TermsOfService from "@/pages/terms";
-
-function Router() {
-  return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/privacy" component={PrivacyPolicy} />
-      <Route path="/terms" component={TermsOfService} />
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
-
-function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Router />
-      <Toaster />
-    </QueryClientProvider>
-  );
-}
-
-export default App;
-import React from 'react';
+import { useState } from 'react';
 import { Route, Switch } from 'wouter';
-import HomePage from './pages/home';
+import HomePage from './pages/Home';
+import TermsPage from './pages/terms';
+import PrivacyPage from './pages/privacy';
 import QualifyPage from './pages/qualify';
 import Header from './components/Header';
+import Footer from './components/Footer';
+import './App.css';
 
-export default function App() {
+function App() {
   return (
     <>
       <Header />
       <Switch>
         <Route path="/" component={HomePage} />
+        <Route path="/terms" component={TermsPage} />
+        <Route path="/privacy" component={PrivacyPage} />
         <Route path="/qualify" component={QualifyPage} />
       </Switch>
+      <Footer />
     </>
   );
 }
+
+export default App;
