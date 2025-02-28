@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import { Link } from "wouter";
 
 const levels = [
   {
@@ -91,7 +92,9 @@ export default function ProgramLevels() {
                     ))}
                   </ul>
                   <div className="text-center mt-6">
-                    <Button size="lg" className="w-full">JOIN NOW</Button>
+                    <Link href="/qualify">
+                      <Button size="lg" className="w-full">JOIN NOW</Button>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
