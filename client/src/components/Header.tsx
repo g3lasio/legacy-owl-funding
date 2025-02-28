@@ -37,8 +37,8 @@ export default function Header() {
       }`}
     >
       <nav className="container mx-auto px-4 py-6 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="h-14 sm:h-16">
+        <div className="flex items-center gap-2 mx-auto md:mx-0">
+          <div className="h-16 sm:h-20 flex justify-center">
             <img 
               src="https://i.postimg.cc/XqHBKs27/logo-up.png" 
               alt="Legacy Capital Logo" 
