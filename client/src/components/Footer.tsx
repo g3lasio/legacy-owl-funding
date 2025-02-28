@@ -58,10 +58,10 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2">
               <li className="text-primary-foreground/80">
-                Email: contact@legacycapital.com
+                Email: info@0wlfunding.com
               </li>
               <li className="text-primary-foreground/80">
-                Phone: (555) 123-4567
+                Phone: (743) 240-2088
               </li>
             </ul>
           </div>
