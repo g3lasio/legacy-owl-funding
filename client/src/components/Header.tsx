@@ -37,10 +37,12 @@ export default function Header() {
       }`}
     >
       <nav className="container mx-auto px-4 py-6 flex items-center justify-between">
-        <div className="text-gradient">
-          <span className="font-quantico text-2xl font-bold tracking-wider">
-            Legacy Capital Partners
-          </span>
+        <div className="flex items-center gap-2">
+          <img 
+            src={isScrolled ? "/attached_assets/Legacy negro.png" : "/attached_assets/Legacy logo white.png"} 
+            alt="Legacy Logo" 
+            className="h-10" 
+          />
         </div>
 
         {/* Desktop Navigation */}
