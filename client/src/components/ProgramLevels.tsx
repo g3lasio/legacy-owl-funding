@@ -1,0 +1,91 @@
+import { motion } from "framer-motion";
+import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import { Check } from "lucide-react";
+
+const levels = [
+  {
+    name: "Founder",
+    description: "For investors building their credit profile",
+    features: [
+      "Access to starter projects",
+      "Credit improvement guidance",
+      "Basic educational resources",
+      "Community access"
+    ]
+  },
+  {
+    name: "Legacy VIP",
+    description: "For investors with 680+ credit score",
+    features: [
+      "Premium project access",
+      "60/40 profit sharing",
+      "Advanced education",
+      "Priority support",
+      "Networking events"
+    ]
+  },
+  {
+    name: "Legacy Executive",
+    description: "For experienced investors",
+    features: [
+      "Large-scale projects",
+      "75/25 profit sharing",
+      "Executive mentorship",
+      "Direct deal sourcing",
+      "Private investment opportunities",
+      "Exclusive events"
+    ]
+  }
+];
+
+export default function ProgramLevels() {
+  return (
+    <section id="program" className="py-20 bg-accent/5">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Investment Program Levels
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Choose the program level that matches your investment goals and experience
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {levels.map((level, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <Card className="h-full">
+                <CardHeader>
+                  <h3 className="text-2xl font-bold">{level.name}</h3>
+                  <p className="text-muted-foreground">{level.description}</p>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-4">
+                    {level.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center gap-3">
+                        <Check className="h-5 w-5 text-primary" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
