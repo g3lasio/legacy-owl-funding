@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -19,22 +19,29 @@ const navigation = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  if (typeof window !== "undefined") {
-    window.addEventListener("scroll", () => {
+  useEffect(() => {
+    const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
-    });
-  }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-sm shadow-md" : "bg-transparent"
+        isScrolled 
+          ? "bg-background/95 backdrop-blur-sm shadow-lg" 
+          : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/">
-          <a className="text-2xl font-bold text-primary">Legacy Capital Partners</a>
-        </Link>
+      <nav className="container mx-auto px-4 py-6 flex items-center justify-between">
+        <div className="text-gradient">
+          <span className="font-quantico text-2xl font-bold tracking-wider">
+            Legacy Capital Partners
+          </span>
+        </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
@@ -42,12 +49,14 @@ export default function Header() {
             <a
               key={item.name}
               href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors"
+              className="font-quantico text-foreground/80 hover:text-primary transition-colors tracking-wide"
             >
               {item.name}
             </a>
           ))}
-          <Button>Join Now</Button>
+          <Button size="lg" className="font-quantico tracking-wide">
+            Join Now
+          </Button>
         </div>
 
         {/* Mobile Navigation */}
@@ -58,17 +67,19 @@ export default function Header() {
             </Button>
           </SheetTrigger>
           <SheetContent>
-            <div className="flex flex-col gap-4 mt-8">
+            <div className="flex flex-col gap-6 mt-8">
               {navigation.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-foreground/80 hover:text-primary transition-colors"
+                  className="font-quantico text-foreground/80 hover:text-primary transition-colors tracking-wide text-lg"
                 >
                   {item.name}
                 </a>
               ))}
-              <Button className="mt-4">Join Now</Button>
+              <Button size="lg" className="font-quantico tracking-wide mt-4">
+                Join Now
+              </Button>
             </div>
           </SheetContent>
         </Sheet>
