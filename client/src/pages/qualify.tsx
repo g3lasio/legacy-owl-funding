@@ -279,12 +279,11 @@ export default function QualifyPage() {
                                 <SelectValue placeholder="Seleccione estado" />
                               </SelectTrigger>
                               <SelectContent>
-                                <SelectItem value="legacy-vip-platinum">Legacy VIP Platinum</SelectItem>
-                                <SelectItem value="legacy-vip-gold">Legacy VIP Gold</SelectItem>
-                                <SelectItem value="legacy-vip-silver">Legacy VIP Silver</SelectItem>
-                                <SelectItem value="accredited">Inversor Acreditado Estándar</SelectItem>
-                                <SelectItem value="non-accredited">No Acreditado</SelectItem>
-                                <SelectItem value="not-sure">No estoy seguro / Deseo evaluación</SelectItem>
+                                <SelectItem value="legacy-vip-platinum">Legacy Founder</SelectItem>
+                                <SelectItem value="legacy-vip-gold">Legacy VIP </SelectItem>
+                                <SelectItem value="legacy-vip-silver">Legacy Executive </SelectItem>
+              
+                         <SelectItem value="not-sure">No estoy seguro / Deseo evaluación</SelectItem>
                               </SelectContent>
                             </Select>
                           </FormControl>
