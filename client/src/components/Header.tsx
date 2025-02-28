@@ -38,9 +38,9 @@ export default function Header() {
     >
       <nav className="container mx-auto px-4 py-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="h-12 sm:h-14">
+          <div className="h-14 sm:h-16">
             <img 
-              src={isScrolled ? "https://i.postimg.cc/qMfTDQtz/oficial.png" : "https://i.postimg.cc/qMfTDQtz/oficial.png"} 
+              src="https://i.postimg.cc/XqHBKs27/logo-up.png" 
               alt="Legacy Capital Logo" 
               className="h-full"
             />
