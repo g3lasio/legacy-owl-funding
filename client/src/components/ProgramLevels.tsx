@@ -69,7 +69,10 @@ export default function ProgramLevels() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Card className="h-full">
-                <CardHeader>
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    <Check className="h-10 w-10 text-primary" />
+                  </div>
                   <h3 className="text-2xl font-bold">{level.name}</h3>
                   <p className="text-muted-foreground">{level.description}</p>
                 </CardHeader>
