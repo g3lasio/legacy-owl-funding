@@ -59,7 +59,11 @@ export default function Hero() {
             Join an exclusive community of investors who leverage their credit to access premium real estate opportunities without using their own capital.
           </p>
           <div className="flex flex-col sm:flex-row gap-6">
-            <Button size="lg" className="text-lg font-quantico tracking-wide px-8 py-6 bg-gradient-elegant hover:brightness-110">
+            <Button 
+              size="lg" 
+              className="text-lg font-quantico tracking-wide px-8 py-6 bg-gradient-elegant hover:brightness-110"
+              onClick={() => window.location.href = "/qualify"}
+            >
               Start Your Journey
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>

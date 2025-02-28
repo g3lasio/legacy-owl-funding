@@ -14,6 +14,7 @@ const navigation = [
   { name: "Testimonials", href: "#testimonials" },
   { name: "FAQ", href: "#faq" },
   { name: "Contact", href: "#contact" },
+  { name: "Qualify", href: "/qualify" },
 ];
 
 export default function Header() {
@@ -58,7 +59,7 @@ export default function Header() {
               {item.name}
             </a>
           ))}
-          <Button size="lg" className="font-quantico tracking-wide">
+          <Button size="lg" className="font-quantico tracking-wide" onClick={() => window.location.href = "/qualify"}>
             Join Now
           </Button>
         </div>
@@ -81,7 +82,7 @@ export default function Header() {
                   {item.name}
                 </a>
               ))}
-              <Button size="lg" className="font-quantico tracking-wide mt-4">
+              <Button size="lg" className="font-quantico tracking-wide mt-4" onClick={() => window.location.href = "/qualify"}>
                 Join Now
               </Button>
             </div>
