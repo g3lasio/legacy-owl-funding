@@ -133,18 +133,18 @@ export default function QualifyPage() {
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="space-y-6">
                   <div className="bg-muted/50 p-4 rounded-lg">
-                    <h3 className="font-semibold mb-3">Perfil de Inversión</h3>
+                    <h3 className="font-semibold mb-3">Perfil del Inversionista</h3>
                     
                     <FormField
                       control={form.control}
                       name="investmentAmount"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Monto de Inversión Planeado</FormLabel>
+                          <FormLabel>Capacidad de Apalancamiento</FormLabel>
                           <FormControl>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                               <SelectTrigger>
-                                <SelectValue placeholder="Seleccione monto de inversión" />
+                                <SelectValue placeholder="Seleccione su capacidad de apalancamiento" />
                               </SelectTrigger>
                               <SelectContent>
                                 <SelectItem value="less50k">Menos de $50,000</SelectItem>
@@ -154,6 +154,9 @@ export default function QualifyPage() {
                               </SelectContent>
                             </Select>
                           </FormControl>
+                          <FormDescription>
+                            Monto aproximado al que podría acceder mediante líneas de crédito.
+                          </FormDescription>
                         </FormItem>
                       )}
                     />
@@ -163,18 +166,18 @@ export default function QualifyPage() {
                       name="investmentType"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Tipo de Inversión de Interés</FormLabel>
+                          <FormLabel>Experiencia en Bienes Raíces</FormLabel>
                           <FormControl>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                               <SelectTrigger>
-                                <SelectValue placeholder="Seleccione tipo de inversión" />
+                                <SelectValue placeholder="Seleccione su nivel de experiencia" />
                               </SelectTrigger>
                               <SelectContent>
-                                <SelectItem value="private-equity">Capital Privado</SelectItem>
-                                <SelectItem value="real-estate">Bienes Raíces</SelectItem>
-                                <SelectItem value="venture-capital">Capital de Riesgo</SelectItem>
-                                <SelectItem value="debt">Deuda Privada</SelectItem>
-                                <SelectItem value="multiple">Múltiples Estrategias</SelectItem>
+                                <SelectItem value="none">Sin experiencia previa</SelectItem>
+                                <SelectItem value="basic">Básica (1-2 propiedades)</SelectItem>
+                                <SelectItem value="intermediate">Intermedia (3-5 propiedades)</SelectItem>
+                                <SelectItem value="advanced">Avanzada (más de 5 propiedades)</SelectItem>
+                                <SelectItem value="professional">Profesional del sector</SelectItem>
                               </SelectContent>
                             </Select>
                           </FormControl>
@@ -187,27 +190,30 @@ export default function QualifyPage() {
                       name="investmentHorizon"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Horizonte Temporal de Inversión</FormLabel>
+                          <FormLabel>Disponibilidad de Tiempo</FormLabel>
                           <FormControl>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                               <SelectTrigger>
-                                <SelectValue placeholder="Seleccione horizonte temporal" />
+                                <SelectValue placeholder="Seleccione su disponibilidad" />
                               </SelectTrigger>
                               <SelectContent>
-                                <SelectItem value="1-3">1-3 años</SelectItem>
-                                <SelectItem value="3-5">3-5 años</SelectItem>
-                                <SelectItem value="5-10">5-10 años</SelectItem>
-                                <SelectItem value="10+">10+ años</SelectItem>
+                                <SelectItem value="full-time">Tiempo completo</SelectItem>
+                                <SelectItem value="part-time">Tiempo parcial</SelectItem>
+                                <SelectItem value="weekends">Solo fines de semana</SelectItem>
+                                <SelectItem value="minimal">Mínima (inversión pasiva)</SelectItem>
                               </SelectContent>
                             </Select>
                           </FormControl>
+                          <FormDescription>
+                            Tiempo que podría dedicar a la gestión de inversiones inmobiliarias.
+                          </FormDescription>
                         </FormItem>
                       )}
                     />
                   </div>
 
                   <div className="bg-muted/50 p-4 rounded-lg">
-                    <h3 className="font-semibold mb-3">Información Financiera</h3>
+                    <h3 className="font-semibold mb-3">Perfil Crediticio</h3>
 
                     <FormField
                       control={form.control}
@@ -266,22 +272,24 @@ export default function QualifyPage() {
                       name="accreditedStatus"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Estado de Inversor Acreditado</FormLabel>
+                          <FormLabel>Calificación para Programa Legacy</FormLabel>
                           <FormControl>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                               <SelectTrigger>
                                 <SelectValue placeholder="Seleccione estado" />
                               </SelectTrigger>
                               <SelectContent>
-                                <SelectItem value="accredited">Inversor Acreditado</SelectItem>
-                                <SelectItem value="qualified">Comprador Calificado</SelectItem>
+                                <SelectItem value="legacy-vip-platinum">Legacy VIP Platinum</SelectItem>
+                                <SelectItem value="legacy-vip-gold">Legacy VIP Gold</SelectItem>
+                                <SelectItem value="legacy-vip-silver">Legacy VIP Silver</SelectItem>
+                                <SelectItem value="accredited">Inversor Acreditado Estándar</SelectItem>
                                 <SelectItem value="non-accredited">No Acreditado</SelectItem>
-                                <SelectItem value="not-sure">No estoy seguro</SelectItem>
+                                <SelectItem value="not-sure">No estoy seguro / Deseo evaluación</SelectItem>
                               </SelectContent>
                             </Select>
                           </FormControl>
                           <FormDescription>
-                            En Estados Unidos, un inversor acreditado generalmente tiene un patrimonio neto superior a $1 millón o ingresos anuales superiores a $200,000.
+                            Seleccione la categoría que cree que mejor se adapta a su perfil, o elija "Deseo evaluación" para que nuestro equipo le asigne el nivel adecuado.
                           </FormDescription>
                         </FormItem>
                       )}
