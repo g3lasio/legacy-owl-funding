@@ -6,6 +6,7 @@ const levels = [
   {
     name: "Legacy Founder",
     description: "For investors building their credit profile",
+    cost: "$799 (non refundable)",
     features: [
       "Access to starter projects",
       "Credit score between 650 - 680",
@@ -18,6 +19,7 @@ const levels = [
   {
     name: "Legacy VIP",
     description: "For investors with 680+ credit score",
+    cost: "$599 (refundable after first withdrawal)",
     features: [
       "Premium project access",
       "60/40 profit sharing",
@@ -29,6 +31,7 @@ const levels = [
   {
     name: "Legacy Executive",
     description: "For experienced investors",
+    cost: "No cost, must be 16 months member on VIP",
     features: [
       "Large-scale projects",
       "75/25 profit sharing",
@@ -75,9 +78,10 @@ export default function ProgramLevels() {
                   </div>
                   <h3 className="text-2xl font-bold">{level.name}</h3>
                   <p className="text-muted-foreground">{level.description}</p>
+                  <div className="mt-4 text-xl font-bold text-primary">{level.cost}</div>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-4">
+                  <ul className="space-y-4 mb-6">
                     {level.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center gap-3">
                         <Check className="h-5 w-5 text-primary" />
@@ -85,6 +89,9 @@ export default function ProgramLevels() {
                       </li>
                     ))}
                   </ul>
+                  <div className="text-center mt-6">
+                    <Button size="lg" className="w-full">JOIN NOW</Button>
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
