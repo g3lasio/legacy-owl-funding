@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,7 +8,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useNavigate } from "react-router-dom";
+import { useLocation } from "wouter";
 import { apiRequest } from "@/lib/queryClient";
 
 const formSchema = z.object({
@@ -19,7 +19,7 @@ const formSchema = z.object({
 });
 
 export default function QualifyPage() {
-  const navigate = useNavigate();
+  const [, setLocation] = useLocation();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -33,7 +33,7 @@ export default function QualifyPage() {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await apiRequest("POST", "/api/qualify", values);
-      navigate("/dashboard");
+      setLocation("/dashboard");
     } catch (error) {
       console.error("Error submitting qualification form:", error);
     }
