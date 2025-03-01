@@ -5,6 +5,12 @@ import nodemailer from "nodemailer";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+// Definir __dirname para ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Configurar multer para manejar la carga de archivos
 const upload = multer({
@@ -29,8 +35,8 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: "tu-correo@gmail.com", // Cambia esto a tu correo para enviar
-    pass: "tu-contraseña-o-clave-de-app" // Cambia esto a tu contraseña o clave de aplicación
+    user: "info@0wlfunding.com", // Correo de destino y remitente
+    pass: "tu-contraseña-o-clave-de-app" // Necesitarás configurar esto con la contraseña correcta
   }
 });
 
@@ -42,7 +48,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Enviar correo electrónico
       await transporter.sendMail({
-        from: '"Legacy Capital Partners" <tu-correo@gmail.com>',
+        from: '"Legacy Capital Partners" <info@0wlfunding.com>',
         to: "info@0wlfunding.com",
         subject: "Nuevo mensaje de contacto",
         html: `
@@ -89,7 +95,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       const mailOptions = {
-        from: '"Legacy Capital Partners" <tu-correo@gmail.com>',
+        from: '"Legacy Capital Partners" <info@0wlfunding.com>',
         to: "info@0wlfunding.com",
         subject: "Nueva solicitud de cualificación",
         html: htmlContent
