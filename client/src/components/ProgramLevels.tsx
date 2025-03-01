@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardContent, CardFooter, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 
 const levels = [
@@ -16,7 +16,8 @@ const levels = [
       "Basic educational resources",
       "proffit sharing 50%",
       "Community access"
-    ]
+    ],
+    paymentLink: null // Add payment link here later
   },
   {
     name: "Legacy VIP",
@@ -28,7 +29,8 @@ const levels = [
       "Advanced education",
       "Priority support",
       "Networking events"
-    ]
+    ],
+    paymentLink: "https://68291e54-fba5-4346-a969-e84eab277770.paylinks.godaddy.com/legacyVIP"
   },
   {
     name: "Legacy Executive",
@@ -41,13 +43,14 @@ const levels = [
       "Direct deal sourcing",
       "Private investment opportunities",
       "Exclusive events"
-    ]
+    ],
+    paymentLink: null // Add payment link here if needed later
   }
 ];
 
 export default function ProgramLevels() {
   return (
-    <section id="program" className="py-20 bg-accent/5">
+    <section className="py-20 bg-accent/5" id="programs">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -57,14 +60,14 @@ export default function ProgramLevels() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Investment Program Levels
+            Choose Your Investment Path
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Choose the program level that matches your investment goals and experience
+            We offer tailored programs designed to meet your investment goals and credit profile.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {levels.map((level, index) => (
             <motion.div
               key={index}
@@ -73,31 +76,51 @@ export default function ProgramLevels() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="h-full">
-                <CardHeader className="text-center">
-                  <div className="flex justify-center mb-4">
-                    <Check className="h-10 w-10 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-bold">{level.name}</h3>
-                  <p className="text-muted-foreground">{level.description}</p>
-                  <div className="mt-4 text-xl font-bold text-primary">{level.cost}</div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-4 mb-6">
-                    {level.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center gap-3">
-                        <Check className="h-5 w-5 text-primary" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="text-center mt-6">
-                    <Link href="/qualify">
-                      <Button size="lg" className="w-full">JOIN NOW</Button>
+              <div className="relative h-full">
+                <Card className={`h-full ${index === 1 ? 'border-primary shadow-lg' : ''}`}>
+                  {index === 1 && (
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
+                      Most Popular
+                    </div>
+                  )}
+                  <CardHeader>
+                    <CardTitle className="text-2xl">{level.name}</CardTitle>
+                    <CardDescription className="text-base">{level.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="text-xl font-bold">{level.cost}</div>
+                    <ul className="space-y-2">
+                      {level.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start">
+                          <CheckCircle2 className="h-5 w-5 text-primary mr-2 shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardFooter className="flex flex-col space-y-3">
+                    <Link href="/qualify" className="w-full">
+                      <Button 
+                        variant={index === 1 ? "default" : "outline"} 
+                        className="w-full"
+                      >
+                        Apply Now
+                      </Button>
                     </Link>
-                  </div>
-                </CardContent>
-              </Card>
+
+                    {level.paymentLink && (
+                      <a href={level.paymentLink} target="_blank" rel="noopener noreferrer" className="w-full">
+                        <Button 
+                          variant="secondary"
+                          className="w-full"
+                        >
+                          Pay Membership
+                        </Button>
+                      </a>
+                    )}
+                  </CardFooter>
+                </Card>
+              </div>
             </motion.div>
           ))}
         </div>
