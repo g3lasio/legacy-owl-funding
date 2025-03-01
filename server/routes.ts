@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import nodemailer from "nodemailer";
+import sgMail from "@sendgrid/mail";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
@@ -29,26 +29,21 @@ const upload = multer({
   })
 });
 
-// Configurar el transporte de correo electrónico
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com", // Cambia esto según tu proveedor de correo
-  port: 587,
-  secure: false,
-  auth: {
-    user: "info@0wlfunding.com", // Correo de destino y remitente
-    pass: "tu-contraseña-o-clave-de-app" // Necesitarás configurar esto con la contraseña correcta
-  }
-});
+// Configurar SendGrid con la API key (obtenida de variables de entorno)
+sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
+
+// Email verificado en SendGrid que se usará como remitente
+const VERIFIED_SENDER = process.env.SENDGRID_VERIFIED_SENDER || "info@0wlfunding.com";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Ruta para manejar el formulario de contacto
   app.post('/api/contact', async (req, res) => {
     try {
       const { name, email, phone, message } = req.body;
-      
-      // Enviar correo electrónico
-      await transporter.sendMail({
-        from: '"Legacy Capital Partners" <info@0wlfunding.com>',
+
+      // Enviar correo electrónico con SendGrid
+      await sgMail.send({
+        from: VERIFIED_SENDER,
         to: "info@0wlfunding.com",
         subject: "Nuevo mensaje de contacto",
         html: `
@@ -59,20 +54,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
           <p><strong>Mensaje:</strong> ${message}</p>
         `
       });
-      
+
       res.status(200).json({ success: true, message: "Mensaje enviado correctamente" });
     } catch (error) {
       console.error("Error al enviar mensaje de contacto:", error);
       res.status(500).json({ success: false, message: "Error al enviar mensaje" });
     }
   });
-  
+
   // Ruta para manejar el formulario de cualificación con archivos adjuntos
   app.post('/api/qualify', upload.single('document'), async (req, res) => {
     try {
       const formData = req.body;
       const file = req.file;
-      
+
       // Crear contenido HTML para el correo
       let htmlContent = `
         <h1>Nueva solicitud de cualificación</h1>
@@ -86,21 +81,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
           <li><strong>Programa Legacy:</strong> ${formData.accreditedStatus}</li>
         </ul>
       `;
-      
+
       if (formData.additionalInfo) {
         htmlContent += `
           <h2>Información Adicional:</h2>
           <p>${formData.additionalInfo}</p>
         `;
       }
-      
+
       const mailOptions = {
-        from: '"Legacy Capital Partners" <info@0wlfunding.com>',
+        from: VERIFIED_SENDER,
         to: "info@0wlfunding.com",
         subject: "Nueva solicitud de cualificación",
         html: htmlContent
       };
-      
+
       // Adjuntar el archivo si existe
       if (file) {
         mailOptions.attachments = [
@@ -110,10 +105,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
           }
         ];
       }
-      
-      // Enviar el correo
-      await transporter.sendMail(mailOptions);
-      
+
+      // Enviar el correo con SendGrid
+      await sgMail.send(mailOptions);
+
       res.status(200).json({ success: true, message: "Solicitud enviada correctamente" });
     } catch (error) {
       console.error("Error al enviar solicitud de cualificación:", error);
