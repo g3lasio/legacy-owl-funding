@@ -14,10 +14,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Inicializar cliente de HubSpot
-const hubspotClient = new Client({ accessToken: process.env.HUBSPOT_API_KEY });
+const hubspotApiKey = process.env.HUBSPOT_API_KEY;
+const hubspotClient = new Client({ accessToken: hubspotApiKey });
 
 // Constante para verificar si HubSpot está configurado
-const HUBSPOT_ENABLED = !!process.env.HUBSPOT_API_KEY;
+const HUBSPOT_ENABLED = !!hubspotApiKey;
+
+// Log para verificar estado de la configuración de HubSpot
+if (HUBSPOT_ENABLED) {
+  console.log("HubSpot está configurado y habilitado correctamente");
+} else {
+  console.error("HubSpot no está configurado. La API key no está presente en las variables de entorno.");
+}
 
 // Configurar multer para manejar la carga de archivos
 const upload = multer({
@@ -74,12 +82,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
             }
           };
           
-          await hubspotClient.crm.contacts.basicApi.create(contactObj);
-          console.log("Contacto creado/actualizado en HubSpot con éxito");
+          console.log("Datos del contacto a enviar a HubSpot:", contactObj);
+          const result = await hubspotClient.crm.contacts.basicApi.create(contactObj);
+          console.log("Contacto creado/actualizado en HubSpot con éxito. ID:", result.id);
         } catch (hubspotError) {
           console.error("Error al enviar contacto a HubSpot:", hubspotError);
+          console.error("Detalles del error:", JSON.stringify(hubspotError, null, 2));
           // Continuar con el flujo aunque falle HubSpot
         }
+      } else {
+        console.log("HubSpot no está configurado. El contacto no será enviado a HubSpot.");
       }
       
       // También enviar correo electrónico con SendGrid como respaldo
