@@ -30,7 +30,13 @@ const upload = multer({
 });
 
 // Configurar SendGrid con la API key (obtenida de variables de entorno)
-sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
+const apiKey = process.env.SENDGRID_API_KEY;
+if (!apiKey) {
+  console.error("Error: SENDGRID_API_KEY no está configurada en las variables de entorno");
+} else {
+  console.log("SendGrid API key configurada correctamente");
+  sgMail.setApiKey(apiKey);
+}
 
 // Email verificado en SendGrid que se usará como remitente
 const VERIFIED_SENDER = process.env.SENDGRID_VERIFIED_SENDER || "info@0wlfunding.com";
@@ -41,8 +47,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { name, email, phone, message } = req.body;
 
+      console.log("Enviando mensaje de contacto a través de SendGrid...");
+      
       // Enviar correo electrónico con SendGrid
-      await sgMail.send({
+      const result = await sgMail.send({
         from: VERIFIED_SENDER,
         to: "info@0wlfunding.com",
         subject: "Nuevo mensaje de contacto",
@@ -54,11 +62,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
           <p><strong>Mensaje:</strong> ${message}</p>
         `
       });
-
+      
+      console.log("Email de contacto enviado con éxito:", result);
       res.status(200).json({ success: true, message: "Mensaje enviado correctamente" });
     } catch (error) {
       console.error("Error al enviar mensaje de contacto:", error);
-      res.status(500).json({ success: false, message: "Error al enviar mensaje" });
+      res.status(500).json({ success: false, message: "Error al enviar mensaje", error: error.toString() });
     }
   });
 
@@ -67,6 +76,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const formData = req.body;
       const file = req.file;
+
+      console.log("Recibido formulario de cualificación:", { 
+        formData: formData, 
+        fileAttached: !!file 
+      });
 
       // Crear contenido HTML para el correo
       let htmlContent = `
@@ -98,6 +112,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Adjuntar el archivo si existe
       if (file) {
+        console.log("Adjuntando archivo:", file.originalname);
         mailOptions.attachments = [
           {
             filename: file.originalname,
@@ -106,13 +121,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
         ];
       }
 
+      console.log("Enviando email de cualificación a través de SendGrid...");
+      
       // Enviar el correo con SendGrid
-      await sgMail.send(mailOptions);
-
+      const result = await sgMail.send(mailOptions);
+      
+      console.log("Email de cualificación enviado con éxito:", result);
       res.status(200).json({ success: true, message: "Solicitud enviada correctamente" });
     } catch (error) {
       console.error("Error al enviar solicitud de cualificación:", error);
-      res.status(500).json({ success: false, message: "Error al enviar solicitud" });
+      res.status(500).json({ 
+        success: false, 
+        message: "Error al enviar solicitud", 
+        error: error.toString() 
+      });
     }
   });
 
