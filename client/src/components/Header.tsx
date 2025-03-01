@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Menu } from "lucide-react";
+import { Menu, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -19,6 +19,7 @@ const navigation = [
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // Added for mobile menu
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,17 +33,29 @@ export default function Header() {
   return (
     <header
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-background/95 backdrop-blur-sm shadow-lg" 
+        isScrolled
+          ? "bg-background/95 backdrop-blur-sm shadow-lg"
           : "bg-transparent"
       }`}
     >
+      <div className="bg-primary/90 text-white py-1 px-4"> {/* Added contact info section */}
+        <div className="container mx-auto flex justify-end items-center text-sm">
+          <a href="tel:+123456789" className="flex items-center mr-6 hover:text-white/80 transition-colors">
+            <Phone className="h-3 w-3 mr-1" />
+            <span>+1 (234) 567-89</span>
+          </a>
+          <a href="mailto:info@legacycapital.com" className="flex items-center hover:text-white/80 transition-colors">
+            <Mail className="h-3 w-3 mr-1" />
+            <span>info@legacycapital.com</span>
+          </a>
+        </div>
+      </div>
       <nav className="container mx-auto px-4 py-6 flex items-center justify-between">
         <div className="flex items-center gap-2 mx-auto md:mx-0">
           <div className="h-16 sm:h-20 flex justify-center">
-            <img 
-              src="https://i.postimg.cc/TPCnRjmx/cortado.png" 
-              alt="Legacy Capital Logo" 
+            <img
+              src="https://i.postimg.cc/TPCnRjmx/cortado.png"
+              alt="Legacy Capital Logo"
               className="h-full"
             />
           </div>
@@ -59,11 +72,18 @@ export default function Header() {
               {item.name}
             </a>
           ))}
-          <Link href="/qualify">
-            <Button size="lg" className="font-quantico tracking-wide">
-              Join Now
-            </Button>
-          </Link>
+          <div className="hidden md:flex items-center gap-4"> {/* Added button section */}
+            <Link href="#contact">
+              <Button variant="outline" className="bg-primary/10 hover:bg-primary/20">
+                Solicitar Información
+              </Button>
+            </Link>
+            <Link href="/qualify">
+              <Button size="lg" className="font-quantico tracking-wide">
+                Join Now
+              </Button>
+            </Link>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -84,8 +104,13 @@ export default function Header() {
                   {item.name}
                 </a>
               ))}
-              <Link href="/qualify">
-                <Button size="lg" className="font-quantico tracking-wide mt-4">
+              <Link href="#contact" onClick={() => setIsOpen(false)}>
+                <Button className="w-full mb-2" variant="outline">
+                  Solicitar Información
+                </Button>
+              </Link>
+              <Link href="/qualify" onClick={() => setIsOpen(false)}>
+                <Button className="w-full" variant="default">
                   Join Now
                 </Button>
               </Link>
