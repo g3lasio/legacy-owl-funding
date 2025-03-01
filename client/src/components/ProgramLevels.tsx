@@ -17,7 +17,7 @@ const levels = [
       "proffit sharing 50%",
       "Community access"
     ],
-    paymentLink: null // Add payment link here later
+    paymentLink: "https://68291e54-fba5-4346-a969-e84eab277770.paylinks.godaddy.com/LegacyFounderPartner"
   },
   {
     name: "Legacy VIP",
