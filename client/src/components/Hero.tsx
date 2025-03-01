@@ -69,13 +69,6 @@ export default function Hero() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="text-lg font-quantico tracking-wide px-8 py-6 text-white border-white hover:bg-white/10"
-            >
-              Learn More
-            </Button>
           </div>
         </motion.div>
       </div>
