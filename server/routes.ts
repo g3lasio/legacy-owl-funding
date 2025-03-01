@@ -23,6 +23,19 @@ const HUBSPOT_ENABLED = !!hubspotApiKey;
 // Log para verificar estado de la configuración de HubSpot
 if (HUBSPOT_ENABLED) {
   console.log("HubSpot está configurado y habilitado correctamente");
+  // Intentar hacer una petición de prueba a HubSpot
+  setTimeout(async () => {
+    try {
+      const response = await hubspotClient.apiRequest({
+        method: 'GET',
+        path: '/crm/v3/properties/contacts',
+      });
+      console.log("✅ Conexión con HubSpot verificada exitosamente");
+    } catch (error) {
+      console.error("❌ Error al conectar con HubSpot:", error.message);
+      console.error("Detalles del error:", error);
+    }
+  }, 1000); // Esperamos 1 segundo para no bloquear el inicio
 } else {
   console.error("HubSpot no está configurado. La API key no está presente en las variables de entorno.");
 }
@@ -57,6 +70,46 @@ if (!apiKey) {
 const VERIFIED_SENDER = process.env.SENDGRID_VERIFIED_SENDER || "info@0wlfunding.com";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Ruta de prueba para verificar la conexión con HubSpot
+  app.get('/api/test-hubspot', async (req, res) => {
+    try {
+      if (!HUBSPOT_ENABLED) {
+        return res.status(400).json({ 
+          success: false, 
+          message: "HubSpot no está configurado. Verifique su API key." 
+        });
+      }
+      
+      // Crear un contacto de prueba
+      const testContactProperties = {
+        email: `test-${Date.now()}@legacycapitalpartners.com`,
+        firstname: 'Prueba',
+        lastname: 'HubSpot',
+        phone: '123456789',
+        website: 'legacycapitalpartners.com',
+        lead_source: 'Test API'
+      };
+      
+      console.log("⏳ Enviando contacto de prueba a HubSpot...");
+      const result = await hubspotClient.crm.contacts.basicApi.create({ properties: testContactProperties });
+      
+      console.log("✅ Contacto de prueba creado en HubSpot con ID:", result.id);
+      return res.status(200).json({ 
+        success: true, 
+        message: "Conexión con HubSpot verificada exitosamente", 
+        contactId: result.id 
+      });
+    } catch (error) {
+      console.error("❌ Error en la prueba de HubSpot:", error);
+      return res.status(500).json({ 
+        success: false, 
+        message: "Error al conectar con HubSpot", 
+        error: error.message,
+        details: error
+      });
+    }
+  });
+  
   // Ruta para manejar el formulario de contacto
   app.post('/api/contact', async (req, res) => {
     try {
@@ -67,7 +120,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Crear contacto en HubSpot si está habilitado
       if (HUBSPOT_ENABLED) {
         try {
-          console.log("Enviando contacto a HubSpot...");
+          console.log("⏳ Enviando contacto a HubSpot...");
           
           // Crear o actualizar contacto en HubSpot
           const contactObj = {
@@ -82,9 +135,41 @@ export async function registerRoutes(app: Express): Promise<Server> {
             }
           };
           
-          console.log("Datos del contacto a enviar a HubSpot:", contactObj);
-          const result = await hubspotClient.crm.contacts.basicApi.create(contactObj);
-          console.log("Contacto creado/actualizado en HubSpot con éxito. ID:", result.id);
+          console.log("📝 Datos del contacto a enviar a HubSpot:", JSON.stringify(contactObj, null, 2));
+          
+          // Primero verificamos si el contacto ya existe para evitar duplicados
+          let contactId;
+          try {
+            const searchResult = await hubspotClient.crm.contacts.searchApi.doSearch({
+              filterGroups: [{
+                filters: [{
+                  propertyName: 'email',
+                  operator: 'EQ',
+                  value: email
+                }]
+              }]
+            });
+            
+            if (searchResult.results && searchResult.results.length > 0) {
+              // Contacto existente - actualizar
+              contactId = searchResult.results[0].id;
+              console.log(`🔄 Contacto existente encontrado con ID: ${contactId}, actualizando...`);
+              
+              await hubspotClient.crm.contacts.basicApi.update(contactId, contactObj);
+              console.log(`✅ Contacto actualizado en HubSpot con éxito. ID: ${contactId}`);
+            } else {
+              // Nuevo contacto - crear
+              const result = await hubspotClient.crm.contacts.basicApi.create(contactObj);
+              contactId = result.id;
+              console.log(`✅ Nuevo contacto creado en HubSpot con éxito. ID: ${contactId}`);
+            }
+          } catch (searchError) {
+            // Si hay error en la búsqueda, intentamos crear el contacto directamente
+            console.log("⚠️ Error al buscar contacto, intentando crear uno nuevo:", searchError.message);
+            const result = await hubspotClient.crm.contacts.basicApi.create(contactObj);
+            contactId = result.id;
+            console.log(`✅ Nuevo contacto creado en HubSpot con éxito. ID: ${contactId}`);
+          }
         } catch (hubspotError) {
           console.error("Error al enviar contacto a HubSpot:", hubspotError);
           console.error("Detalles del error:", JSON.stringify(hubspotError, null, 2));
