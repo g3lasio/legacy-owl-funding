@@ -59,11 +59,14 @@ const upload = multer({
 
 // Configurar SendGrid con la API key (obtenida de variables de entorno)
 const apiKey = process.env.SENDGRID_API_KEY;
-if (!apiKey) {
-  console.error("Error: SENDGRID_API_KEY no está configurada en las variables de entorno");
-} else {
-  console.log("SendGrid API key configurada correctamente");
+console.log("Verificando estado de SendGrid:");
+console.log("SENDGRID_API_KEY definida:", !!apiKey);
+if (apiKey) {
+  console.log("SendGrid API key configurada correctamente (longitud:", apiKey.length, "caracteres)");
   sgMail.setApiKey(apiKey);
+} else {
+  console.error("Error: SENDGRID_API_KEY no está configurada en las variables de entorno");
+  console.log("Variables de entorno disponibles:", Object.keys(process.env).filter(key => !key.startsWith('npm_')).join(', '));
 }
 
 // Email verificado en SendGrid que se usará como remitente
