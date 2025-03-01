@@ -86,6 +86,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       console.log("⏳ Enviando email de prueba con SendGrid...");
+
+  // Ruta para verificación de estado
+  app.get('/api/health', (req, res) => {
+    res.status(200).json({ 
+      status: 'ok', 
+      message: 'Servidor funcionando correctamente',
+      timestamp: new Date().toISOString(),
+      environment: process.env.NODE_ENV || 'development'
+    });
+  });
+
       const testEmail = {
         from: VERIFIED_SENDER,
         to: "test@example.com", // Este es un correo de prueba

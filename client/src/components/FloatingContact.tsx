@@ -52,10 +52,10 @@ export default function FloatingContact() {
       </button>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="sm:max-w-[425px]" aria-describedby="dialog-description">
           <DialogHeader>
             <DialogTitle>Póngase en contacto</DialogTitle>
-            <DialogDescription>
+            <DialogDescription id="dialog-description">
               Complete el formulario y nos comunicaremos con usted a la brevedad.  NUMERO TELEFONO: 743 240 2088  Email: info@0wlfunding.com
             </DialogDescription>
           </DialogHeader>

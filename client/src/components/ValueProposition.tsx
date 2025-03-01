@@ -57,7 +57,7 @@ export default function ValueProposition() {
                 <CardContent className="pt-8 pb-8 flex flex-col items-center text-center">
                   <motion.div 
                     className="mb-6 p-4 bg-primary/10 rounded-full"
-                    whileHover={{ scale: 1.1, backgroundColor: "hsla(var(--primary)/0.15)" }}
+                    whileHover={{ scale: 1.1, backgroundColor: "rgba(32, 129, 226, 0.15)" }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <benefit.icon className="h-7 w-7 text-primary" />
