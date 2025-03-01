@@ -30,7 +30,7 @@ const levels = [
       "Priority support",
       "Networking events"
     ],
-    paymentLink: "https://68291e54-fba5-4346-a969-e84eab277770.paylinks.godaddy.com/legacyVIP"
+    paymentLink: "https://68291e54-fba5-4346-a969-e84eab277770.paylinks.godaddy.com/LegacyCapitalVIP"
   },
   {
     name: "Legacy Executive",
