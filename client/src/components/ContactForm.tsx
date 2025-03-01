@@ -32,10 +32,29 @@ export default function ContactForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    // Handle form submission
-  }
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      // Enviar datos al servidor
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al enviar el formulario');
+      }
+
+      // Assuming a successful response indicates email sent
+      alert('Formulario enviado correctamente!');
+
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("An error occurred. Please try again.");
+    }
+  };
 
   return (
     <section id="contact" className="py-20 bg-background">

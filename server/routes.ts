@@ -1,15 +1,120 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import nodemailer from "nodemailer";
+import multer from "multer";
+import path from "path";
+import fs from "fs";
+
+// Configurar multer para manejar la carga de archivos
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+      const uploadDir = path.join(__dirname, '../uploads');
+      if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir, { recursive: true });
+      }
+      cb(null, uploadDir);
+    },
+    filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+    }
+  })
+});
+
+// Configurar el transporte de correo electrónico
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com", // Cambia esto según tu proveedor de correo
+  port: 587,
+  secure: false,
+  auth: {
+    user: "tu-correo@gmail.com", // Cambia esto a tu correo para enviar
+    pass: "tu-contraseña-o-clave-de-app" // Cambia esto a tu contraseña o clave de aplicación
+  }
+});
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // put application routes here
-  // prefix all routes with /api
-
-  // use storage to perform CRUD operations on the storage interface
-  // e.g. storage.insertUser(user) or storage.getUserByUsername(username)
+  // Ruta para manejar el formulario de contacto
+  app.post('/api/contact', async (req, res) => {
+    try {
+      const { name, email, phone, message } = req.body;
+      
+      // Enviar correo electrónico
+      await transporter.sendMail({
+        from: '"Legacy Capital Partners" <tu-correo@gmail.com>',
+        to: "info@0wlfunding.com",
+        subject: "Nuevo mensaje de contacto",
+        html: `
+          <h1>Nuevo mensaje de contacto</h1>
+          <p><strong>Nombre:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Teléfono:</strong> ${phone}</p>
+          <p><strong>Mensaje:</strong> ${message}</p>
+        `
+      });
+      
+      res.status(200).json({ success: true, message: "Mensaje enviado correctamente" });
+    } catch (error) {
+      console.error("Error al enviar mensaje de contacto:", error);
+      res.status(500).json({ success: false, message: "Error al enviar mensaje" });
+    }
+  });
+  
+  // Ruta para manejar el formulario de cualificación con archivos adjuntos
+  app.post('/api/qualify', upload.single('document'), async (req, res) => {
+    try {
+      const formData = req.body;
+      const file = req.file;
+      
+      // Crear contenido HTML para el correo
+      let htmlContent = `
+        <h1>Nueva solicitud de cualificación</h1>
+        <h2>Datos del solicitante:</h2>
+        <ul>
+          <li><strong>Capacidad de Apalancamiento:</strong> ${formData.investmentAmount}</li>
+          <li><strong>Experiencia en Bienes Raíces:</strong> ${formData.investmentType}</li>
+          <li><strong>Disponibilidad de Tiempo:</strong> ${formData.investmentHorizon}</li>
+          <li><strong>Puntaje de Crédito:</strong> ${formData.creditScore}</li>
+          <li><strong>Ingreso Anual:</strong> ${formData.annualIncome}</li>
+          <li><strong>Programa Legacy:</strong> ${formData.accreditedStatus}</li>
+        </ul>
+      `;
+      
+      if (formData.additionalInfo) {
+        htmlContent += `
+          <h2>Información Adicional:</h2>
+          <p>${formData.additionalInfo}</p>
+        `;
+      }
+      
+      const mailOptions = {
+        from: '"Legacy Capital Partners" <tu-correo@gmail.com>',
+        to: "info@0wlfunding.com",
+        subject: "Nueva solicitud de cualificación",
+        html: htmlContent
+      };
+      
+      // Adjuntar el archivo si existe
+      if (file) {
+        mailOptions.attachments = [
+          {
+            filename: file.originalname,
+            path: file.path
+          }
+        ];
+      }
+      
+      // Enviar el correo
+      await transporter.sendMail(mailOptions);
+      
+      res.status(200).json({ success: true, message: "Solicitud enviada correctamente" });
+    } catch (error) {
+      console.error("Error al enviar solicitud de cualificación:", error);
+      res.status(500).json({ success: false, message: "Error al enviar solicitud" });
+    }
+  });
 
   const httpServer = createServer(app);
-
   return httpServer;
 }

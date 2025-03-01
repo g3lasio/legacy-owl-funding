@@ -110,16 +110,24 @@ export default function QualifyPage() {
         formData.append('document', selectedFile);
       }
       
-      // In a real implementation, you'd use formData with fetch
-      // For this example, we'll just simulate the API call
-      await apiRequest("POST", "/api/qualify", values);
+      // Enviar el formulario con fetch
+      const response = await fetch('/api/qualify', {
+        method: 'POST',
+        body: formData, // No establecer Content-Type, fetch lo hará automáticamente con FormData
+      });
+      
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.message || 'Error al enviar el formulario');
+      }
       
       // Show success message
       setIsSuccess(true);
       
-      // In a real app, you might redirect after a delay
+      // Redirect after a delay
       setTimeout(() => {
-        setLocation("/dashboard");
+        setLocation("/");
       }, 5000);
       
     } catch (error) {
