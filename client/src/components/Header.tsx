@@ -40,13 +40,13 @@ export default function Header() {
     >
       <div className="bg-primary/90 text-white py-1 px-4"> {/* Added contact info section */}
         <div className="container mx-auto flex justify-end items-center text-sm">
-          <a href="tel:+123456789" className="flex items-center mr-6 hover:text-white/80 transition-colors">
+          <a href="tel:+17432402088" className="flex items-center mr-6 hover:text-white/80 transition-colors">
             <Phone className="h-3 w-3 mr-1" />
-            <span>+1 (234) 567-89</span>
+            <span>743 240 2088</span>
           </a>
-          <a href="mailto:info@legacycapital.com" className="flex items-center hover:text-white/80 transition-colors">
+          <a href="mailto:info@0wlfunding.com" className="flex items-center hover:text-white/80 transition-colors">
             <Mail className="h-3 w-3 mr-1" />
-            <span>info@legacycapital.com</span>
+            <span>info@0wlfunding.com</span>
           </a>
         </div>
       </div>

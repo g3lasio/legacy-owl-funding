@@ -71,6 +71,8 @@ if (apiKey) {
 
 // Email verificado en SendGrid que se usará como remitente
 const VERIFIED_SENDER = process.env.SENDGRID_VERIFIED_SENDER || "info@0wlfunding.com";
+// Número de teléfono de contacto
+const CONTACT_PHONE = "743 240 2088";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Ruta de prueba para verificar la conexión con SendGrid

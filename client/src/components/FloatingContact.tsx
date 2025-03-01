@@ -56,7 +56,7 @@ export default function FloatingContact() {
           <DialogHeader>
             <DialogTitle>Póngase en contacto</DialogTitle>
             <DialogDescription>
-              Complete el formulario y nos comunicaremos con usted a la brevedad.
+              Complete el formulario y nos comunicaremos con usted a la brevedad.  NUMERO TELEFONO: 743 240 2088  Email: info@0wlfunding.com
             </DialogDescription>
           </DialogHeader>
 
