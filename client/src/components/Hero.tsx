@@ -34,16 +34,33 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center pt-16">
-      {/* Image carousel background */}
+      {/* Image carousel background with enhanced effects */}
       <div 
-        className="absolute inset-0 z-0 bg-gradient-elegant transition-opacity duration-1000"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${backgroundImages[currentImageIndex]}')`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundAttachment: 'fixed'
-        }}
-      />
+        className="absolute inset-0 z-0 overflow-hidden"
+      >
+        {backgroundImages.map((image, index) => (
+          <motion.div
+            key={index}
+            className="absolute inset-0 bg-gradient-elegant"
+            initial={{ opacity: 0 }}
+            animate={{ 
+              opacity: currentImageIndex === index ? 1 : 0,
+              scale: currentImageIndex === index ? 1 : 1.05
+            }}
+            transition={{ 
+              opacity: { duration: 1.5, ease: "easeInOut" },
+              scale: { duration: 6, ease: "easeInOut" }
+            }}
+            style={{
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.8)), url('${image}')`,
+              backgroundPosition: 'center',
+              backgroundSize: 'cover',
+              backgroundAttachment: 'fixed',
+              filter: 'brightness(1.05)'
+            }}
+          />
+        ))}
+      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -52,24 +69,47 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="max-w-3xl"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight tracking-wide">
+          <motion.h1 
+            className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight tracking-tight"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             Transform Your Credit Into{" "}
-            <span className="text-gradient">Premium Investment</span> Opportunities
-          </h1>
-          <p className="text-xl text-white/90 mb-12 leading-relaxed">
+            <span className="text-gradient relative">
+              <motion.span
+                initial={{ width: "0%" }}
+                animate={{ width: "100%" }}
+                transition={{ delay: 0.5, duration: 1, ease: "easeInOut" }}
+                className="absolute bottom-0 left-0 h-[3px] bg-primary/40"
+              />
+              Premium Investment
+            </span> Opportunities
+          </motion.h1>
+          <motion.p 
+            className="text-xl text-white/90 mb-12 leading-relaxed max-w-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
             Join an exclusive community of investors who leverage their credit to access premium real estate opportunities without using their own capital.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6">
+          </motion.p>
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
             <Link href="/qualify">
               <Button 
                 size="lg" 
-                className="text-lg font-quantico tracking-wide px-8 py-6 bg-gradient-elegant hover:brightness-110"
+                className="text-lg font-quantico tracking-wide px-8 py-6 bg-gradient-elegant hover:brightness-110 btn-elegant shadow-lg"
               >
                 Start Your Journey
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

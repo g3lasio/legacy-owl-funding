@@ -51,15 +51,19 @@ export default function ValueProposition() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.8, delay: index * 0.15 }}
             >
-              <Card className="h-full">
-                <CardContent className="pt-6 flex flex-col items-center text-center">
-                  <div className="mb-4 p-3 bg-primary/10 rounded-lg">
-                    <benefit.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-muted-foreground">{benefit.description}</p>
+              <Card className="h-full border-primary/10 shadow-sm hover:shadow-md transition-all duration-300 hover:border-primary/30 hover:translate-y-[-5px]">
+                <CardContent className="pt-8 pb-8 flex flex-col items-center text-center">
+                  <motion.div 
+                    className="mb-6 p-4 bg-primary/10 rounded-full"
+                    whileHover={{ scale: 1.1, backgroundColor: "hsla(var(--primary)/0.15)" }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <benefit.icon className="h-7 w-7 text-primary" />
+                  </motion.div>
+                  <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
