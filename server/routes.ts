@@ -73,6 +73,43 @@ if (apiKey) {
 const VERIFIED_SENDER = process.env.SENDGRID_VERIFIED_SENDER || "info@0wlfunding.com";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Ruta de prueba para verificar la conexión con SendGrid
+  app.get('/api/test-sendgrid', async (req, res) => {
+    try {
+      if (!apiKey) {
+        return res.status(400).json({ 
+          success: false, 
+          message: "SendGrid API key no está configurada" 
+        });
+      }
+      
+      console.log("⏳ Enviando email de prueba con SendGrid...");
+      const testEmail = {
+        from: VERIFIED_SENDER,
+        to: "test@example.com", // Este es un correo de prueba
+        subject: "Prueba de conexión SendGrid",
+        html: "<h1>Este es un email de prueba</h1><p>Si recibes este email, SendGrid está funcionando correctamente.</p>"
+      };
+      
+      const result = await sgMail.send(testEmail);
+      console.log("✅ Email de prueba enviado con éxito:", result);
+      
+      return res.status(200).json({ 
+        success: true, 
+        message: "Conexión con SendGrid verificada exitosamente", 
+        details: result 
+      });
+    } catch (error) {
+      console.error("❌ Error en la prueba de SendGrid:", error);
+      return res.status(500).json({ 
+        success: false, 
+        message: "Error al conectar con SendGrid", 
+        error: error.message,
+        details: error
+      });
+    }
+  });
+
   // Ruta de prueba para verificar la conexión con HubSpot
   app.get('/api/test-hubspot', async (req, res) => {
     try {
