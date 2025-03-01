@@ -7,10 +7,17 @@ import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
+import { Client } from "@hubspot/api-client";
 
 // Definir __dirname para ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+// Inicializar cliente de HubSpot
+const hubspotClient = new Client({ accessToken: process.env.HUBSPOT_API_KEY });
+
+// Constante para verificar si HubSpot está configurado
+const HUBSPOT_ENABLED = !!process.env.HUBSPOT_API_KEY;
 
 // Configurar multer para manejar la carga de archivos
 const upload = multer({
@@ -47,9 +54,35 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { name, email, phone, message } = req.body;
 
-      console.log("Enviando mensaje de contacto a través de SendGrid...");
+      console.log("Procesando nuevo contacto...");
       
-      // Enviar correo electrónico con SendGrid
+      // Crear contacto en HubSpot si está habilitado
+      if (HUBSPOT_ENABLED) {
+        try {
+          console.log("Enviando contacto a HubSpot...");
+          
+          // Crear o actualizar contacto en HubSpot
+          const contactObj = {
+            properties: {
+              email: email,
+              firstname: name.split(' ')[0],
+              lastname: name.includes(' ') ? name.split(' ').slice(1).join(' ') : '',
+              phone: phone,
+              message: message,
+              website: "legacycapitalpartners.com",
+              lead_source: "Website Contact Form"
+            }
+          };
+          
+          await hubspotClient.crm.contacts.basicApi.create(contactObj);
+          console.log("Contacto creado/actualizado en HubSpot con éxito");
+        } catch (hubspotError) {
+          console.error("Error al enviar contacto a HubSpot:", hubspotError);
+          // Continuar con el flujo aunque falle HubSpot
+        }
+      }
+      
+      // También enviar correo electrónico con SendGrid como respaldo
       const result = await sgMail.send({
         from: VERIFIED_SENDER,
         to: "info@0wlfunding.com",
@@ -82,13 +115,65 @@ export async function registerRoutes(app: Express): Promise<Server> {
         fileAttached: !!file 
       });
 
+      // Mapear valores para mostrar textos descriptivos en lugar de códigos
+      const mapInvestmentAmount = {
+        'less50k': 'Menos de $50,000',
+        '50k-250k': '$50,000 - $250,000',
+        '250k-1m': '$250,000 - $1,000,000',
+        'over1m': 'Más de $1,000,000'
+      };
+
+      const mapInvestmentType = {
+        'none': 'Sin experiencia previa',
+        'basic': 'Básica (1-2 propiedades)',
+        'intermediate': 'Intermedia (3-5 propiedades)',
+        'advanced': 'Avanzada (más de 5 propiedades)',
+        'professional': 'Profesional del sector'
+      };
+
+      // Crear contacto en HubSpot si está habilitado
+      if (HUBSPOT_ENABLED) {
+        try {
+          console.log("Enviando lead cualificado a HubSpot...");
+          
+          // Preparar datos para HubSpot
+          const contactProperties = {
+            email: formData.email || `lead_${Date.now()}@pending.legacycapitalpartners.com`, // Email obligatorio para HubSpot
+            firstname: formData.name ? formData.name.split(' ')[0] : 'Prospecto',
+            lastname: formData.name && formData.name.includes(' ') ? formData.name.split(' ').slice(1).join(' ') : 'Cualificado',
+            phone: formData.phone || '',
+            creditScore: formData.creditScore || '',
+            annualIncome: formData.annualIncome || '',
+            legacyProgramInterest: formData.accreditedStatus || '',
+            investmentCapacity: mapInvestmentAmount[formData.investmentAmount as keyof typeof mapInvestmentAmount] || formData.investmentAmount || '',
+            realEstateExperience: mapInvestmentType[formData.investmentType as keyof typeof mapInvestmentType] || formData.investmentType || '',
+            availableTime: formData.investmentHorizon || '',
+            additionalInformation: formData.additionalInfo || '',
+            leadSource: 'Website Qualification Form',
+            lifecyclestage: 'marketingqualifiedlead',
+            leadStatus: 'New'
+          };
+          
+          // Crear contacto en HubSpot
+          const hubspotContact = {
+            properties: contactProperties
+          };
+          
+          await hubspotClient.crm.contacts.basicApi.create(hubspotContact);
+          console.log("Lead cualificado creado en HubSpot con éxito");
+        } catch (hubspotError) {
+          console.error("Error al enviar lead a HubSpot:", hubspotError);
+          // Continuar con el flujo aunque falle HubSpot
+        }
+      }
+
       // Crear contenido HTML para el correo
       let htmlContent = `
         <h1>Nueva solicitud de cualificación</h1>
         <h2>Datos del solicitante:</h2>
         <ul>
-          <li><strong>Capacidad de Apalancamiento:</strong> ${formData.investmentAmount}</li>
-          <li><strong>Experiencia en Bienes Raíces:</strong> ${formData.investmentType}</li>
+          <li><strong>Capacidad de Apalancamiento:</strong> ${mapInvestmentAmount[formData.investmentAmount as keyof typeof mapInvestmentAmount] || formData.investmentAmount}</li>
+          <li><strong>Experiencia en Bienes Raíces:</strong> ${mapInvestmentType[formData.investmentType as keyof typeof mapInvestmentType] || formData.investmentType}</li>
           <li><strong>Disponibilidad de Tiempo:</strong> ${formData.investmentHorizon}</li>
           <li><strong>Puntaje de Crédito:</strong> ${formData.creditScore}</li>
           <li><strong>Ingreso Anual:</strong> ${formData.annualIncome}</li>
