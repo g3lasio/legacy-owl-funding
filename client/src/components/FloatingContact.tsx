@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -24,12 +23,12 @@ export default function FloatingContact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simular envío (reemplazar con tu lógica real de envío)
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
-      
+
       // Reset form after 3 seconds
       setTimeout(() => {
         setIsSuccess(false);
@@ -47,6 +46,7 @@ export default function FloatingContact() {
       <button 
         onClick={() => setIsOpen(true)}
         className="fixed bottom-6 right-6 w-16 h-16 rounded-full bg-primary text-white shadow-lg flex items-center justify-center hover:bg-primary/90 transition-all z-50 animate-pulse hover:animate-none"
+        aria-label="Abrir chat de contacto"
       >
         <MessageSquare className="h-6 w-6" />
       </button>
@@ -54,12 +54,12 @@ export default function FloatingContact() {
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Solicitar Información</DialogTitle>
+            <DialogTitle>Póngase en contacto</DialogTitle>
             <DialogDescription>
-              Déjenos sus datos y nos pondremos en contacto con usted a la brevedad.
+              Complete el formulario y nos comunicaremos con usted a la brevedad.
             </DialogDescription>
           </DialogHeader>
-          
+
           {isSuccess ? (
             <div className="py-6 text-center">
               <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center mb-4">
@@ -87,7 +87,7 @@ export default function FloatingContact() {
                     required
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium">
                     Correo Electrónico
@@ -101,7 +101,7 @@ export default function FloatingContact() {
                     required
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <label htmlFor="phone" className="text-sm font-medium">
                     Teléfono
@@ -114,7 +114,7 @@ export default function FloatingContact() {
                     required
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm font-medium">
                     Mensaje
@@ -129,7 +129,7 @@ export default function FloatingContact() {
                   />
                 </div>
               </div>
-              
+
               <DialogFooter>
                 <Button
                   type="submit"
