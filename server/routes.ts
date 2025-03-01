@@ -48,7 +48,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const { name, email, phone, message } = req.body;
 
       console.log("Enviando mensaje de contacto a través de SendGrid...");
-
+      
       // Enviar correo electrónico con SendGrid
       const result = await sgMail.send({
         from: VERIFIED_SENDER,
@@ -62,7 +62,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           <p><strong>Mensaje:</strong> ${message}</p>
         `
       });
-
+      
       console.log("Email de contacto enviado con éxito:", result);
       res.status(200).json({ success: true, message: "Mensaje enviado correctamente" });
     } catch (error) {
@@ -113,30 +113,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Adjuntar el archivo si existe
       if (file) {
         console.log("Adjuntando archivo:", file.originalname);
-        const fs = require('fs');
-        try {
-          // Leer el archivo y convertirlo a base64
-          const fileContent = fs.readFileSync(file.path);
-          mailOptions.attachments = [
-            {
-              filename: file.originalname,
-              content: fileContent.toString('base64'),
-              type: file.mimetype,
-              disposition: 'attachment',
-              contentId: file.originalname,
-            },
-          ];
-          console.log("Archivo adjunto preparado correctamente");
-        } catch (error) {
-          console.error("Error al leer el archivo adjunto:", error);
-        }
+        mailOptions.attachments = [
+          {
+            filename: file.originalname,
+            path: file.path
+          }
+        ];
       }
 
       console.log("Enviando email de cualificación a través de SendGrid...");
-
+      
       // Enviar el correo con SendGrid
       const result = await sgMail.send(mailOptions);
-
+      
       console.log("Email de cualificación enviado con éxito:", result);
       res.status(200).json({ success: true, message: "Solicitud enviada correctamente" });
     } catch (error) {

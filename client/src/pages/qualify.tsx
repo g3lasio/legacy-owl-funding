@@ -110,8 +110,6 @@ export default function QualifyPage() {
         formData.append('document', selectedFile);
       }
       
-      console.log("Enviando formulario de cualificación...");
-      
       // Enviar el formulario con fetch
       const response = await fetch('/api/qualify', {
         method: 'POST',
@@ -124,20 +122,16 @@ export default function QualifyPage() {
         throw new Error(result.message || 'Error al enviar el formulario');
       }
       
-      console.log("Formulario enviado exitosamente");
-      
       // Show success message
       setIsSuccess(true);
       
-      // Redirect after a delay (8 seconds - tiempo suficiente para leer el mensaje)
+      // Redirect after a delay
       setTimeout(() => {
-        console.log("Redirigiendo al inicio...");
         setLocation("/");
-      }, 8000);
+      }, 5000);
       
     } catch (error) {
       console.error("Error submitting qualification form:", error);
-      alert("Hubo un problema al enviar su solicitud. Por favor intente nuevamente.");
     } finally {
       setIsSubmitting(false);
     }
@@ -157,26 +151,16 @@ export default function QualifyPage() {
                 <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                   <CheckCheck className="h-10 w-10 text-primary" />
                 </div>
-                <h2 className="text-3xl font-bold mb-4">¡Bienvenido a Legacy Capital Partners!</h2>
-                <p className="text-lg mb-2 max-w-2xl">
-                  Su solicitud ha sido recibida con éxito por nuestro equipo de evaluación exclusiva.
-                </p>
+                <h2 className="text-3xl font-bold mb-4">Solicitud Recibida con Éxito</h2>
                 <p className="text-lg mb-8 max-w-2xl text-muted-foreground">
-                  Uno de nuestros asesores financieros se pondrá en contacto con usted en las próximas 24-48 horas para discutir su perfil de inversión y presentarle las oportunidades exclusivas disponibles para usted.
+                  Gracias por su interés en Legacy Capital Partners. Su solicitud ha sido recibida por nuestro equipo de evaluación exclusiva. 
+                  Un representante personal se pondrá en contacto con usted en las próximas 24-48 horas para discutir los siguientes pasos.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button 
-                    variant="outline" 
-                    onClick={() => setLocation("/")} 
-                    className="min-w-[150px]"
-                  >
+                  <Button variant="outline" onClick={() => setLocation("/")} className="min-w-[150px]">
                     Volver al Inicio
                   </Button>
-                  <Button 
-                    variant="default" 
-                    onClick={() => setLocation("/#program-levels")} 
-                    className="min-w-[150px]"
-                  >
+                  <Button variant="default" className="min-w-[150px]">
                     Ver Programas
                   </Button>
                 </div>
