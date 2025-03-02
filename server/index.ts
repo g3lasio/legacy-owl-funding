@@ -58,16 +58,35 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  // Use port from environment variable or fallback to 3000
-  const port = process.env.PORT || 3000;
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
-    log(`serving on port ${port}`);
-    // Log additional info to help with debugging
-    log(`NODE_ENV: ${process.env.NODE_ENV}`);
-    log(`Current directory: ${process.cwd()}`);
-  });
+  try {
+    // Use port from environment variable or fallback to 3000
+    const port = process.env.PORT || 3000;
+    log(`Attempting to start server on port ${port}`);
+    log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+    
+    server.listen({
+      port: Number(port),
+      host: "0.0.0.0",
+      // Avoid using reusePort in production as it can cause issues
+      ...(process.env.NODE_ENV !== 'production' ? { reusePort: true } : {})
+    }, () => {
+      log(`Server running successfully on port ${port}`);
+      log(`NODE_ENV: ${process.env.NODE_ENV}`);
+      log(`Current directory: ${process.cwd()}`);
+      // List files in dist directory to verify build
+      if (process.env.NODE_ENV === 'production') {
+        const fs = require('fs');
+        try {
+          const files = fs.readdirSync('./dist');
+          log(`Files in dist directory: ${files.join(', ')}`);
+        } catch (err) {
+          log(`Error listing dist directory: ${err.message}`);
+        }
+      }
+    });
+  } catch (error) {
+    log(`Error starting server: ${error.message}`, "express", "error");
+    console.error("Full error:", error);
+    process.exit(1); // Exit with error code for clarity
+  }
 })();

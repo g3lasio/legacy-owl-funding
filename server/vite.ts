@@ -84,19 +84,40 @@ export async function setupVite(app: Express, server: Server) {
 
 export function serveStatic(app: Express) {
   log("🔧 Setting up static file serving for production", "express", "info");
-  const distPath = path.resolve(__dirname, "public");
+  
+  // In production, client build outputs to dist/client
+  const distPath = path.resolve(process.cwd(), "dist/client");
+  
+  log(`Looking for static files in: ${distPath}`, "express", "info");
 
   if (!fs.existsSync(distPath)) {
     log(`❌ Could not find the build directory: ${distPath}`, "express", "error");
-    throw new Error(
-      `Could not find the build directory: ${distPath}, make sure to build the client first`,
-    );
+    log(`Trying alternative public directory...`, "express", "info");
+    
+    // Fallback to "public" directory if "dist/client" doesn't exist
+    const altPath = path.resolve(process.cwd(), "dist/public");
+    if (fs.existsSync(altPath)) {
+      log(`✅ Found alternative build directory: ${altPath}`, "express", "info");
+      app.use(express.static(altPath));
+    } else {
+      log(`❌ Could not find any static build directory`, "express", "error");
+    }
+  } else {
+    app.use(express.static(distPath));
   }
 
-  app.use(express.static(distPath));
-
-  // fall through to index.html if the file doesn't exist
-  app.use("*", (_req, res) => {
-    res.sendFile(path.resolve(distPath, "index.html"));
+  // Serve index.html for all routes (SPA fallback)
+  app.use("*", (req, res) => {
+    const indexPath = path.resolve(distPath, "index.html");
+    log(`Serving index.html for route: ${req.originalUrl}`, "express", "info");
+    
+    if (fs.existsSync(indexPath)) {
+      res.sendFile(indexPath);
+    } else {
+      log(`❌ Could not find index.html at ${indexPath}`, "express", "error");
+      res.status(404).send("Not found - Build files missing");
+    }
+  });
+} "index.html"));
   });
 }
