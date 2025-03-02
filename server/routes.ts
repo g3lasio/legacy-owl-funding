@@ -5,11 +5,11 @@ import sgMail from "@sendgrid/mail";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
-//import { fileURLToPath } from "url";
-//import { dirname } from "path";
+// import { fileURLToPath } from "url";
+// Nota: Vamos a usar process.cwd() en lugar de fileURLToPath ya que es compatible con CJS
 import { Client } from "@hubspot/api-client";
 
-// Use __dirname directly which is available in CommonJS
+// Usar process.cwd() que es compatible con ambos formatos ESM y CJS
 const __dirname = process.cwd();
 
 // Inicializar cliente de HubSpot
