@@ -75,13 +75,16 @@ app.use((req, res, next) => {
       log(`Current directory: ${process.cwd()}`);
       // List files in dist directory to verify build
       if (process.env.NODE_ENV === 'production') {
-        const fs = require('fs');
-        try {
-          const files = fs.readdirSync('./dist');
-          log(`Files in dist directory: ${files.join(', ')}`);
-        } catch (err) {
-          log(`Error listing dist directory: ${err.message}`);
-        }
+        import('fs').then(fs => {
+          try {
+            const files = fs.readdirSync('./dist');
+            log(`Files in dist directory: ${files.join(', ')}`);
+          } catch (err) {
+            log(`Error listing dist directory: ${err.message}`);
+          }
+        }).catch(err => {
+          log(`Error importing fs module: ${err.message}`);
+        });
       }
     });
   } catch (error) {

@@ -1,16 +1,23 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { storage } from "./storage";
+import { storage } from "./storage.js";
 import sgMail from "@sendgrid/mail";
 import multer from "multer";
 import path from "path";
-import fs from "fs";
-// import { fileURLToPath } from "url";
-// Nota: Vamos a usar process.cwd() en lugar de fileURLToPath ya que es compatible con CJS
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import { createRequire } from 'module';
 import { Client } from "@hubspot/api-client";
 
-// Usar process.cwd() que es compatible con ambos formatos ESM y CJS
-const __dirname = process.cwd();
+
+const require = createRequire(import.meta.url);
+const fs = require('fs');
+
+
+// const __dirname = process.cwd(); //Replaced with below for ESM compatibility
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 
 // Inicializar cliente de HubSpot
 const hubspotApiKey = process.env.HUBSPOT_API_KEY;
