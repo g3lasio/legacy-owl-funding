@@ -144,41 +144,6 @@ export default function ContactForm() {
         </div>
       </section>
 
-      {/* Placeholder Footer - Replace with your actual Footer component */}
-      <footer className="bg-gray-100 py-8">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <motion.h3
-                className="text-xl font-bold mb-4"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                Contact Information
-              </motion.h3>
-              <motion.div
-                className="space-y-3"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <p className="flex items-center">
-                  <Mail className="h-5 w-5 mr-3 text-primary" />
-                  info@0wlfunding.com
-                </p>
-                <p className="flex items-center">
-                  <Phone className="h-5 w-5 mr-3 text-primary" />
-                  743 240 2088
-                </p>
-              </motion.div>
-            </div>
-            {/* Add other footer content here as needed */}
-          </div>
-        </div>
-      </footer>
-    </div>
+      </div>
   );
 }
