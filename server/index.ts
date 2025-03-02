@@ -66,5 +66,8 @@ app.use((req, res, next) => {
     reusePort: true,
   }, () => {
     log(`serving on port ${port}`);
+    // Log additional info to help with debugging
+    log(`NODE_ENV: ${process.env.NODE_ENV}`);
+    log(`Current directory: ${process.cwd()}`);
   });
 })();
