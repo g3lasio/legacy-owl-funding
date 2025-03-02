@@ -92,7 +92,7 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <h4 className="font-medium">Email Us</h4>
-                    <p className="text-muted-foreground">info@0wlfunding.com</p>
+                    <a href="mailto:info@0wlfunding.com" className="text-muted-foreground hover:text-primary transition-colors">info@0wlfunding.com</a>
                   </div>
                 </div>
 
@@ -102,7 +102,7 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <h4 className="font-medium">Call Us</h4>
-                    <p className="text-muted-foreground">(743) 240-2088</p>
+                    <a href="tel:7432402088" className="text-muted-foreground hover:text-primary transition-colors">(743) 240-2088</a>
                   </div>
                 </div>
               </div>
