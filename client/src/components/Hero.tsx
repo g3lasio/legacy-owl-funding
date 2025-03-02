@@ -92,7 +92,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            Join an exclusive community of investors who leverage their credit to access premium real estate opportunities without using their own capital.
+            Imagine transforming your credit into a gateway to premium real estate—without risking your own money. Join an exclusive circle of visionary investors and ignite your journey to elite financial success.
           </motion.p>
           <motion.div 
             className="flex flex-col sm:flex-row gap-6"
