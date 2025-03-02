@@ -5,13 +5,12 @@ import sgMail from "@sendgrid/mail";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
+//import { fileURLToPath } from "url";
+//import { dirname } from "path";
 import { Client } from "@hubspot/api-client";
 
-// Definir __dirname para ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// Use __dirname directly which is available in CommonJS
+const __dirname = process.cwd();
 
 // Inicializar cliente de HubSpot
 const hubspotApiKey = process.env.HUBSPOT_API_KEY;
@@ -84,7 +83,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           message: "SendGrid API key no está configurada" 
         });
       }
-      
+
       console.log("⏳ Enviando email de prueba con SendGrid...");
 
   // Ruta para verificación de estado
@@ -103,10 +102,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
         subject: "Prueba de conexión SendGrid",
         html: "<h1>Este es un email de prueba</h1><p>Si recibes este email, SendGrid está funcionando correctamente.</p>"
       };
-      
+
       const result = await sgMail.send(testEmail);
       console.log("✅ Email de prueba enviado con éxito:", result);
-      
+
       return res.status(200).json({ 
         success: true, 
         message: "Conexión con SendGrid verificada exitosamente", 
@@ -132,7 +131,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           message: "HubSpot no está configurado. Verifique su API key." 
         });
       }
-      
+
       // Crear un contacto de prueba
       const testContactProperties = {
         email: `test-${Date.now()}@legacycapitalpartners.com`,
@@ -142,10 +141,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
         website: 'legacycapitalpartners.com',
         lead_source: 'Test API'
       };
-      
+
       console.log("⏳ Enviando contacto de prueba a HubSpot...");
       const result = await hubspotClient.crm.contacts.basicApi.create({ properties: testContactProperties });
-      
+
       console.log("✅ Contacto de prueba creado en HubSpot con ID:", result.id);
       return res.status(200).json({ 
         success: true, 
@@ -162,19 +161,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
     }
   });
-  
+
   // Ruta para manejar el formulario de contacto
   app.post('/api/contact', async (req, res) => {
     try {
       const { name, email, phone, message } = req.body;
 
       console.log("Procesando nuevo contacto...");
-      
+
       // Crear contacto en HubSpot si está habilitado
       if (HUBSPOT_ENABLED) {
         try {
           console.log("⏳ Enviando contacto a HubSpot...");
-          
+
           // Crear o actualizar contacto en HubSpot
           const contactObj = {
             properties: {
@@ -187,9 +186,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
               lead_source: "Website Contact Form"
             }
           };
-          
+
           console.log("📝 Datos del contacto a enviar a HubSpot:", JSON.stringify(contactObj, null, 2));
-          
+
           // Primero verificamos si el contacto ya existe para evitar duplicados
           let contactId;
           try {
@@ -202,12 +201,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
                 }]
               }]
             });
-            
+
             if (searchResult.results && searchResult.results.length > 0) {
               // Contacto existente - actualizar
               contactId = searchResult.results[0].id;
               console.log(`🔄 Contacto existente encontrado con ID: ${contactId}, actualizando...`);
-              
+
               await hubspotClient.crm.contacts.basicApi.update(contactId, contactObj);
               console.log(`✅ Contacto actualizado en HubSpot con éxito. ID: ${contactId}`);
             } else {
@@ -231,7 +230,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       } else {
         console.log("HubSpot no está configurado. El contacto no será enviado a HubSpot.");
       }
-      
+
       // También enviar correo electrónico con SendGrid como respaldo
       const result = await sgMail.send({
         from: VERIFIED_SENDER,
@@ -245,7 +244,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           <p><strong>Mensaje:</strong> ${message}</p>
         `
       });
-      
+
       console.log("Email de contacto enviado con éxito:", result);
       res.status(200).json({ success: true, message: "Mensaje enviado correctamente" });
     } catch (error) {
@@ -285,7 +284,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (HUBSPOT_ENABLED) {
         try {
           console.log("Enviando lead cualificado a HubSpot...");
-          
+
           // Preparar datos para HubSpot
           const contactProperties = {
             email: formData.email || `lead_${Date.now()}@pending.legacycapitalpartners.com`, // Email obligatorio para HubSpot
@@ -303,12 +302,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
             lifecyclestage: 'marketingqualifiedlead',
             leadStatus: 'New'
           };
-          
+
           // Crear contacto en HubSpot
           const hubspotContact = {
             properties: contactProperties
           };
-          
+
           await hubspotClient.crm.contacts.basicApi.create(hubspotContact);
           console.log("Lead cualificado creado en HubSpot con éxito");
         } catch (hubspotError) {
@@ -357,10 +356,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       console.log("Enviando email de cualificación a través de SendGrid...");
-      
+
       // Enviar el correo con SendGrid
       const result = await sgMail.send(mailOptions);
-      
+
       console.log("Email de cualificación enviado con éxito:", result);
       res.status(200).json({ success: true, message: "Solicitud enviada correctamente" });
     } catch (error) {
