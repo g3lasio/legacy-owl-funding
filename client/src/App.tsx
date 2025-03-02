@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Route, Switch } from "wouter";
 import HomePage from "./pages/Home";
 import TermsPage from "./pages/terms";
