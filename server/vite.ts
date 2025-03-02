@@ -118,6 +118,6 @@ export function serveStatic(app: Express) {
       res.status(404).send("Not found - Build files missing");
     }
   });
-} "index.html"));
+} "index.html");
   });
 }
