@@ -43,13 +43,15 @@ export default function FloatingContact() {
 
   return (
     <>
-      <button 
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 w-16 h-16 rounded-full bg-primary text-white shadow-lg flex items-center justify-center hover:bg-primary/90 transition-all z-50 animate-pulse hover:animate-none"
-        aria-label="Abrir chat de contacto"
-      >
-        <MessageSquare className="h-6 w-6" />
-      </button>
+      <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50">
+        <button
+          onClick={() => setIsOpen(true)}
+          aria-label="Abrir chat"
+          className="bg-primary hover:bg-primary/90 text-white p-3 sm:p-4 rounded-full shadow-lg flex items-center justify-center transition-all"
+        >
+          <MessageSquare className="h-5 w-5 sm:h-6 sm:w-6" />
+        </button>
+      </div>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="sm:max-w-[425px]" aria-describedby="dialog-description">

@@ -70,7 +70,7 @@ export default function Hero() {
           className="max-w-3xl"
         >
           <motion.h1 
-            className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -87,7 +87,7 @@ export default function Hero() {
             </span> Opportunities
           </motion.h1>
           <motion.p 
-            className="text-xl text-white/90 mb-12 leading-relaxed max-w-2xl"
+            className="text-base sm:text-lg md:text-xl text-white/90 mb-8 md:mb-12 leading-relaxed max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
