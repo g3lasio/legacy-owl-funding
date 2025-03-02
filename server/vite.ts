@@ -79,7 +79,7 @@ export async function setupVite(app: Express, server: Server) {
       }
       next(e);
     }
-  });
+  });;
 }
 
 export function serveStatic(app: Express) {
