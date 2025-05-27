@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
-import { Card, CardHeader, CardContent, CardFooter, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
@@ -7,7 +14,8 @@ import { Link } from "wouter";
 const levels = [
   {
     name: "Legacy Founder",
-    description: "For investors building their credit profile",
+    description:
+      "Legacy Founders are distinguished investors who seek to build their creditworthiness as a strategic step toward gaining access to the exclusive VIP circle.",
     cost: "$799 (non refundable)",
     features: [
       "Access to starter projects",
@@ -15,37 +23,44 @@ const levels = [
       "Credit improvement guidance",
       "Basic educational resources",
       "proffit sharing 50%",
-      "Community access"
+      "Community access",
     ],
-    paymentLink: "https://68291e54-fba5-4346-a969-e84eab277770.paylinks.godaddy.com/LegacyFounderPartner"
+    paymentLink:
+      "https://68291e54-fba5-4346-a969-e84eab277770.paylinks.godaddy.com/LegacyFounderPartner",
   },
   {
     name: "Legacy VIP",
     description: "For investors with 680+ credit score",
     cost: "$599 (refundable after first withdrawal)",
     features: [
-      "Premium project access",
-      "60/40 profit sharing",
-      "Advanced education",
-      "Priority support",
-      "Networking events"
+      "Elite access to high-yield real estate projects",
+      "60/40 profit-sharing model favoring investors",
+      "Advanced real estate investment workshops",
+      "Complimentary legal and tax structuring services",
+      "Private networking events with top-tier investors",
+      "Reinvestment opportunities with optimized returns",
+      "Personalized investment performance dashboard",
+      "Exclusive early access to new project launches",
     ],
-    paymentLink: "https://68291e54-fba5-4346-a969-e84eab277770.paylinks.godaddy.com/LegacyCapitalVIP"
+    paymentLink:
+      "https://68291e54-fba5-4346-a969-e84eab277770.paylinks.godaddy.com/LegacyCapitalVIP",
   },
   {
     name: "Legacy Executive",
     description: "For experienced investors",
     cost: "No cost, must be 16 months member on VIP",
     features: [
-      "Large-scale projects",
-      "75/25 profit sharing",
-      "Executive mentorship",
-      "Direct deal sourcing",
-      "Private investment opportunities",
-      "Exclusive events"
+      "Leadership role in large-scale development projects",
+      "75/25 profit-sharing model for maximum investor benefit",
+      "Executive-level mentorship and advisory sessions",
+      "Tailored financing solutions with preferential terms",
+      "Access to proprietary market insights and analytics",
+      "Invitations to private executive roundtables",
+      "Comprehensive legal and tax optimization services",
+      "Legacy-building recognition within the investor community",
     ],
-    paymentLink: null // Add payment link here if needed later
-  }
+    paymentLink: null, // Add payment link here if needed later
+  },
 ];
 
 export default function ProgramLevels() {
@@ -63,7 +78,8 @@ export default function ProgramLevels() {
             Choose Your Investment Path
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We offer tailored programs designed to meet your investment goals and credit profile.
+            We offer tailored programs designed to meet your investment goals
+            and credit profile.
           </p>
         </motion.div>
 
@@ -77,7 +93,9 @@ export default function ProgramLevels() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <div className="relative h-full">
-                <Card className={`h-full ${index === 1 ? 'border-primary shadow-lg' : ''}`}>
+                <Card
+                  className={`h-full ${index === 1 ? "border-primary shadow-lg" : ""}`}
+                >
                   {index === 1 && (
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
                       Most Popular
@@ -85,7 +103,9 @@ export default function ProgramLevels() {
                   )}
                   <CardHeader>
                     <CardTitle className="text-2xl">{level.name}</CardTitle>
-                    <CardDescription className="text-base">{level.description}</CardDescription>
+                    <CardDescription className="text-base">
+                      {level.description}
+                    </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="text-xl font-bold">{level.cost}</div>
@@ -100,8 +120,8 @@ export default function ProgramLevels() {
                   </CardContent>
                   <CardFooter className="flex flex-col space-y-3">
                     <Link href="/qualify" className="w-full">
-                      <Button 
-                        variant={index === 1 ? "default" : "outline"} 
+                      <Button
+                        variant={index === 1 ? "default" : "outline"}
                         className="w-full"
                       >
                         Apply Now
@@ -109,11 +129,13 @@ export default function ProgramLevels() {
                     </Link>
 
                     {level.paymentLink && (
-                      <a href={level.paymentLink} target="_blank" rel="noopener noreferrer" className="w-full">
-                        <Button 
-                          variant="secondary"
-                          className="w-full"
-                        >
+                      <a
+                        href={level.paymentLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full"
+                      >
+                        <Button variant="secondary" className="w-full">
                           Pay Membership
                         </Button>
                       </a>
