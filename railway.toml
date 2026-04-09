@@ -8,5 +8,7 @@ restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 3
 
 [healthcheck]
-path = "/"
+path = "/health"
 timeout = 30
+interval = 10
+unhealthyThreshold = 3

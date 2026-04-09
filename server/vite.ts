@@ -85,26 +85,24 @@ export async function setupVite(app: Express, server: Server) {
 export function serveStatic(app: Express) {
   log("🔧 Setting up static file serving for production", "express", "info");
 
-  // In production, client build outputs to dist/client
-  const distPath = path.resolve(process.cwd(), "dist/client");
+  // In production, client build outputs to dist/public (as per vite.config.ts)
+  let distPath = path.resolve(process.cwd(), "dist/public");
 
   log(`Looking for static files in: ${distPath}`, "express", "info");
 
   if (!fs.existsSync(distPath)) {
-    log(`❌ Could not find the build directory: ${distPath}`, "express", "error");
-    log(`Trying alternative public directory...`, "express", "info");
-
-    // Fallback to "public" directory if "dist/client" doesn't exist
-    const altPath = path.resolve(process.cwd(), "dist/public");
+    log(`⚠️ Could not find the build directory: ${distPath}`, "express", "warn");
+    // Fallback to "dist/client"
+    const altPath = path.resolve(process.cwd(), "dist/client");
     if (fs.existsSync(altPath)) {
       log(`✅ Found alternative build directory: ${altPath}`, "express", "info");
-      app.use(express.static(altPath));
+      distPath = altPath;
     } else {
       log(`❌ Could not find any static build directory`, "express", "error");
     }
-  } else {
-    app.use(express.static(distPath));
   }
+
+  app.use(express.static(distPath));
 
   // Serve index.html for all routes (SPA fallback)
   app.use("*", (req, res) => {
