@@ -1,0 +1,5 @@
+# Cloudflare Pages — redirecciones de rutas del sitio viejo (React SPA)
+/qualify    /#quiz    301
+/programs   /#rutas   301
+/home       /         301
+/index.html /         301

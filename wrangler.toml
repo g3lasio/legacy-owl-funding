@@ -1,0 +1,13 @@
+# Cloudflare Pages — configuración del sitio estático de Legacy.
+# Sin build step: Cloudflare sirve directamente el directorio public/.
+#
+# En el panel de Cloudflare Pages (proyecto conectado a g3lasio/legacy-owl-funding):
+#   Build command:            (vacío)
+#   Build output directory:   public
+# Este archivo declara el output dir en el repo para que el CI de Pages lo tome.
+#
+# NOTA: `name` debe coincidir con el nombre real del proyecto de Pages para
+# despliegues directos con `wrangler pages deploy`. Ajustar si difiere.
+name = "legacy-owl-funding"
+pages_build_output_dir = "public"
+compatibility_date = "2026-07-22"

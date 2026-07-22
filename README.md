@@ -1,174 +1,61 @@
+# Legacy by LeadPrime — legacy.chyrris.com
 
-# Legacy Owl Funding
+Landing estático (HTML/CSS/JS, sin frameworks, sin build step) que funciona como
+**funnel de captura y agendamiento**: un **Quiz Router de 4 preguntas + contacto**
+que rutea a 1 de 4 rutas (nadie recibe un "no calificas"), crea un lead en el
+pipeline de **Owl Funding** y agenda la llamada de evaluación para las rutas
+calificadas. El sitio **no muestra precios de membresía en ninguna parte**.
 
-![Legacy Logo](attached_assets/Legacy%20logo%20white.png)
+> Reconstrucción 2026 del sitio anterior (React + Express + Railway). El sitio
+> viejo se conserva en [`_backup_2026/`](_backup_2026/). Detalle completo en
+> [`IMPLEMENTATION_REPORT_LEGACY_LANDING.md`](IMPLEMENTATION_REPORT_LEGACY_LANDING.md).
 
-## Descripción del Proyecto
-
-Legacy Owl Funding es una plataforma de inversión inmobiliaria que permite a los usuarios aprovechar su perfil crediticio para acceder a oportunidades de inversión premium sin necesidad de capital inicial. El sistema conecta a inversionistas con diferentes niveles de experiencia a proyectos inmobiliarios rentables a través de un modelo de negocio innovador basado en la calificación crediticia.
-
-## Características Principales
-
-- **Inversión Sin Capital**: Acceso a inversiones inmobiliarias utilizando el perfil crediticio
-- **Proceso de Precalificación**: Sistema de evaluación para determinar la elegibilidad de los inversionistas
-- **Niveles de Programa**: Tres niveles de participación (Legacy Founder, Legacy VIP, Legacy Executive)
-- **Portal Informativo**: Información detallada sobre oportunidades de inversión y metodología
-- **Formulario de Contacto**: Canal directo para la comunicación con el equipo de Legacy Capital
-
-## Tecnologías Utilizadas
-
-### Frontend
-- **React**: Biblioteca principal para la construcción de interfaces
-- **TypeScript**: Lenguaje tipado para mejorar la robustez del código
-- **Tailwind CSS**: Framework de utilidades CSS para el diseño
-- **Shadcn/UI**: Componentes UI accesibles y personalizables
-- **Framer Motion**: Biblioteca para animaciones fluidas
-- **React Hook Form**: Gestión de formularios
-- **Zod**: Validación de esquemas
-- **Wouter**: Enrutamiento ligero para React
-
-### Backend
-- **Express.js**: Framework de servidor Node.js
-- **TypeScript**: Tipado estático para el backend
-- **Drizzle ORM**: ORM para interactuar con la base de datos
-- **Multer**: Middleware para manejo de archivos
-- **Express Session**: Manejo de sesiones
-- **Passport.js**: Autenticación
-
-### Herramientas de Desarrollo
-- **Vite**: Herramienta de construcción rápida
-- **ESBuild**: Compilador JavaScript rápido
-- **Drizzle Kit**: CLI para migraciones de base de datos
-- **PostCSS**: Procesador CSS
-- **TailwindCSS**: Utilidades CSS
-
-## Estructura del Proyecto
+## Estructura
 
 ```
-├── client/               # Código frontend React
-│   ├── public/           # Archivos estáticos públicos
-│   ├── src/              # Código fuente React
-│   │   ├── components/   # Componentes reutilizables
-│   │   ├── pages/        # Componentes de página
-│   │   ├── hooks/        # Custom hooks
-│   │   ├── lib/          # Utilidades y configuraciones
-│   │   └── App.tsx       # Componente principal
-│   └── index.html        # Punto de entrada HTML
-├── server/               # Código backend Express
-│   ├── index.ts          # Punto de entrada del servidor
-│   ├── routes.ts         # Definición de rutas API
-│   ├── storage.ts        # Lógica de almacenamiento
-│   └── vite.ts           # Configuración de Vite para el servidor
-├── shared/               # Código compartido entre cliente/servidor
-│   └── schema.ts         # Esquemas de datos compartidos
-├── uploads/              # Directorio para archivos subidos
-├── attached_assets/      # Recursos gráficos y activos adjuntos
-└── varios archivos de configuración (package.json, tsconfig.json, etc.)
+public/                     # <- Cloudflare Pages sirve ESTE directorio
+  index.html                # todo el copy; renderiza sin JS
+  assets/css/styles.css
+  assets/js/quiz.js         # única pieza que requiere JS (el quiz)
+  assets/img/og-image.png   # OG navy/dorado con el wordmark
+  favicon.svg, _headers, _redirects, robots.txt, sitemap.xml
+backend/                    # endpoint POST /api/public/legacy-quiz (para portar a g3lasio/leadprime)
+  src/routing.mjs           # fuente única del ruteo (la replica el cliente)
+  src/routing.test.mjs      # node --test: 160 combinaciones
+  src/legacyQuiz.schema.ts  # validación Zod
+  src/handler.ts            # handler Express (rate-limit, honeypot, lead, email)
+  README.md
+_backup_2026/               # snapshot del sitio anterior
+wrangler.toml               # pages_build_output_dir = "public"
 ```
 
-## Funcionalidades Detalladas
+## Deploy (Cloudflare Pages)
 
-### Página de Inicio
-- Hero section con animaciones y call-to-action
-- Sección de propuesta de valor que destaca los beneficios clave
-- Niveles de programa detallados con características y precios
-- Sección FAQ con preguntas frecuentes
-- Testimonios de usuarios
-- Formulario de contacto
+- Proyecto de Pages conectado a `g3lasio/legacy-owl-funding`.
+- **Build command:** *(vacío)* · **Build output directory:** `public`
+- Dominio: `legacy.chyrris.com`.
+- Insertar el token real de **Cloudflare Web Analytics** en `public/index.html`
+  (placeholder `REPLACE_WITH_CLOUDFLARE_WEB_ANALYTICS_TOKEN`).
 
-### Sistema de Precalificación
-- Proceso de 4 pasos para evaluar la elegibilidad
-- Recopilación de información sobre:
-  - Perfil del inversionista
-  - Perfil crediticio
-  - Documentación relevante
-  - Revisión final
-- Carga de documentos con verificación de seguridad
-- Proceso de confirmación y seguimiento
+## El Quiz Router
 
-### Portal de Usuario (Planificado)
-- Dashboard personalizado
-- Seguimiento de inversiones
-- Documentos y contratos
-- Comunicación con el equipo Legacy
+El cliente rutea de inmediato para la UX; **el servidor recalcula la ruta** y es
+la autoridad para tags y creación del lead. Reglas y contrato en
+[`backend/README.md`](backend/README.md).
 
-## Flujo de Trabajo del Proyecto
+## Reglas de mensajería (no negociables)
 
-1. **Diseño y Planificación**: Creación de wireframes, definición de la arquitectura
-2. **Desarrollo Frontend**: Implementación de componentes y páginas
-3. **Desarrollo Backend**: API RESTful, manejo de datos y autenticación
-4. **Integración**: Conexión de frontend y backend
-5. **Pruebas**: Testing de la aplicación
-6. **Despliegue**: Lanzamiento en producción
+- Owl Funding = **estructurador** de financiamiento con socios institucionales — **nunca "el lender"**.
+- Siempre **"hasta 90%"**, nunca cifra garantizada. **Cero precios de membresía**, **sin nombrar lenders de terceros**.
+- Programa = **membresía con inversión mensual, sujeto a aprobación**.
+- Deal de ejemplo etiquetado **"ejemplo ilustrativo … no una garantía"** + disclaimer de riesgo al pie.
 
-## Instalación y Uso
+## Pruebas locales
 
-### Requisitos Previos
-- Node.js (v16.x o superior)
-- npm o yarn
-
-### Instalación
-
-1. Clonar el repositorio:
 ```bash
-git clone https://github.com/g3lasio/legacy-owl-funding.git
-cd legacy-owl-funding
+# Router (160 combinaciones)
+cd backend/src && node --test
+
+# Servir el sitio
+python3 -m http.server -d public 8080   # http://localhost:8080
 ```
-
-2. Instalar dependencias:
-```bash
-npm install
-```
-
-3. Configurar variables de entorno (crear archivo .env basado en .env.example)
-
-4. Iniciar el servidor de desarrollo:
-```bash
-npm run dev
-```
-
-La aplicación estará disponible en http://0.0.0.0:3000
-
-### Scripts Disponibles
-
-- `npm run dev`: Inicia el servidor de desarrollo
-- `npm run build`: Construye la aplicación para producción
-- `npm run start`: Inicia la aplicación en modo producción
-- `npm run check`: Comprueba errores de tipado con TypeScript
-- `npm run db:push`: Actualiza la base de datos con el esquema actual
-
-## Despliegue
-
-El proyecto está configurado para ser desplegado en Replit. El archivo de configuración `.replit` ya incluye las configuraciones necesarias para el despliegue.
-
-## Seguridad
-
-El proyecto implementa varias medidas de seguridad:
-- Encriptación de datos sensibles
-- Manejo seguro de sesiones
-- Validación de entradas
-- Protección contra ataques comunes (XSS, CSRF)
-
-## Contribución
-
-Las contribuciones son bienvenidas. Por favor, sigue estos pasos:
-
-1. Haz fork del repositorio
-2. Crea una rama para tu feature (`git checkout -b feature/amazing-feature`)
-3. Haz commit de tus cambios (`git commit -m 'Add some amazing feature'`)
-4. Push a la rama (`git push origin feature/amazing-feature`)
-5. Abre un Pull Request
-
-## Créditos
-
-Desarrollado por el equipo de Legacy Capital Partners.
-
-## Licencia
-
-Este proyecto está licenciado bajo los términos de la licencia MIT.
-
-## Contacto
-
-- **Email**: info@0wlfunding.com
-- **Teléfono**: (743) 240-2088
-- **Dirección**: 2901 Owens, Fairfield, CA, 94534

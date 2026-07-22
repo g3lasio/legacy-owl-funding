@@ -1,0 +1,17 @@
+# Cloudflare Pages — cabeceras
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://static.cloudflareinsights.com; connect-src 'self' https://leadprime.chyrris.com https://cloudflareinsights.com; form-action 'self' https://leadprime.chyrris.com; frame-ancestors 'self'; upgrade-insecure-requests
+# Nota: al activar un widget de booking embebido, añadir su host a frame-src/connect-src.
+
+/assets/img/*
+  Cache-Control: public, max-age=604800
+
+/assets/css/*
+  Cache-Control: public, max-age=86400
+
+/assets/js/*
+  Cache-Control: public, max-age=86400
