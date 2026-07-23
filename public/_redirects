@@ -3,3 +3,7 @@
 /programs   /#rutas   301
 /home       /         301
 /index.html /         301
+
+# Clean-URLs para páginas legales (Cloudflare también las sirve sin .html)
+/privacidad /privacidad.html 200
+/terminos   /terminos.html   200

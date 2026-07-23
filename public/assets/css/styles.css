@@ -250,6 +250,7 @@ h1 em, h2 em, h3 em, .ital { font-style: italic; font-weight: 400; }
   font-size: 3.6em; line-height: 0.82; padding: 6px 14px 0 0; color: var(--gold);
 }
 .advantage .hl { color: var(--cream); }
+.body-note { color: var(--body-dim); font-size: 0.9rem; line-height: 1.65; margin: 16px 0 0; font-style: italic; }
 .advantage .goldtx { color: var(--gold-bright); }
 
 .figures { border-top: 1px solid var(--line); }
@@ -402,6 +403,96 @@ h1 em, h2 em, h3 em, .ital { font-style: italic; font-weight: 400; }
 .deal__label { margin: 26px auto 0; max-width: 680px; text-align: center; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--body-dim); line-height: 2; }
 .deal__scroll { overflow-x: auto; padding: 0 4px; }
 
+/* ---------- Figura: fuente del dato ---------- */
+.figure__src { display: block; font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.06em; color: var(--body-dim); margin-top: 8px; text-transform: none; }
+
+/* ---------- Deal: tabla de 3 escenarios (paper) ---------- */
+.fintable-paper {
+  position: relative; max-width: 820px; margin: 0 auto;
+  background: var(--paper); color: var(--ink-on-paper); padding: 46px 44px 40px;
+  box-shadow: 0 40px 90px -40px rgba(0,0,0,.85);
+}
+.fintable-paper::before { content: ""; position: absolute; inset: 10px; border: 1px solid var(--line-on-paper); pointer-events: none; }
+.fintable { width: 100%; border-collapse: collapse; position: relative; font-family: var(--font-sans); }
+.fintable thead th { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-on-paper); font-weight: 600; padding: 0 10px 14px; text-align: right; border-bottom: 1px solid var(--line-on-paper); }
+.fintable thead th:first-child { text-align: left; }
+.fintable thead th.esp { color: var(--gold-deep); }
+.fintable td, .fintable th.rowh { padding: 11px 10px; font-size: 0.92rem; }
+.fintable th.rowh { text-align: left; font-weight: 400; color: var(--muted-on-paper); }
+.fintable td { text-align: right; font-family: var(--font-mono); color: var(--ink-on-paper); }
+.fintable td.esp, .fintable thead th.esp { background: rgba(197,163,90,.10); }
+.fintable tbody tr { border-bottom: 1px dotted rgba(22,38,63,.2); }
+.fintable tr.r-sub th.rowh, .fintable tr.r-sub td { font-weight: 600; color: var(--ink-on-paper); border-top: 1px solid rgba(22,38,63,.35); }
+.fintable tr.r-crew th.rowh, .fintable tr.r-crew td { font-style: italic; color: var(--muted-on-paper); font-size: 0.86rem; }
+.fintable tr.r-total { border-bottom: 0; }
+.fintable tr.r-total th.rowh { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; color: var(--ink-on-paper); border-top: 2px solid var(--ink-on-paper); padding-top: 16px; }
+.fintable tr.r-total td { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--gold-deep); border-top: 2px solid var(--ink-on-paper); padding-top: 16px; }
+.fintable tr.r-total td.esp { color: var(--gold-deep); }
+
+/* Mobile: tarjetas apiladas por escenario */
+.fincards { display: none; }
+.fincard { background: var(--paper); color: var(--ink-on-paper); padding: 26px 24px; margin-bottom: 16px; position: relative; }
+.fincard--esp { outline: 2px solid var(--gold); outline-offset: -2px; }
+.fincard__badge { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-deep); }
+.fincard__badge.is-esp { color: var(--ink-on-paper); background: var(--gold); padding: 3px 9px; border-radius: 2px; }
+.fincard h4 { font-family: var(--font-display); font-style: italic; font-size: 1.5rem; color: var(--ink-on-paper); margin: 6px 0 16px; }
+.fincard dl { margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 9px 12px; }
+.fincard dt { color: var(--muted-on-paper); font-size: 0.9rem; }
+.fincard dd { margin: 0; font-family: var(--font-mono); font-size: 0.9rem; color: var(--ink-on-paper); text-align: right; }
+.fincard .r-sub dt, .fincard .r-sub dd { font-weight: 600; }
+.fincard__total { margin-top: 16px; padding-top: 14px; border-top: 2px solid var(--ink-on-paper); display: flex; justify-content: space-between; align-items: baseline; }
+.fincard__total span { font-family: var(--font-display); font-style: italic; font-size: 1rem; }
+.fincard__total b { font-family: var(--font-display); font-size: 1.4rem; color: var(--gold-deep); }
+
+/* Bloques de texto del deal */
+.deal-notes { max-width: 820px; margin: 34px auto 0; display: grid; gap: 18px; }
+.deal-note { border-left: 2px solid var(--gold-line); padding: 4px 0 4px 20px; }
+.deal-note b { color: var(--cream); font-weight: 600; }
+.deal-note p { margin: 0; color: var(--body); font-size: 0.98rem; line-height: 1.7; }
+
+@media (max-width: 768px) {
+  .fintable-paper { display: none; }
+  .fincards { display: block; max-width: 460px; margin: 0 auto; }
+}
+
+/* ---------- Nota ruta Express (proceso) ---------- */
+.express-note { max-width: 720px; margin: 40px auto 0; padding: 20px 24px; border: 1px solid var(--gold-line-soft); border-left: 3px solid var(--gold); background: var(--gold-faint); }
+.express-note b { color: var(--gold-bright); font-weight: 600; }
+.express-note p { margin: 0; color: var(--body); font-size: 0.96rem; line-height: 1.7; }
+
+/* ---------- No es para ti si… ---------- */
+.notforyou { border: 1px solid var(--line); background: linear-gradient(180deg, var(--ink-0), var(--ink-1)); }
+.notforyou__box { max-width: 760px; margin: 0 auto; border: 1px solid rgba(217,141,117,.28); border-radius: 2px; padding: 44px 46px; background: rgba(163,74,58,.06); }
+.notforyou h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); text-align: center; margin-bottom: 30px; }
+.nfy { display: flex; gap: 16px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--line); color: var(--body); font-size: 1.02rem; }
+.nfy:last-of-type { border-bottom: 0; }
+.nfy__x { flex: none; width: 24px; height: 24px; border-radius: 50%; border: 1px solid rgba(217,141,117,.5); color: #d98d75; display: grid; place-items: center; font-size: 13px; margin-top: 1px; }
+.notforyou__close { text-align: center; margin: 30px auto 0; font-family: var(--font-display); font-style: italic; font-size: 1.2rem; color: var(--cream); }
+
+/* ---------- FAQ (acordeón nativo <details>) ---------- */
+.faq-wrap { max-width: 780px; margin: 0 auto; border-top: 1px solid var(--line); }
+.faq { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; padding: 24px 44px 24px 4px; position: relative; font-family: var(--font-display); font-size: 1.2rem; color: var(--cream); transition: color 0.2s var(--ease); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-family: var(--font-sans); font-size: 1.5rem; color: var(--gold); transition: transform 0.3s var(--ease); }
+.faq[open] summary::after { content: "–"; }
+.faq summary:hover { color: var(--gold-bright); }
+.faq__a { padding: 0 44px 26px 4px; color: var(--body); font-size: 1rem; line-height: 1.75; margin: 0; }
+
+/* ---------- Consentimiento del quiz ---------- */
+.consent { margin: 22px 0 0; font-size: 0.8rem; line-height: 1.6; color: var(--body-dim); }
+
+/* ---------- WhatsApp secundario ---------- */
+.wa-cta { text-align: center; margin: 26px auto 0; }
+.wa-link { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--body-dim); border-bottom: 1px solid transparent; padding-bottom: 3px; }
+.wa-link:hover { color: var(--gold-bright); border-bottom-color: var(--gold-line); }
+.wa-link svg { width: 16px; height: 16px; fill: currentColor; }
+
+/* ---------- Footer institucional ---------- */
+.footer__legal { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; color: var(--body-dim); opacity: 0.8; line-height: 2; text-transform: uppercase; margin: 6px 0 0; }
+.footer__legal a { color: var(--body-dim); }
+.footer__legal a:hover { color: var(--gold-bright); }
+
 /* ---------- Quiz ---------- */
 .quiz-wrap { max-width: 720px; margin: 0 auto; }
 .quiz {
@@ -542,6 +633,18 @@ h1 em, h2 em, h3 em, .ital { font-style: italic; font-weight: 400; }
 .footer__links a:hover { color: var(--gold-bright); }
 .footer__meta { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--body-dim); opacity: 0.7; line-height: 2.2; }
 .footer__rule { width: 48px; height: 1px; background: var(--gold-line); border: 0; margin: 0; }
+
+/* ---------- Páginas legales ---------- */
+.legal-page { padding: 140px 0 90px; }
+.legal-page .container { max-width: 760px; }
+.legal-page a.back { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--body-dim); }
+.legal-page h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 22px 0 6px; }
+.legal-page .updated { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.08em; color: var(--body-dim); text-transform: uppercase; }
+.legal-page .review-flag { margin: 24px 0 40px; padding: 16px 20px; border: 1px solid var(--gold-line); background: var(--gold-faint); color: var(--gold-bright); font-size: 0.9rem; border-radius: 2px; }
+.legal-page h2 { font-size: 1.4rem; margin: 40px 0 12px; color: var(--cream); }
+.legal-page p, .legal-page li { color: var(--body); font-size: 1rem; line-height: 1.75; }
+.legal-page ul { padding-left: 20px; }
+.legal-page li { margin-bottom: 8px; }
 
 /* ---------- noscript ---------- */
 .noscript-note {
