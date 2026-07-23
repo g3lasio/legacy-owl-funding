@@ -273,3 +273,33 @@ render sin JS con todas las secciones a opacity:1; `patrimonio` ×9 en el HTML;
 0 Kiavi / 0 "0wl" / 0 precios de membresía; "el lender" solo aparece 2 veces y
 ambas en la negación "no es el lender"; copy exacto de las 4 pantallas de
 resultado intacto en `quiz.js`.
+
+---
+
+## 10. ADDENDUM — Activos visuales (elevar el valor percibido)
+
+A petición de Gelasio ("una página de $10k debería incluir imágenes/mockups/logo"),
+se añadieron activos de alta artesanía **construidos a medida** (sin stock genérico):
+
+1. **Marca / logotipo — búho heráldico** (`public/assets/img/brand/owl-mark.svg`):
+   búho geométrico en oro (une Owl Funding / Owl Fenc). Integrado en header, footer
+   y como marca de agua del hero. Regenerados **favicon** (SVG + PNG 32/180/192/512)
+   y **OG image** con el búho + wordmark Fraunces en oro degradado.
+2. **Diagrama de capital stack** (`assets/img/brand/capital-stack.svg`): infografía
+   que explica el financiamiento (compra hasta 90% + enganche 10% + rehab 100%,
+   "estructurado por Owl Funding · no es el lender"). Integrado en "Las 3 vías".
+3. **Mockup del dashboard de LeadPrime** (`assets/img/brand/leadprime-dashboard.png`,
+   diseñado en HTML y renderizado a PNG): pipeline "Owl Funding" con el lead del quiz
+   (Juan Prueba · ruta EXPRESS · tags legacy/crew_propia · fuente legacy.chyrris.com).
+   Montado en un marco de navegador dentro de "Quién está detrás" — prueba visual de
+   que el ecosistema es real. Etiquetado "ejemplo ilustrativo · datos de muestra".
+4. **Prompt pack de fotografía** (`/ASSETS_PROMPTS.md`): brief creativo + prompts
+   (Midjourney y ChatGPT/DALL·E) para los 5 activos que **requieren cámara o generador
+   de imágenes** (hero crew, crew en rehab, retrato real de Gelasio, antes/después,
+   casa terminada), con dirección de arte, tamaños, nombres de archivo y bloques
+   HTML "drop-in" ya maquetados y comentados en `index.html` (busca `FOTO #2/#3/#4`).
+   El CSS (`.media/.portrait/.duo`) ya está listo; solo faltan los archivos.
+
+**Re-verificado tras los activos:** E2E 4/4 rutas, render sin JS completo, greps en
+cero, sin imágenes rotas (el dashboard usa `loading="lazy"`). El sitio sigue sin
+precios de membresía y sin menciones a competidores.
