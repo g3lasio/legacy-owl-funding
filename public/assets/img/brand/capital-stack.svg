@@ -4,30 +4,23 @@
       <stop offset="0" stop-color="#8f7136"/><stop offset=".5" stop-color="#c5a35a"/><stop offset="1" stop-color="#d8b662"/>
     </linearGradient>
   </defs>
-
-  <!-- bracket superior: TU PRIMER PROYECTO -->
   <path d="M250 44 L250 30 L900 30 L900 44" stroke="rgba(197,163,90,.4)" stroke-width="1"/>
   <text x="575" y="20" fill="#c5a35a" font-size="13" letter-spacing="4" text-anchor="middle">TU PRIMER PROYECTO</text>
 
-  <!-- Row 1: LA COMPRA -->
   <text x="0" y="92" fill="#f4efe2" font-family="'Fraunces', serif" font-size="24" font-style="italic">La compra</text>
-  <text x="0" y="114" fill="#74869c" font-size="11" letter-spacing="2">VÍA I · VÍA III</text>
-  <!-- 90% financed -->
+  <text x="0" y="114" fill="#74869c" font-size="11" letter-spacing="1.5">FINANCIAMIENTO + ENGANCHE</text>
   <rect x="250" y="60" width="520" height="58" rx="2" fill="url(#gold)"/>
   <text x="270" y="95" fill="#1a1206" font-size="15" font-weight="600" letter-spacing="1">HASTA 90% · FINANCIADO POR OWL FUNDING</text>
-  <!-- 10% enganche -->
   <rect x="774" y="60" width="126" height="58" rx="2" fill="none" stroke="rgba(197,163,90,.55)" stroke-width="1" stroke-dasharray="4 4"/>
   <text x="837" y="86" fill="#c5a35a" font-size="12" font-weight="600" text-anchor="middle">10%</text>
   <text x="837" y="103" fill="#74869c" font-size="9.5" letter-spacing="1" text-anchor="middle">ENGANCHE</text>
 
-  <!-- Row 2: LA REMODELACIÓN -->
   <text x="0" y="184" fill="#f4efe2" font-family="'Fraunces', serif" font-size="24" font-style="italic">La remodelación</text>
-  <text x="0" y="206" fill="#74869c" font-size="11" letter-spacing="2">VÍA II</text>
+  <text x="0" y="206" fill="#74869c" font-size="11" letter-spacing="1.5">FINANCIADA AL 100%</text>
   <rect x="250" y="152" width="650" height="58" rx="2" fill="url(#gold)"/>
   <text x="270" y="187" fill="#1a1206" font-size="15" font-weight="600" letter-spacing="1">100% DEL REHAB · FINANCIADO POR OWL FUNDING</text>
 
-  <!-- brace derecho / estructurador -->
   <path d="M250 240 L250 254 L900 254 L900 240" stroke="rgba(197,163,90,.4)" stroke-width="1"/>
   <text x="575" y="278" fill="#c5a35a" font-size="12" letter-spacing="3" text-anchor="middle">ESTRUCTURADO POR OWL FUNDING</text>
-  <text x="575" y="298" fill="#74869c" font-size="11" letter-spacing="1.5" text-anchor="middle">con socios de capital institucional · no es el lender</text>
+  <text x="575" y="298" fill="#74869c" font-size="11" letter-spacing="1.5" text-anchor="middle">con socios de capital institucional · no es el prestamista</text>
 </svg>

@@ -303,3 +303,43 @@ se añadieron activos de alta artesanía **construidos a medida** (sin stock gen
 **Re-verificado tras los activos:** E2E 4/4 rutas, render sin JS completo, greps en
 cero, sin imágenes rotas (el dashboard usa `loading="lazy"`). El sitio sigue sin
 precios de membresía y sin menciones a competidores.
+
+---
+
+## 11. ADDENDUM — Logo oficial + reestructura de mensaje (feedback de Gelasio)
+
+**Logo oficial.** Gelasio subió el logo oficial (L con destello azul + wordmark
+"LEGACY by LeadPrime") a `main`. Como venía en navy sobre fondo blanco, se procesó
+(numpy/PIL) en variantes limpias para web:
+- `logo-color.png` (transparente, colores originales) — para fondos claros.
+- `logo-light.png` / `logo-mark-light.png` (recoloreado a crema conservando el orbe
+  azul) — para fondos oscuros (header, footer, hero, OG).
+- Favicon (32/180/192/512) y **OG image** regenerados con el logo oficial.
+- Integrado: marca "L" en el header, lockup completo en el footer, marca de agua en
+  el hero. Se retiraron los assets del búho anterior (`owl-mark.svg`, `favicon.svg`).
+- El archivo fuente permanece en la raíz del repo (fuera de `public/`, no se sirve).
+
+**Reestructura de copy/UX (7 mejoras solicitadas):**
+1. **Nueva sección "Qué incluye tu membresía Legacy"** — 8 servicios (plan financiero,
+   preparación de crédito, análisis de propiedades, estructuración del financiamiento,
+   presupuesto de remodelación, acompañamiento, estrategia de venta/refi, acceso a
+   LeadPrime) + nota "membresía con inversión mensual, sujeto a aprobación".
+2. **Contradicción "no calificas" resuelta** — se quitó la promesa absoluta; ahora
+   "nadie se queda sin un camino" + Escalera reformulada ("si aún no estás listo, te
+   mostramos qué construir para llegar").
+3. **"Las 3 vías" → "Cómo se cubre el capital de tu proyecto"** con sub-etiquetas
+   claras (financiamiento de compra / de remodelación / estrategia para el enganche);
+   diagrama actualizado.
+4. **Nueva sección "Cómo funciona · Legacy en 3 pasos"** ANTES de las 4 rutas, para
+   explicar el programa antes de introducir nombres de rutas.
+5. **Glosario ES para jargon** — flip, cuadrilla (crew), rehab, prestamista (lender),
+   nivel/tier, incorporación (onboarding) explicados en primer uso.
+6. **Deal de ejemplo transparente** — desglose completo: lista $525k · oferta $430k ·
+   remodelación $60k · costos fin. y cierre (est.) $36k · inversión total $526k ·
+   ARV $640k · **ganancia antes de impuestos ~$114k**.
+7. **Quiz coherente** — "4 preguntas + tus datos · menos de 2 minutos"; contadores
+   "Pregunta N de 4" + "Último paso · Tus datos".
+Además, **hero reescrito** con el encabezado propuesto por Gelasio.
+
+**Re-verificado:** E2E 4/4 rutas (0 errores JS), render sin JS completo, `patrimonio`
+×11, 0 Kiavi, 0 precios de membresía, "lender" solo como glosa "(lender)".

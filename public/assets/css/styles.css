@@ -90,6 +90,9 @@ h1 em, h2 em, h3 em, .ital { font-style: italic; font-weight: 400; }
 
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
 
+/* Glosa: traducción de un término al vuelo */
+.gloss { color: var(--body-dim); font-style: italic; }
+
 /* Oro líquido en texto (gradiente champagne) */
 .gilt {
   background: linear-gradient(100deg, var(--gold-deep) 0%, var(--gold) 28%, var(--gold-bright) 50%, var(--gold) 72%, var(--gold-deep) 100%);
@@ -172,9 +175,9 @@ h1 em, h2 em, h3 em, .ital { font-style: italic; font-weight: 400; }
 }
 .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 
-.wordmark { display: flex; align-items: center; gap: 12px; line-height: 1; }
-.wordmark__owl { width: 38px; height: 38px; flex: none; }
-.site-footer .wordmark__owl { width: 34px; height: 34px; }
+.wordmark { display: flex; align-items: center; gap: 11px; line-height: 1; }
+.wordmark__logo { height: 40px; width: auto; flex: none; }
+.footer__logo { height: 76px; width: auto; }
 .wordmark__name {
   font-family: var(--font-display); font-style: italic; font-weight: 500;
   font-size: 1.7rem; color: var(--cream); letter-spacing: 0.01em;
@@ -210,18 +213,21 @@ h1 em, h2 em, h3 em, .ital { font-style: italic; font-weight: 400; }
     radial-gradient(900px 600px at -10% 30%, rgba(197, 163, 90, 0.05), transparent 55%),
     linear-gradient(180deg, var(--ink-0), var(--ink-1) 70%);
 }
-.hero__owl {
-  position: absolute; top: 8%; right: -6%;
-  width: clamp(300px, 44vw, 620px); height: auto;
-  opacity: 0.06; pointer-events: none; user-select: none;
+.hero__logo {
+  position: absolute; top: 10%; right: -4%;
+  width: clamp(260px, 38vw, 540px); height: auto;
+  opacity: 0.07; pointer-events: none; user-select: none;
 }
 .hero .container { position: relative; z-index: 2; }
 .hero__inner { max-width: 940px; }
-.hero h1 { font-size: clamp(2.6rem, 6.2vw, 4.7rem); font-weight: 380; }
+.hero__kicker { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: clamp(1.15rem, 2.4vw, 1.6rem); color: var(--gold-bright); margin: 0 0 18px; }
+.hero h1 { font-size: clamp(2.4rem, 5.6vw, 4.2rem); font-weight: 380; }
 .hero h1 .gilt { font-style: italic; }
 .hero h1 em { color: var(--cream); }
-.hero__sub { color: var(--body); font-size: clamp(1.05rem, 1.9vw, 1.22rem); line-height: 1.75; margin: 34px 0 0; max-width: 660px; }
-.hero__cta { margin-top: 48px; display: flex; flex-wrap: wrap; align-items: center; gap: 26px; }
+.hero__sub { color: var(--body); font-size: clamp(1.05rem, 1.9vw, 1.22rem); line-height: 1.75; margin: 30px 0 0; max-width: 680px; }
+.hero__fin { margin: 20px 0 0; max-width: 620px; font-size: 0.98rem; color: var(--body-dim); padding-left: 18px; border-left: 2px solid var(--gold-line); }
+.hero__fin b { color: var(--cream); font-weight: 600; }
+.hero__cta { margin-top: 42px; display: flex; flex-wrap: wrap; align-items: center; gap: 26px; }
 .hero__note { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; color: var(--body-dim); text-transform: uppercase; }
 
 /* Franja de datos al pie del hero — filetes, no "badges" */
@@ -251,6 +257,25 @@ h1 em, h2 em, h3 em, .ital { font-style: italic; font-weight: 400; }
 .figure__value { font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 4rem); font-weight: 380; line-height: 1; }
 .figure__value--ital { font-style: italic; color: var(--cream); }
 .figure__label { font-family: var(--font-mono); font-size: 0.64rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--body-dim); margin-top: 14px; line-height: 1.9; }
+
+/* ---------- Cómo funciona (3 pasos) ---------- */
+.steps3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
+.step3 { padding: 42px 40px 20px; border-right: 1px solid var(--line); position: relative; }
+.step3:first-child { padding-left: 0; }
+.step3:last-child { border-right: 0; padding-right: 0; }
+.step3__n { font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: 3.4rem; line-height: 1; color: var(--gold); }
+.step3 h3 { font-size: 1.5rem; margin: 18px 0 12px; }
+.step3 p { color: var(--body); margin: 0; font-size: 1rem; line-height: 1.7; }
+.step3 p .gloss { color: var(--body-dim); font-style: italic; }
+
+/* ---------- Qué incluye la membresía ---------- */
+.includes { display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; border-top: 1px solid var(--line); }
+.inc { display: flex; align-items: flex-start; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.inc__mk { flex: none; width: 26px; height: 26px; border: 1px solid var(--gold-line); border-radius: 50%; display: grid; place-items: center; color: var(--gold); font-size: 13px; margin-top: 2px; }
+.inc__tx b { color: var(--cream); font-weight: 600; display: block; font-size: 1.04rem; }
+.inc__tx span { color: var(--body-dim); font-size: 0.92rem; }
+.includes-note { margin: 44px auto 0; max-width: 680px; text-align: center; color: var(--body); font-size: 1rem; line-height: 1.7; }
+.includes-note b { color: var(--gold-bright); font-weight: 600; }
 
 /* ---------- Capital stack diagram ---------- */
 .capital-stack { margin: 0 0 72px; padding: 0; }
