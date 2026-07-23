@@ -171,3 +171,16 @@ vectorial exactos que pide el brief. Sin la fuente vectorial no es responsable r
 ---
 
 **LISTO PARA VALIDACIÓN VISUAL DE GELASIO**
+
+---
+
+## 7. ADDENDUM — WhatsApp activado + logo oficial (dark master)
+
+- **WhatsApp:** activado con el número **+1 202 549 3519** → `https://wa.me/12025493519?text=Hola%2C%20tengo%20preguntas%20sobre%20el%20programa%20Legacy.`. El botón secundario bajo el quiz ya no está oculto. (Pendiente #1 del §6 resuelto.)
+- **Logo oficial:** Gelasio subió la versión **en cromo sobre fondo oscuro** (`ChatGPT Image … 11_51_21 PM.png`, calidad nativa para fondos oscuros). Se procesó a **PNG transparente** (flood-fill del fondo navy) y se integró como **master oficial**:
+  - `logo-official.png` (lockup completo) → footer y OG.
+  - `logo-official-mark.png` (marca "L") → header y marca de agua del hero.
+  - **OG image regenerada** con el lockup oficial.
+  - Se retiraron las variantes recoloreadas anteriores (`logo-light/-mark-light`, `logo-color/-mark-color`).
+  - Favicon: se conserva la **silueta blanca** (más legible a 32px). Mono navy/blanco disponibles.
+  - Esto resuelve el pendiente #5 del §6 para uso en pantalla (dark). El vector plano escalable sigue requiriendo el archivo vectorial (SVG/AI) si se necesita impresión/escalado extremo.
