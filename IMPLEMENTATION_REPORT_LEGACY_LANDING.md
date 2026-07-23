@@ -238,3 +238,38 @@ de `/` y assets, greps de cumplimiento (0 precios de membresía, 0 Kiavi, 0 "0wl
 ---
 
 **LISTO PARA VALIDACIÓN VISUAL DE GELASIO**
+
+---
+
+## 9. ADDENDUM — Rediseño visual v2 ("banca privada editorial")
+
+A petición de Gelasio, rediseño completo del sistema visual manteniendo intactos
+el copy exacto del brief, el orden de secciones, la lógica del quiz y todas las
+reglas de mensajería. Cambios:
+
+- **Tipografía:** Fraunces (display serif de alto contraste, itálica caligráfica
+  para acentos como *Legacy* y *patrimonio para ti*) + Instrument Sans (texto) +
+  Spline Sans Mono (etiquetas, navegación, datos tipo term-sheet).
+- **Color:** tinta profunda (#04080F–#142740) + papel marfil (#F4EEDF) en dos
+  secciones ("¿Quién califica?" y el term sheet) + oro champagne en gradiente
+  (#8F7136→#C5A35A→#ECDCAB) aplicado como "oro líquido" en texto clave.
+- **Lenguaje de componentes:** filetes (hairlines) en lugar de cajas; numerales
+  romanos I/II/III en las 3 vías; numerales de sección como marca de agua
+  (01–06) con trazo dorado; tarjetas de ruta con esquinas doradas; botones
+  rectangulares tipo sastrería (uppercase + tracking) con barrido de luz al
+  hover; grano de película global; monograma "L" gigante en el hero.
+- **Deal de ejemplo** rediseñado como *term sheet* impreso en papel: doble
+  marco, filas con puntilleo contable, cifras en mono, y sello girado
+  "EJEMPLO ILUSTRATIVO" en tinta roja.
+- **Quiz** rediseñado: card con doble borde, opciones como filas de examen con
+  marcador A/B/C serif (checked → dorado), campos con subrayado fino, progreso
+  como línea dorada. Misma estructura DOM/IDs — `quiz.js` intacto salvo una
+  clase tipográfica en la nota del resultado.
+- **OG image v2** regenerada con la nueva dirección de arte (oro en gradiente
+  sobre el wordmark, doble marco con ticks de esquina).
+
+**Re-verificado tras el rediseño:** E2E Chromium 4/4 rutas (móvil, 0 errores JS);
+render sin JS con todas las secciones a opacity:1; `patrimonio` ×9 en el HTML;
+0 Kiavi / 0 "0wl" / 0 precios de membresía; "el lender" solo aparece 2 veces y
+ambas en la negación "no es el lender"; copy exacto de las 4 pantallas de
+resultado intacto en `quiz.js`.

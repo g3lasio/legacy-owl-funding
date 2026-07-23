@@ -211,7 +211,7 @@
         resultCta.appendChild(book);
       } else {
         var note = document.createElement("p");
-        note.style.cssText = "color:var(--cream);font-weight:500;margin:0;";
+        note.className = "result__note";
         note.textContent = "Recibimos tus datos. Te contactamos en menos de 24 horas para agendar tu llamada de evaluación.";
         resultCta.appendChild(note);
       }
