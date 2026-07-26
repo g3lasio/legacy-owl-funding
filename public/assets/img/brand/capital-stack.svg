@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 320" fill="none" font-family="'Spline Sans Mono', monospace" role="img" aria-label="Diagrama: la compra se financia hasta 90% y la remodelación 100%, estructurado por Owl Funding; el enganche 10% se resuelve según tu perfil.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 320" fill="none" font-family="'Spline Sans Mono', monospace" role="img" aria-label="Diagrama ilustrativo: hasta 90% de la compra y hasta 100% de la remodelación mediante financiamiento de terceros; el capital de entrada depende del perfil.">
   <defs>
     <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#8f7136"/><stop offset=".5" stop-color="#c5a35a"/><stop offset="1" stop-color="#d8b662"/>
@@ -10,15 +10,15 @@
   <text x="0" y="92" fill="#f4efe2" font-family="'Fraunces', serif" font-size="24" font-style="italic">La compra</text>
   <text x="0" y="114" fill="#74869c" font-size="11" letter-spacing="1.5">FINANCIAMIENTO + ENGANCHE</text>
   <rect x="250" y="60" width="520" height="58" rx="2" fill="url(#gold)"/>
-  <text x="270" y="95" fill="#1a1206" font-size="15" font-weight="600" letter-spacing="1">HASTA 90% · FINANCIADO POR OWL FUNDING</text>
+  <text x="270" y="95" fill="#1a1206" font-size="15" font-weight="600" letter-spacing="1">HASTA 90% · FINANCIAMIENTO DE TERCEROS</text>
   <rect x="774" y="60" width="126" height="58" rx="2" fill="none" stroke="rgba(197,163,90,.55)" stroke-width="1" stroke-dasharray="4 4"/>
   <text x="837" y="86" fill="#c5a35a" font-size="12" font-weight="600" text-anchor="middle">10%</text>
   <text x="837" y="103" fill="#74869c" font-size="9.5" letter-spacing="1" text-anchor="middle">ENGANCHE</text>
 
   <text x="0" y="184" fill="#f4efe2" font-family="'Fraunces', serif" font-size="24" font-style="italic">La remodelación</text>
-  <text x="0" y="206" fill="#74869c" font-size="11" letter-spacing="1.5">FINANCIADA AL 100%</text>
+  <text x="0" y="206" fill="#74869c" font-size="11" letter-spacing="1.5">HASTA 100%</text>
   <rect x="250" y="152" width="650" height="58" rx="2" fill="url(#gold)"/>
-  <text x="270" y="187" fill="#1a1206" font-size="15" font-weight="600" letter-spacing="1">100% DEL REHAB · FINANCIADO POR OWL FUNDING</text>
+  <text x="270" y="187" fill="#1a1206" font-size="15" font-weight="600" letter-spacing="1">HASTA 100% · FINANCIAMIENTO DE TERCEROS</text>
 
   <path d="M250 240 L250 254 L900 254 L900 240" stroke="rgba(197,163,90,.4)" stroke-width="1"/>
   <text x="575" y="278" fill="#c5a35a" font-size="12" letter-spacing="3" text-anchor="middle">ESTRUCTURADO POR OWL FUNDING</text>

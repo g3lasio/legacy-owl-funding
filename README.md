@@ -34,8 +34,8 @@ wrangler.toml               # pages_build_output_dir = "public"
 - Proyecto de Pages conectado a `g3lasio/legacy-owl-funding`.
 - **Build command:** *(vacío)* · **Build output directory:** `public`
 - Dominio: `legacy.chyrris.com`.
-- Insertar el token real de **Cloudflare Web Analytics** en `public/index.html`
-  (placeholder `REPLACE_WITH_CLOUDFLARE_WEB_ANALYTICS_TOKEN`).
+- Cloudflare Web Analytics puede activarse desde el panel del proyecto cuando
+  exista un token de producción; el HTML no publica credenciales de ejemplo.
 
 ## El Quiz Router
 
