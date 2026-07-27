@@ -4,47 +4,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Legacy by LeadPrime — Construye patrimonio, no solo casas</title>
-  <meta name="description" content="Un sistema para contratistas que quieren pasar de ejecutar remodelaciones para otros a participar en su propio proyecto de inversión. Evaluación, estructura financiera y acompañamiento. Sujeto a aprobación." />
-  <meta name="keywords" content="Legacy by LeadPrime, Owl Funding, inversión inmobiliaria, flip, construcción, patrimonio, financiamiento de compra y remodelación, membresía, LeadPrime" />
+  <meta name="description" content="Un sistema para contratistas que quieren convertir su experiencia y su cuadrilla en su propio proyecto de inversión inmobiliaria. Sujeto a evaluación y aprobación." />
+  <meta name="keywords" content="Legacy by LeadPrime, Owl Funding, contratistas, inversión inmobiliaria, remodelación, patrimonio, financiamiento" />
   <meta name="author" content="Legacy by LeadPrime" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://legacy.chyrris.com/" />
   <meta name="theme-color" content="#060d19" />
 
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Legacy by LeadPrime" />
-  <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale" content="es_US" />
   <meta property="og:url" content="https://legacy.chyrris.com/" />
   <meta property="og:title" content="Legacy by LeadPrime — Construye patrimonio, no solo casas" />
-  <meta property="og:description" content="Convierte tu experiencia en construcción en tu primer proyecto de inversión. Hasta 90% de la compra y 100% de la remodelación. Membresía sujeta a aprobación." />
+  <meta property="og:description" content="Convierte tu experiencia como contratista en una ruta clara hacia tu propio proyecto de inversión." />
   <meta property="og:image" content="https://legacy.chyrris.com/assets/img/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Legacy by LeadPrime" />
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Legacy by LeadPrime — Construye patrimonio, no solo casas" />
-  <meta name="twitter:description" content="Hasta 90% de la compra y 100% de la remodelación. Membresía sujeta a aprobación." />
+  <meta name="twitter:description" content="Una ruta para pasar de contratista a dueño de tu propio proyecto." />
   <meta name="twitter:image" content="https://legacy.chyrris.com/assets/img/og-image.png" />
 
-  <!-- Favicon -->
   <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="icon" href="/assets/img/icon-192.png" sizes="192x192" type="image/png" />
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
-
-  <!-- Tipografía: Fraunces (display) · Instrument Sans (texto) · Spline Sans Mono (datos) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Spline+Sans+Mono:wght@400..600&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="/assets/css/styles.css" />
   <script src="/assets/js/head.js"></script>
 </head>
-<body>
-
-  <!-- ================= HEADER ================= -->
+<body class="v4">
   <header class="site-header" id="siteHeader">
     <div class="container">
       <a class="wordmark" href="#top" aria-label="Legacy by LeadPrime — inicio">
@@ -53,473 +44,244 @@
         <span class="wordmark__by">by LeadPrime</span>
       </a>
       <nav class="site-nav" aria-label="Secciones">
-        <a href="#como">Cómo funciona</a>
-        <a href="#ejemplo">Ejemplo</a>
-        <a href="#incluye">Qué incluye</a>
-        <a href="#faq">Preguntas</a>
+        <a href="#como" data-i18n="nav.how">Cómo funciona</a>
+        <a href="#ejemplo" data-i18n="nav.example">Ejemplo</a>
+        <a href="#respaldo" data-i18n="nav.trust">Quién te respalda</a>
       </nav>
-      <a class="btn btn--gold header-cta" href="#quiz">Descubre tu ruta</a>
+      <div class="header-actions">
+        <div class="language-switch" role="group" aria-label="Idioma">
+          <button type="button" class="language-switch__option is-active" data-lang="es" aria-pressed="true">ES</button>
+          <button type="button" class="language-switch__option" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="btn btn--gold header-cta" href="#quiz" data-i18n="cta.route">Descubre tu ruta</a>
+      </div>
     </div>
   </header>
 
   <main id="top">
-
-    <!-- ================= HERO ================= -->
-    <section class="hero" id="hero">
-      <div class="hero__photo" role="img" aria-label="Cuadrilla de contratistas trabajando en la remodelación de una vivienda"></div>
+    <section class="hero hero--simple" id="hero">
+      <div class="hero__photo" role="img" aria-label="Cuadrilla de contratistas trabajando en una remodelación"></div>
       <div class="hero__veil" aria-hidden="true"></div>
       <div class="container">
         <div class="hero__inner">
-          <p class="eyebrow">Legacy by LeadPrime · Para contratistas en California</p>
-          <h1>Ya construyes casas para otros. <em class="gilt">Ahora construye patrimonio para ti.</em></h1>
-          <p class="hero__sub">Legacy convierte tu experiencia, tu cuadrilla y tu disciplina de obra en una ruta clara hacia tu propio proyecto de inversión inmobiliaria.</p>
-          <div class="hero__promise">
-            <span>Evaluamos la oportunidad</span>
-            <span>Estructuramos el financiamiento</span>
-            <span>Te acompañamos hasta la salida</span>
-          </div>
+          <p class="eyebrow" data-i18n="hero.eyebrow">Para contratistas que ya saben ejecutar</p>
+          <h1 data-i18n-html="hero.title">Deja de construir patrimonio para otros. <em class="gilt">Empieza a construir el tuyo.</em></h1>
+          <p class="hero__sub" data-i18n="hero.sub">Legacy te ayuda a analizar, financiar y ejecutar tu propio proyecto de inversión usando la experiencia y la cuadrilla que ya tienes.</p>
           <div class="hero__cta">
-            <a class="btn btn--gold btn--lg" href="#quiz">Descubre tu ruta →</a>
-            <span class="hero__note">4 preguntas · Menos de 2 minutos · Sin compromiso</span>
+            <a class="btn btn--gold btn--lg" href="#quiz" data-i18n="cta.check">Quiero saber si califico →</a>
+            <a class="text-link" href="#como" data-i18n="cta.learn">Ver cómo funciona ↓</a>
           </div>
-          <p class="hero__legal">Programa de membresía sujeto a evaluación y aprobación. El financiamiento depende del solicitante, la propiedad y el prestamista.</p>
+          <p class="hero__legal" data-i18n="hero.legal">Evaluación sin costo · 4 preguntas · Menos de 2 minutos</p>
         </div>
-        <div class="hero__stats">
-          <div class="hstat"><div class="hstat__value gilt">Hasta 90%</div><div class="hstat__label">de la compra*</div></div>
-          <div class="hstat"><div class="hstat__value gilt">Hasta 100%</div><div class="hstat__label">de la remodelación*</div></div>
-          <div class="hstat"><div class="hstat__value">2 salidas</div><div class="hstat__label">vender o conservar</div></div>
+        <div class="hero__stats hero__stats--simple">
+          <div class="hstat"><div class="hstat__value gilt">90%</div><div class="hstat__label" data-i18n="stat.purchase">Hasta 90% de la compra*</div></div>
+          <div class="hstat"><div class="hstat__value gilt">100%</div><div class="hstat__label" data-i18n="stat.rehab">Hasta 100% de la remodelación*</div></div>
+          <div class="hstat"><div class="hstat__value" data-i18n="stat.crew">Tu cuadrilla</div><div class="hstat__label" data-i18n="stat.advantage">Tu ventaja en el proyecto</div></div>
         </div>
-        <p class="hero__terms">*Financiamiento estructurado con terceros, sujeto a términos, evaluación y aprobación. Owl Funding no es el prestamista.</p>
+        <p class="hero__terms" data-i18n="stat.terms">*Financiamiento de terceros sujeto a evaluación, términos y aprobación. Owl Funding estructura la operación; no es el prestamista.</p>
       </div>
     </section>
 
-    <!-- ================= CÓMO FUNCIONA (3 pasos) ================= -->
-    <section class="section on-ink0" id="como">
-      <div class="container">
-        <div class="section__head section__head--center reveal">
-          <p class="eyebrow eyebrow--center">Cómo funciona</p>
-          <h2>Legacy en <em>3 pasos</em></h2>
-          <p class="lead">Una ruta sencilla de entender y rigurosa al ejecutar.</p>
-        </div>
-        <div class="steps3">
-          <div class="step3 reveal">
-            <div class="step3__n">1</div>
-            <h3>Analiza antes de comprar</h3>
-            <p>Identificas una propiedad con potencial y revisamos contigo números, alcance y salida antes de ofertar.</p>
-          </div>
-          <div class="step3 reveal">
-            <div class="step3__n">2</div>
-            <h3>Estructura y ejecuta</h3>
-            <p>Owl Funding estructura la operación con prestamistas terceros; tú remodelas con la cuadrilla que ya conoces.</p>
-          </div>
-          <div class="step3 reveal">
-            <div class="step3__n">3</div>
-            <h3>Elige tu salida</h3>
-            <p>Vendes para realizar la ganancia o, si los números lo permiten, refinancias y conservas para crear patrimonio.</p>
-          </div>
-        </div>
+    <section class="clarity-strip" aria-label="Resumen de Legacy">
+      <div class="container clarity-strip__grid">
+        <div><span>01</span><p data-i18n="clarity.one">Encuentra una propiedad con potencial.</p></div>
+        <div><span>02</span><p data-i18n="clarity.two">Revisamos los números antes de ofertar.</p></div>
+        <div><span>03</span><p data-i18n="clarity.three">Tu cuadrilla ejecuta y tú eliges la salida.</p></div>
       </div>
     </section>
 
-    <!-- ================= LA VENTAJA ================= -->
-    <section class="section advantage" id="ventaja">
-      <div class="container">
-        <span class="wm" aria-hidden="true">01</span>
-        <div class="advantage__grid">
-          <div class="advantage__copy reveal">
-            <p class="eyebrow">La ventaja que nadie más tiene</p>
-            <h2>El costo que arruina a otros inversionistas es <em class="gilt">tu ganancia.</em></h2>
-            <p class="body-xl">En un <em>flip</em>, la remodelación suele ser el costo más variable. Tú conoces la mano de obra, los tiempos y la ejecución. Esa experiencia puede proteger el margen que otros pierden en sobreprecios, coordinación y retrasos.</p>
-            <p class="body-note">El ahorro real depende del alcance del trabajo, tus costos internos, materiales, permisos y la duración del proyecto.</p>
-          </div>
-          <figure class="editorial-photo reveal">
-            <img src="/assets/img/photos/crew-craft.webp" alt="Contratista ejecutando trabajo de carpintería durante una remodelación" loading="lazy" width="1536" height="1024" />
-            <figcaption>Tu ventaja no es una teoría: es saber ejecutar.</figcaption>
-          </figure>
-          <div class="figures reveal">
-            <div class="figure">
-              <div class="figure__value gilt">Control</div>
-              <div class="figure__label">sobre costos, tiempos<br />y calidad de ejecución</div>
-            </div>
-            <div class="figure">
-              <div class="figure__value gilt">~25%</div>
-              <div class="figure__label">Margen bruto típico<br />de un flip en el mercado<span class="figure__src">Fuente: ATTOM, Reporte de Flipping Q1 2026</span></div>
-            </div>
-            <div class="figure">
-              <div class="figure__value figure__value--ital">Tu oficio</div>
-              <div class="figure__label">La ventaja operativa<br />que ya construiste.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= CÓMO SE CUBRE EL CAPITAL ================= -->
-    <section class="section on-ink0" id="capital">
-      <div class="container">
-        <span class="wm" aria-hidden="true">02</span>
-        <div class="section__head section__head--center reveal">
-          <p class="eyebrow eyebrow--center">El financiamiento</p>
-          <h2>Cómo se cubre el <em>capital</em> de tu proyecto</h2>
-          <p class="lead">Owl Funding prepara y presenta la estructura a prestamistas terceros. La aprobación final depende de tu perfil, la propiedad y sus condiciones.</p>
-        </div>
-        <figure class="capital-stack reveal">
-          <img src="/assets/img/brand/capital-stack.svg" alt="Diagrama ilustrativo: hasta 90% de la compra y hasta 100% de la remodelación mediante financiamiento de terceros; el capital de entrada se resuelve según el perfil." />
-        </figure>
-        <div class="cols3">
-          <div class="col reveal">
-            <div class="col__numeral">01</div>
-            <h3>Financiamiento de la compra</h3>
-            <p><strong>Hasta 90% del precio de compra</strong>, sujeto a evaluación y aprobación del prestamista.</p>
-          </div>
-          <div class="col reveal">
-            <div class="col__numeral">02</div>
-            <h3>Financiamiento de la remodelación</h3>
-            <p><strong>Hasta 100% de la remodelación</strong>, según el proyecto, los términos y la aprobación del prestamista.</p>
-          </div>
-          <div class="col reveal">
-            <div class="col__numeral">03</div>
-            <h3>Estrategia para el enganche</h3>
-            <p><strong>El capital de entrada depende de tu perfil:</strong> puede provenir de recursos propios o de una estrategia financiera evaluada contigo.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= DOS SALIDAS ================= -->
-    <section class="section" id="salidas">
-      <div class="container">
-        <span class="wm" aria-hidden="true">03</span>
-        <div class="section__head section__head--center reveal">
-          <p class="eyebrow eyebrow--center">Dos salidas por proyecto</p>
-          <h2>Cobras hoy, o construyes <em class="gilt">patrimonio.</em></h2>
-        </div>
-        <div class="exits">
-          <div class="exit reveal">
-            <span class="exit__index">Salida A</span>
-            <h3>Vende y cobra</h3>
-            <p>Cierras el proyecto, tomas la ganancia y reinviertes en el siguiente. La salida directa.</p>
-          </div>
-          <div class="exit exit--feature reveal">
-            <span class="exit__index">Salida B</span>
-            <h3>Refinancia y renta</h3>
-            <p>La propiedad se queda contigo, administrada profesionalmente. <b>Eso es patrimonio. Eso es Legacy.</b></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= QUÉ INCLUYE LA MEMBRESÍA ================= -->
-    <section class="section on-ink2" id="incluye">
-      <div class="container">
-        <span class="wm" aria-hidden="true">04</span>
-        <div class="section__head section__head--center reveal">
-          <p class="eyebrow eyebrow--center">Qué incluye</p>
-          <h2>Un sistema para tomar <em>mejores decisiones</em></h2>
-          <p class="lead">Cuatro capacidades conectadas alrededor de un proyecto real.</p>
-        </div>
-        <div class="pillars">
-          <article class="pillar reveal"><span>01</span><h3>Preparación</h3><p>Plan financiero y fortalecimiento de crédito personal y empresarial, según tu punto de partida.</p></article>
-          <article class="pillar reveal"><span>02</span><h3>Análisis</h3><p>Revisión de propiedad, presupuesto, contingencia, tiempos y escenarios antes de ofertar.</p></article>
-          <article class="pillar reveal"><span>03</span><h3>Estructura</h3><p>Preparación de la operación y presentación a prestamistas terceros por Owl Funding.</p></article>
-          <article class="pillar reveal"><span>04</span><h3>Acompañamiento</h3><p>Seguimiento desde la oferta hasta la estrategia de venta, refinanciamiento o renta.</p></article>
-        </div>
-        <p class="includes-note reveal">La inversión mensual, el término y las condiciones se presentan completos antes de firmar. La membresía está sujeta a aprobación.</p>
-      </div>
-    </section>
-
-    <!-- ================= LAS 4 RUTAS ================= -->
-    <section class="section" id="rutas">
-      <div class="container">
-        <span class="wm" aria-hidden="true">05</span>
-        <div class="section__head section__head--center reveal">
-          <p class="eyebrow eyebrow--center">Tu punto de partida</p>
-          <h2>Tu punto de partida define <em>el siguiente paso</em></h2>
-          <p class="lead">Crédito y capital orientan la evaluación. Tener uno de los dos puede abrir una ruta; tener ambos permite avanzar más rápido.</p>
-        </div>
-        <div class="routes">
-          <div class="route reveal">
-            <span class="route__index">Ruta 01</span>
-            <h3>Express</h3>
-            <p>Crédito y capital listos: evaluación inmediata de perfil y oportunidad.</p>
-          </div>
-          <div class="route reveal">
-            <span class="route__index">Ruta 02</span>
-            <h3>Tres Vías</h3>
-            <p>Crédito sólido: evaluamos alternativas para estructurar el capital de entrada.</p>
-          </div>
-          <div class="route reveal">
-            <span class="route__index">Ruta 03</span>
-            <h3>Capital First</h3>
-            <p>Capital disponible: evaluamos opciones basadas en el proyecto mientras fortaleces tu perfil.</p>
-          </div>
-          <div class="route reveal">
-            <span class="route__index">Ruta 04</span>
-            <h3>Escalera</h3>
-            <p>Si aún no estás listo, recibes claridad sobre qué fortalecer antes de presentar una operación.</p>
-          </div>
-        </div>
-        <p class="pullquote reveal">No importa dónde estés hoy. Importa que hay un camino desde ahí.</p>
-      </div>
-    </section>
-
-    <!-- ================= ¿QUIÉN CALIFICA? (PAPEL) ================= -->
-    <section class="section on-paper" id="califica">
+    <section class="section on-paper simple-how" id="como">
       <div class="container">
         <div class="section__head reveal">
-          <p class="eyebrow">Honestidad primero</p>
-          <h2>¿Quién <em>califica?</em></h2>
-          <p class="lead">La entrada pasa por evaluación. Buscamos experiencia operativa, capacidad de ejecución y disposición para seguir un proceso serio.</p>
+          <p class="eyebrow" data-i18n="how.eyebrow">Así de claro</p>
+          <h2 data-i18n-html="how.title">Tú haces lo que ya sabes. <em>Legacy conecta lo demás.</em></h2>
         </div>
-        <div class="qualify__grid">
-          <div class="qitem reveal"><span class="qitem__num">01</span><p><b>Un negocio de construcción operando.</b> Con cuadrilla, clientes y experiencia real de ejecución.</p></div>
-          <div class="qitem reveal"><span class="qitem__num">02</span><p><b>Crédito 650+ o capital disponible.</b> Uno de los dos puede abrir una ruta; la aprobación nunca es automática.</p></div>
-          <div class="qitem reveal"><span class="qitem__num">03</span><p><b>Compromiso mínimo de 6 meses.</b> Legacy es un sistema, no un atajo.</p></div>
-          <div class="qitem reveal"><span class="qitem__num">04</span><p><b>Disposición de ejecutar la remodelación con tu propia cuadrilla.</b> Ahí está tu ventaja — y tu margen.</p></div>
+        <div class="simple-how__grid">
+          <article class="simple-step reveal">
+            <span>01</span>
+            <h3 data-i18n="how.step1.title">Analizamos</h3>
+            <p data-i18n="how.step1.body">Propiedad, costo de remodelación, tiempo, contingencia y valor de salida. Si los números no funcionan, no avanzas.</p>
+          </article>
+          <article class="simple-step reveal">
+            <span>02</span>
+            <h3 data-i18n="how.step2.title">Estructuramos</h3>
+            <p data-i18n="how.step2.body">Owl Funding prepara la operación y la presenta a prestamistas terceros. Cada aprobación depende del perfil y la propiedad.</p>
+          </article>
+          <article class="simple-step reveal">
+            <span>03</span>
+            <h3 data-i18n="how.step3.title">Ejecutas</h3>
+            <p data-i18n="how.step3.body">Tu compañía realiza la remodelación. Al terminar, vendes para cobrar o evalúas refinanciar para conservar.</p>
+          </article>
         </div>
-        <div class="fit-check reveal">
-          <div><span class="fit-check__mark">✓</span><p><b>Puede ser para ti</b> si quieres analizar con disciplina, ejecutar con tu equipo y asumir riesgo empresarial informado.</p></div>
-          <div><span class="fit-check__mark fit-check__mark--no">×</span><p><b>No es para ti</b> si buscas dinero rápido, ganancias garantizadas o una inversión completamente pasiva.</p></div>
-        </div>
-        <p class="note-strong reveal">Cumplir el perfil no garantiza entrada. Si aún no estás listo, la evaluación puede señalar qué necesitas fortalecer.</p>
+        <a class="inline-cta reveal" href="#quiz"><span data-i18n="how.cta">¿Tienes cuadrilla y experiencia?</span> <b data-i18n="cta.routeArrow">Descubre tu ruta →</b></a>
       </div>
     </section>
 
-    <!-- ================= DEAL DE EJEMPLO — 3 ESCENARIOS ================= -->
-    <section class="section on-ink0" id="ejemplo">
-      <div class="container">
-        <div class="section__head section__head--center reveal">
-          <p class="eyebrow eyebrow--center">El ejemplo</p>
-          <h2>Cómo se ven los números — <em>en tres escenarios</em></h2>
-          <p class="lead">Un proyecto tipo con todos los costos a la vista. Sin números redondeados hacia arriba.</p>
-        </div>
-
+    <section class="section advantage advantage--simple" id="ventaja">
+      <div class="container advantage-simple__grid">
+        <figure class="editorial-photo reveal">
+          <img src="/assets/img/photos/crew-craft.webp" alt="Contratista trabajando en una remodelación" loading="lazy" width="1536" height="1024" />
+        </figure>
         <div class="reveal">
-          <!-- Desktop: tabla -->
-          <div class="fintable-paper">
-            <table class="fintable">
-              <thead>
-                <tr><th>Concepto</th><th>Conservador</th><th class="esp">Esperado</th><th>Favorable</th></tr>
-              </thead>
-              <tbody>
-                <tr><th class="rowh">Oferta de compra</th><td>$430,000</td><td class="esp">$430,000</td><td>$430,000</td></tr>
-                <tr><th class="rowh">Presupuesto de remodelación</th><td>$72,000</td><td class="esp">$60,000</td><td>$55,000</td></tr>
-                <tr><th class="rowh">Cierre de compra y puntos</th><td>$15,000</td><td class="esp">$14,000</td><td>$13,000</td></tr>
-                <tr><th class="rowh">Intereses (8 / 6 / 5 meses)</th><td>$30,000</td><td class="esp">$23,000</td><td>$19,000</td></tr>
-                <tr><th class="rowh">Seguro, impuestos y servicios</th><td>$8,000</td><td class="esp">$6,000</td><td>$5,000</td></tr>
-                <tr><th class="rowh">Costos de venta</th><td>$31,000</td><td class="esp">$32,000</td><td>$33,000</td></tr>
-                <tr><th class="rowh">Contingencia</th><td>$5,000</td><td class="esp">$10,000</td><td>$10,000</td></tr>
-                <tr class="r-sub"><th class="rowh">Inversión total</th><td>$591,000</td><td class="esp">$575,000</td><td>$565,000</td></tr>
-                <tr><th class="rowh">Venta estimada (ARV)</th><td>$615,000</td><td class="esp">$640,000</td><td>$660,000</td></tr>
-                <tr><th class="rowh">Ganancia del proyecto</th><td>$24,000</td><td class="esp">$65,000</td><td>$95,000</td></tr>
-                <tr class="r-crew"><th class="rowh">+ Margen de tu cuadrilla, facturado por tu compañía</th><td>$18,000</td><td class="esp">$18,000</td><td>$17,000</td></tr>
-                <tr class="r-total"><th class="rowh">Total para ti, antes de impuestos</th><td>~$42,000</td><td class="esp">~$83,000</td><td>~$112,000</td></tr>
-              </tbody>
-            </table>
+          <p class="eyebrow" data-i18n="adv.eyebrow">Tu verdadera ventaja</p>
+          <h2 data-i18n-html="adv.title">Otros pagan por ejecutar. <em class="gilt">Tú ya sabes hacerlo.</em></h2>
+          <p class="body-xl" data-i18n="adv.body">Conoces el trabajo, los tiempos y a tu equipo. Ese control puede proteger el margen que otros pierden entre subcontratos, retrasos y cambios de alcance.</p>
+          <div class="advantage-callout">
+            <span data-i18n="adv.calloutLabel">La diferencia</span>
+            <p data-i18n="adv.callout">Tu compañía puede facturar la remodelación y participar en el resultado del proyecto. Son dos oportunidades de ingreso, con riesgo real y sin ganancias garantizadas.</p>
           </div>
-
-          <!-- Móvil: tarjetas apiladas (Esperado primero) -->
-          <div class="fincards">
-            <div class="fincard fincard--esp">
-              <span class="fincard__badge is-esp">Esperado</span>
-              <h4>Escenario esperado</h4>
-              <dl>
-                <dt>Oferta de compra</dt><dd>$430,000</dd>
-                <dt>Presupuesto de remodelación</dt><dd>$60,000</dd>
-                <dt>Cierre de compra y puntos</dt><dd>$14,000</dd>
-                <dt>Intereses (6 meses)</dt><dd>$23,000</dd>
-                <dt>Seguro, impuestos y servicios</dt><dd>$6,000</dd>
-                <dt>Costos de venta</dt><dd>$32,000</dd>
-                <dt>Contingencia</dt><dd>$10,000</dd>
-                <div class="r-sub" style="display:contents"><dt>Inversión total</dt><dd>$575,000</dd></div>
-                <dt>Venta estimada (ARV)</dt><dd>$640,000</dd>
-                <dt>Ganancia del proyecto</dt><dd>$65,000</dd>
-                <dt>+ Margen de tu cuadrilla</dt><dd>$18,000</dd>
-              </dl>
-              <div class="fincard__total"><span>Total para ti, antes de impuestos</span><b>~$83,000</b></div>
-            </div>
-            <div class="fincard">
-              <span class="fincard__badge">Conservador</span>
-              <h4>Escenario conservador</h4>
-              <dl>
-                <dt>Oferta de compra</dt><dd>$430,000</dd>
-                <dt>Presupuesto de remodelación</dt><dd>$72,000</dd>
-                <dt>Cierre de compra y puntos</dt><dd>$15,000</dd>
-                <dt>Intereses (8 meses)</dt><dd>$30,000</dd>
-                <dt>Seguro, impuestos y servicios</dt><dd>$8,000</dd>
-                <dt>Costos de venta</dt><dd>$31,000</dd>
-                <dt>Contingencia</dt><dd>$5,000</dd>
-                <div class="r-sub" style="display:contents"><dt>Inversión total</dt><dd>$591,000</dd></div>
-                <dt>Venta estimada (ARV)</dt><dd>$615,000</dd>
-                <dt>Ganancia del proyecto</dt><dd>$24,000</dd>
-                <dt>+ Margen de tu cuadrilla</dt><dd>$18,000</dd>
-              </dl>
-              <div class="fincard__total"><span>Total para ti, antes de impuestos</span><b>~$42,000</b></div>
-            </div>
-            <div class="fincard">
-              <span class="fincard__badge">Favorable</span>
-              <h4>Escenario favorable</h4>
-              <dl>
-                <dt>Oferta de compra</dt><dd>$430,000</dd>
-                <dt>Presupuesto de remodelación</dt><dd>$55,000</dd>
-                <dt>Cierre de compra y puntos</dt><dd>$13,000</dd>
-                <dt>Intereses (5 meses)</dt><dd>$19,000</dd>
-                <dt>Seguro, impuestos y servicios</dt><dd>$5,000</dd>
-                <dt>Costos de venta</dt><dd>$33,000</dd>
-                <dt>Contingencia</dt><dd>$10,000</dd>
-                <div class="r-sub" style="display:contents"><dt>Inversión total</dt><dd>$565,000</dd></div>
-                <dt>Venta estimada (ARV)</dt><dd>$660,000</dd>
-                <dt>Ganancia del proyecto</dt><dd>$95,000</dd>
-                <dt>+ Margen de tu cuadrilla</dt><dd>$17,000</dd>
-              </dl>
-              <div class="fincard__total"><span>Total para ti, antes de impuestos</span><b>~$112,000</b></div>
-            </div>
-          </div>
-
-          <div class="deal-notes">
-            <div class="deal-note"><p><b>Capital de entrada:</b> aproximadamente $43,000 de enganche (10%) más costos de cierre. Cómo se resuelve depende de tu ruta — con tu capital o con la estrategia de crédito que construimos contigo.</p></div>
-            <div class="deal-note"><p><b>La línea de tu cuadrilla:</b> cuando tu compañía ejecuta la remodelación, el margen que normalmente pagas a subcontratistas se factura dentro de tu propio negocio en lugar de salir hacia afuera. Es ingreso de tu compañía, no ganancia del proyecto — pero es dinero que se queda contigo.</p></div>
-          </div>
-
-          <p class="deal__label">Ejemplo ilustrativo construido con costos de mercado reales. No es una proyección de tus resultados ni una garantía. Los costos, plazos y valores varían por propiedad, mercado y condiciones de financiamiento. Cada proyecto se evalúa individualmente.</p>
         </div>
       </div>
     </section>
 
-    <!-- ================= FAQ — ANTES DE DECIDIR ================= -->
-    <section class="section" id="faq">
+    <section class="section on-ink0 simple-example" id="ejemplo">
       <div class="container">
         <div class="section__head section__head--center reveal">
-          <p class="eyebrow eyebrow--center">Preguntas frecuentes</p>
-          <h2>Antes de <em>decidir</em></h2>
+          <p class="eyebrow eyebrow--center" data-i18n="example.eyebrow">Un ejemplo fácil de leer</p>
+          <h2 data-i18n-html="example.title">Una propiedad. <em>Tres números importantes.</em></h2>
+          <p class="lead" data-i18n="example.lead">Ejemplo ilustrativo del escenario esperado. No representa una promesa ni una proyección de tus resultados.</p>
         </div>
-        <div class="faq-wrap reveal">
-          <details class="faq" open>
-            <summary>¿Cuánto cuesta la membresía?</summary>
-            <p class="faq__a">Es una inversión mensual de nivel empresarial, con término definido. Se presenta completa en tu llamada de evaluación — sin sorpresas y sin presión. Los costos de financiamiento y de terceros son independientes de la membresía.</p>
-          </details>
-          <details class="faq">
-            <summary>¿Mi casa personal queda comprometida?</summary>
-            <p class="faq__a">El financiamiento se estructura sobre la propiedad de inversión. Algunos prestamistas solicitan garantía personal del solicitante. Los términos exactos se revisan contigo antes de que firmes cualquier documento. Nunca firmas algo que no entiendas.</p>
-          </details>
-          <details class="faq">
-            <summary>¿Está garantizado el financiamiento?</summary>
-            <p class="faq__a">No. La aprobación depende del solicitante, de la propiedad y del prestamista. Owl Funding estructura y presenta la operación; la decisión final es del prestamista.</p>
-          </details>
-          <details class="faq">
-            <summary>¿Quién presta el dinero?</summary>
-            <p class="faq__a">Socios de capital institucional. Owl Funding estructura la operación — no es el prestamista. La identidad del prestamista se te presenta durante el proceso de cada operación, antes de firmar.</p>
-          </details>
-          <details class="faq">
-            <summary>¿Qué pasa si no encontramos propiedad?</summary>
-            <p class="faq__a">La membresía incluye la preparación, el análisis y el acompañamiento. El ritmo depende del mercado y de tu criterio — no compramos por comprar. No hay garantía de que un proyecto cierre en un plazo determinado.</p>
-          </details>
-          <details class="faq">
-            <summary>¿Qué pasa si el proyecto se retrasa?</summary>
-            <p class="faq__a">Los intereses y los costos de mantener la propiedad siguen corriendo. Por eso el escenario conservador de nuestro ejemplo contempla 8 meses en lugar de 6.</p>
-          </details>
-          <details class="faq">
-            <summary>¿Hay contrato? ¿Puedo cancelar?</summary>
-            <p class="faq__a">Sí, existe un acuerdo de membresía con término y condiciones de cancelación definidas. Se te entrega completo para revisión antes de firmar.</p>
-          </details>
-          <details class="faq">
-            <summary>¿Quién administra la propiedad si decido conservarla?</summary>
-            <p class="faq__a">Se coordina con administradores profesionales externos. Ese servicio tiene costo separado de la membresía.</p>
-          </details>
+        <div class="deal-simple reveal">
+          <div class="deal-simple__property">
+            <img src="/assets/img/photos/home-finished.webp" alt="Vivienda remodelada, imagen editorial conceptual" loading="lazy" width="1536" height="1024" />
+            <span data-i18n="example.concept">Imagen editorial conceptual</span>
+          </div>
+          <div class="deal-simple__numbers">
+            <div><span data-i18n="example.buy">Compra</span><b>$430,000</b></div>
+            <div><span data-i18n="example.rehab">Remodelación</span><b>$60,000</b></div>
+            <div class="deal-simple__result"><span data-i18n="example.sale">Venta estimada</span><b>$640,000</b></div>
+          </div>
+          <div class="deal-simple__bottom">
+            <div><span data-i18n="example.projectProfit">Ganancia estimada del proyecto</span><b>$65,000</b></div>
+            <div><span data-i18n="example.crewMargin">Margen estimado de tu compañía</span><b>$18,000</b></div>
+            <div class="deal-simple__total"><span data-i18n="example.total">Total ilustrativo antes de impuestos</span><b>~$83,000</b></div>
+          </div>
+        </div>
+        <details class="cost-details reveal">
+          <summary data-i18n="example.details">Ver costos incluidos en el ejemplo</summary>
+          <div>
+            <p><span data-i18n="example.closing">Cierre y puntos</span><b>$14,000</b></p>
+            <p><span data-i18n="example.interest">Intereses estimados, 6 meses</span><b>$23,000</b></p>
+            <p><span data-i18n="example.holding">Seguro, impuestos y servicios</span><b>$6,000</b></p>
+            <p><span data-i18n="example.selling">Costos de venta</span><b>$32,000</b></p>
+            <p><span data-i18n="example.contingency">Contingencia</span><b>$10,000</b></p>
+            <p><span data-i18n="example.investment">Inversión total estimada</span><b>$575,000</b></p>
+          </div>
+        </details>
+        <p class="deal-disclaimer reveal" data-i18n="example.disclaimer">Los costos, términos, plazos y valores cambian por propiedad y mercado. El margen de la cuadrilla es ingreso de la compañía, no ganancia adicional garantizada. Cada operación se analiza individualmente.</p>
+      </div>
+    </section>
+
+    <section class="section trust-simple" id="respaldo">
+      <div class="container">
+        <div class="section__head section__head--center reveal">
+          <p class="eyebrow eyebrow--center" data-i18n="trust.eyebrow">No estás improvisando solo</p>
+          <h2 data-i18n-html="trust.title">Tres piezas. <em class="gilt">Un solo proceso.</em></h2>
+        </div>
+        <div class="trust-cards">
+          <article class="trust-card reveal"><span data-i18n="trust.you.label">Tú</span><h3 data-i18n="trust.you.title">Experiencia y ejecución</h3><p data-i18n="trust.you.body">Conoces la construcción y diriges la remodelación con tu equipo.</p></article>
+          <article class="trust-card reveal"><span>Owl Funding</span><h3 data-i18n="trust.owl.title">Estructura financiera</h3><p data-i18n="trust.owl.body">Prepara y presenta la operación. No es el prestamista ni decide la aprobación.</p></article>
+          <article class="trust-card reveal"><span>LeadPrime</span><h3 data-i18n="trust.lp.title">Seguimiento y sistema</h3><p data-i18n="trust.lp.body">Organiza el proceso, la comunicación y el avance de cada oportunidad.</p></article>
+        </div>
+        <figure class="browser browser--compact reveal" aria-label="Vista ilustrativa del seguimiento en LeadPrime">
+          <div class="browser__bar">
+            <span class="browser__dots"><i></i><i></i><i></i></span>
+            <span class="browser__url">app.leadprime.chyrris.com / Legacy</span>
+          </div>
+          <img src="/assets/img/brand/leadprime-dashboard.png" alt="Ejemplo ilustrativo del seguimiento de una oportunidad en LeadPrime" loading="lazy" />
+          <figcaption class="browser__cap" data-i18n="trust.mockup">Mockup ilustrativo · Datos de muestra</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section on-paper fit-simple" id="califica">
+      <div class="container fit-simple__grid">
+        <div class="reveal">
+          <p class="eyebrow" data-i18n="fit.eyebrow">Antes de aplicar</p>
+          <h2 data-i18n-html="fit.title">Legacy funciona mejor si <em>ya sabes construir.</em></h2>
+        </div>
+        <div class="fit-simple__list reveal">
+          <p><span>✓</span><b data-i18n="fit.one">Tienes experiencia real en construcción.</b></p>
+          <p><span>✓</span><b data-i18n="fit.two">Tienes cuadrilla propia o capacidad para dirigirla.</b></p>
+          <p><span>✓</span><b data-i18n="fit.three">Tienes crédito 650+ o capital disponible.</b></p>
+          <p><span>✓</span><b data-i18n="fit.four">Entiendes que invertir implica riesgo y trabajo.</b></p>
+        </div>
+        <div class="fit-simple__note reveal">
+          <b data-i18n="fit.notTitle">No es dinero rápido.</b>
+          <p data-i18n="fit.notBody">No hay financiamiento ni ganancias garantizadas. La membresía, el solicitante y cada propiedad pasan por evaluación.</p>
         </div>
       </div>
     </section>
 
-    <!-- ================= EL QUIZ ================= -->
     <section class="section on-ink2" id="quiz">
       <div class="container">
         <div class="section__head section__head--center reveal">
-          <p class="eyebrow eyebrow--center">Descubre tu ruta</p>
-          <h2>¿Cuál es tu <em class="gilt">ruta de entrada?</em></h2>
-          <p class="lead">4 preguntas + tus datos · menos de 2 minutos. Responde con honestidad: si aún no estás listo para invertir, te mostramos qué construir para llegar — nadie se queda sin un camino.</p>
+          <p class="eyebrow eyebrow--center" data-i18n="quiz.eyebrow">Tu siguiente paso</p>
+          <h2 data-i18n-html="quiz.title">Descubre si estás listo <em class="gilt">para avanzar.</em></h2>
+          <p class="lead" data-i18n="quiz.lead">Responde 4 preguntas. Si todavía no estás listo, también te mostramos qué necesitas fortalecer.</p>
         </div>
-
         <div class="quiz-wrap">
-          <noscript>
-            <div class="noscript-note">El quiz interactivo requiere JavaScript. Escríbenos a <a href="mailto:info@chyrris.com">info@chyrris.com</a> con tu nombre, teléfono, ciudad y oficio, y te contactamos para descubrir tu ruta.</div>
-          </noscript>
-
-          <form class="quiz" id="quizForm"
-                data-endpoint="https://leadprime.chyrris.com/api/public/legacy-quiz"
-                data-booking-url=""
-                novalidate>
+          <noscript><div class="noscript-note">El cuestionario requiere JavaScript. Escríbenos a <a href="mailto:info@chyrris.com">info@chyrris.com</a>.</div></noscript>
+          <form class="quiz" id="quizForm" data-endpoint="https://leadprime.chyrris.com/api/public/legacy-quiz" data-booking-url="" novalidate>
             <div class="quiz__progress"><span id="quizBar"></span></div>
-
-            <!-- Paso 1: negocio (business_age) — reordenado (solo visual; name/value intactos) -->
             <div class="quiz__step is-active" data-step="0">
-              <div class="quiz__stepcount">Pregunta 1 de 4</div>
-              <h3 class="quiz__q">¿Hace cuánto opera tu negocio de construcción?</h3>
+              <div class="quiz__stepcount" data-i18n="quiz.q1count">Pregunta 1 de 4</div>
+              <h3 class="quiz__q" data-i18n="quiz.q1">¿Hace cuánto opera tu negocio de construcción?</h3>
               <div class="options">
-                <label class="option"><input type="radio" name="business_age" value="3_mas" /><span class="option__mark"></span><span class="option__text">3 años o más</span></label>
-                <label class="option"><input type="radio" name="business_age" value="1_3" /><span class="option__mark"></span><span class="option__text">1 – 3 años</span></label>
-                <label class="option"><input type="radio" name="business_age" value="menos_1" /><span class="option__mark"></span><span class="option__text">Menos de 1 año</span></label>
-                <label class="option"><input type="radio" name="business_age" value="sin_negocio" /><span class="option__mark"></span><span class="option__text">Aún no tengo negocio</span></label>
+                <label class="option"><input type="radio" name="business_age" value="3_mas" /><span class="option__mark"></span><span class="option__text" data-i18n="quiz.age3">3 años o más</span></label>
+                <label class="option"><input type="radio" name="business_age" value="1_3" /><span class="option__mark"></span><span class="option__text" data-i18n="quiz.age1">1 – 3 años</span></label>
+                <label class="option"><input type="radio" name="business_age" value="menos_1" /><span class="option__mark"></span><span class="option__text" data-i18n="quiz.ageLess">Menos de 1 año</span></label>
+                <label class="option"><input type="radio" name="business_age" value="sin_negocio" /><span class="option__mark"></span><span class="option__text" data-i18n="quiz.ageNone">Aún no tengo negocio</span></label>
               </div>
             </div>
-
-            <!-- Paso 2: cuadrilla (crew_propia) -->
             <div class="quiz__step" data-step="1">
-              <div class="quiz__stepcount">Pregunta 2 de 4</div>
-              <h3 class="quiz__q">¿Ejecutas la remodelación con tu propia cuadrilla?</h3>
+              <div class="quiz__stepcount" data-i18n="quiz.q2count">Pregunta 2 de 4</div>
+              <h3 class="quiz__q" data-i18n="quiz.q2">¿Ejecutas la remodelación con tu propia cuadrilla?</h3>
               <div class="options">
-                <label class="option"><input type="radio" name="crew_propia" value="true" /><span class="option__mark"></span><span class="option__text">Sí, tengo mi propia cuadrilla</span></label>
-                <label class="option"><input type="radio" name="crew_propia" value="false" /><span class="option__mark"></span><span class="option__text">No / trabajo con subcontratistas</span></label>
+                <label class="option"><input type="radio" name="crew_propia" value="true" /><span class="option__mark"></span><span class="option__text" data-i18n="quiz.crewYes">Sí, tengo mi propia cuadrilla</span></label>
+                <label class="option"><input type="radio" name="crew_propia" value="false" /><span class="option__mark"></span><span class="option__text" data-i18n="quiz.crewNo">No / trabajo con subcontratistas</span></label>
               </div>
             </div>
-
-            <!-- Paso 3: capital (capital_band) -->
             <div class="quiz__step" data-step="2">
-              <div class="quiz__stepcount">Pregunta 3 de 4</div>
-              <h3 class="quiz__q">¿Con cuánto capital cuentas para empezar?</h3>
+              <div class="quiz__stepcount" data-i18n="quiz.q3count">Pregunta 3 de 4</div>
+              <h3 class="quiz__q" data-i18n="quiz.q3">¿Con cuánto capital cuentas para empezar?</h3>
               <div class="options">
-                <label class="option"><input type="radio" name="capital_band" value="50k_mas" /><span class="option__mark"></span><span class="option__text">$50,000 o más</span></label>
+                <label class="option"><input type="radio" name="capital_band" value="50k_mas" /><span class="option__mark"></span><span class="option__text" data-i18n="quiz.cap50">$50,000 o más</span></label>
                 <label class="option"><input type="radio" name="capital_band" value="20_50k" /><span class="option__mark"></span><span class="option__text">$20,000 – $50,000</span></label>
-                <label class="option"><input type="radio" name="capital_band" value="menos_20k" /><span class="option__mark"></span><span class="option__text">Menos de $20,000</span></label>
-                <label class="option"><input type="radio" name="capital_band" value="nada" /><span class="option__mark"></span><span class="option__text">Nada por ahora</span></label>
+                <label class="option"><input type="radio" name="capital_band" value="menos_20k" /><span class="option__mark"></span><span class="option__text" data-i18n="quiz.capLess">Menos de $20,000</span></label>
+                <label class="option"><input type="radio" name="capital_band" value="nada" /><span class="option__mark"></span><span class="option__text" data-i18n="quiz.capNone">Nada por ahora</span></label>
               </div>
             </div>
-
-            <!-- Paso 4: crédito (credit_band) -->
             <div class="quiz__step" data-step="3">
-              <div class="quiz__stepcount">Pregunta 4 de 4</div>
-              <h3 class="quiz__q">¿En qué rango está tu crédito?</h3>
+              <div class="quiz__stepcount" data-i18n="quiz.q4count">Pregunta 4 de 4</div>
+              <h3 class="quiz__q" data-i18n="quiz.q4">¿En qué rango está tu crédito?</h3>
               <div class="options">
-                <label class="option"><input type="radio" name="credit_band" value="700_mas" /><span class="option__mark"></span><span class="option__text">700 o más</span></label>
+                <label class="option"><input type="radio" name="credit_band" value="700_mas" /><span class="option__mark"></span><span class="option__text" data-i18n="quiz.credit700">700 o más</span></label>
                 <label class="option"><input type="radio" name="credit_band" value="650_699" /><span class="option__mark"></span><span class="option__text">650 – 699</span></label>
                 <label class="option"><input type="radio" name="credit_band" value="600_649" /><span class="option__mark"></span><span class="option__text">600 – 649</span></label>
-                <label class="option"><input type="radio" name="credit_band" value="menos_600" /><span class="option__mark"></span><span class="option__text">Menos de 600</span></label>
-                <label class="option"><input type="radio" name="credit_band" value="no_se" /><span class="option__mark"></span><span class="option__text">No estoy seguro</span></label>
+                <label class="option"><input type="radio" name="credit_band" value="menos_600" /><span class="option__mark"></span><span class="option__text" data-i18n="quiz.creditLess">Menos de 600</span></label>
+                <label class="option"><input type="radio" name="credit_band" value="no_se" /><span class="option__mark"></span><span class="option__text" data-i18n="quiz.creditUnknown">No estoy seguro</span></label>
               </div>
             </div>
-
-            <!-- Paso 5: contacto -->
             <div class="quiz__step" data-step="4">
-              <div class="quiz__stepcount">Último paso · Tus datos</div>
-              <h3 class="quiz__q">¿A dónde te enviamos tu ruta?</h3>
+              <div class="quiz__stepcount" data-i18n="quiz.last">Último paso · Tus datos</div>
+              <h3 class="quiz__q" data-i18n="quiz.contact">¿A dónde te enviamos tu ruta?</h3>
               <div class="fields">
-                <div class="field field--full"><label for="f_name">Nombre completo</label><input id="f_name" name="name" type="text" autocomplete="name" placeholder="Tu nombre" required /></div>
-                <div class="field"><label for="f_phone">Teléfono</label><input id="f_phone" name="phone" type="tel" autocomplete="tel" placeholder="(000) 000-0000" required /></div>
-                <div class="field"><label for="f_email">Email</label><input id="f_email" name="email" type="email" autocomplete="email" placeholder="tu@correo.com" required /></div>
-                <div class="field"><label for="f_city">Ciudad</label><input id="f_city" name="city" type="text" autocomplete="address-level2" placeholder="Ciudad, Estado" required /></div>
-                <div class="field"><label for="f_trade">Oficio / especialidad</label><input id="f_trade" name="trade" type="text" placeholder="Ej. general, framing, roofing…" required /></div>
+                <div class="field field--full"><label for="f_name" data-i18n="form.name">Nombre completo</label><input id="f_name" name="name" type="text" autocomplete="name" placeholder="Tu nombre" data-i18n-placeholder="form.namePlaceholder" required /></div>
+                <div class="field"><label for="f_phone" data-i18n="form.phone">Teléfono</label><input id="f_phone" name="phone" type="tel" autocomplete="tel" placeholder="(000) 000-0000" required /></div>
+                <div class="field"><label for="f_email">Email</label><input id="f_email" name="email" type="email" autocomplete="email" placeholder="tu@correo.com" data-i18n-placeholder="form.emailPlaceholder" required /></div>
+                <div class="field"><label for="f_city" data-i18n="form.city">Ciudad</label><input id="f_city" name="city" type="text" autocomplete="address-level2" placeholder="Ciudad, Estado" data-i18n-placeholder="form.cityPlaceholder" required /></div>
+                <div class="field"><label for="f_trade" data-i18n="form.trade">Oficio / especialidad</label><input id="f_trade" name="trade" type="text" placeholder="Ej. general, framing, roofing…" data-i18n-placeholder="form.tradePlaceholder" required /></div>
               </div>
               <div class="hp" aria-hidden="true"><label for="company_website">No llenar este campo</label><input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off" /></div>
-              <p class="consent">Tu información se usa únicamente para evaluar tu ruta y contactarte sobre Legacy. No la vendemos ni la compartimos con terceros ajenos al programa. Al enviar, aceptas que te contactemos por teléfono, mensaje de texto o email.</p>
+              <p class="consent" data-i18n="form.consent">Usamos tus datos para evaluar tu ruta y contactarte sobre Legacy. Al enviar, aceptas recibir llamadas, mensajes o emails relacionados con el programa.</p>
             </div>
-
             <div class="quiz__error" id="quizError" role="alert" aria-live="polite"></div>
-
             <div class="quiz__nav">
               <button type="button" class="link-back" id="quizBack" hidden>← Atrás</button>
               <button type="button" class="btn btn--gold" id="quizNext">Siguiente →</button>
             </div>
           </form>
-
           <div class="quiz result" id="result">
             <span class="result__badge" id="resultBadge"></span>
             <h3 id="resultTitle"></h3>
@@ -527,90 +289,57 @@
             <div class="result__cta" id="resultCta"></div>
             <div class="booking-embed" id="bookingEmbed"></div>
           </div>
-
-          <!-- WhatsApp como salida secundaria para preguntas antes de aplicar. -->
           <div class="wa-cta" id="waCta">
             <a class="wa-link" id="waLink" href="https://wa.me/12025493519?text=Hola%2C%20tengo%20preguntas%20sobre%20el%20programa%20Legacy." target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 4.54 0 8.23 3.69 8.23 8.23s-3.69 8.42-8.23 8.42zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.17 1.74 2.66 4.22 3.73.59.25 1.05.4 1.4.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
-              ¿Tienes preguntas? Escríbenos por WhatsApp
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 4.54 0 8.23 3.69 8.23 8.23s-3.69 8.42-8.23 8.42zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.17 1.74 2.66 4.22 3.73.59.25 1.05.4 1.4.52.59.19 1.05.4 1.4.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+              <span data-i18n="whatsapp">¿Tienes preguntas? Escríbenos por WhatsApp</span>
             </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= QUIÉN ESTÁ DETRÁS ================= -->
-    <section class="section" id="detras">
+    <section class="section compact-faq" id="faq">
       <div class="container">
-        <span class="wm" aria-hidden="true">07</span>
         <div class="section__head section__head--center reveal">
-          <p class="eyebrow eyebrow--center">Quién está detrás</p>
-          <h2>Un ecosistema, no una <em>promesa suelta.</em></h2>
-          <p class="lead">Legacy conecta análisis, estructura financiera y seguimiento operativo en un mismo sistema.</p>
+          <p class="eyebrow eyebrow--center" data-i18n="faq.eyebrow">Lo esencial antes de decidir</p>
+          <h2 data-i18n="faq.title">Preguntas directas</h2>
         </div>
-        <figure class="browser reveal" aria-label="Vista del pipeline Owl Funding en LeadPrime con el lead del quiz">
-          <div class="browser__bar">
-            <span class="browser__dots"><i></i><i></i><i></i></span>
-            <span class="browser__url">app.leadprime.chyrris.com/pipelines/owl-funding</span>
-          </div>
-          <img src="/assets/img/brand/leadprime-dashboard.png" alt="Pipeline Owl Funding en LeadPrime: el lead del quiz (ruta EXPRESS, tags legacy · crew_propia, fuente legacy.chyrris.com) aparece en la columna Nuevo." loading="lazy" />
-        </figure>
-        <figcaption class="browser__cap reveal">Ejemplo ilustrativo de la interfaz · datos de muestra</figcaption>
-        <div class="cols3">
-          <div class="col reveal">
-            <span class="col__tag">Financiamiento</span>
-            <h3>Owl Funding</h3>
-            <p>Prepara la estructura y presenta cada operación a prestamistas terceros. No presta el dinero ni decide la aprobación final.</p>
-          </div>
-          <div class="col reveal">
-            <span class="col__tag">Plataforma</span>
-            <h3>LeadPrime</h3>
-            <p>La infraestructura que organiza el seguimiento: pipeline, comunicación y avance de cada oportunidad.</p>
-          </div>
-          <div class="col reveal">
-            <span class="col__tag">El origen</span>
-            <h3>De contratista a dueño</h3>
-            <p>El sistema nace de experiencia operativa en construcción y de la intención de convertir oficio en propiedad, con método y disciplina.</p>
-          </div>
-        </div>
-        <div class="proof-story reveal">
-          <img src="/assets/img/photos/home-finished.webp" alt="Vivienda remodelada al anochecer, imagen editorial conceptual" loading="lazy" width="1536" height="1024" />
-          <div><span class="eyebrow">La idea central</span><p>El oficio genera ingreso. La propiedad bien elegida puede convertir ese trabajo en patrimonio.</p><small>Imagen editorial conceptual; no representa un proyecto ni resultados de un miembro.</small></div>
+        <div class="faq-wrap reveal">
+          <details class="faq" open><summary data-i18n="faq.costQ">¿Cuánto cuesta?</summary><p class="faq__a" data-i18n="faq.costA">La membresía tiene una inversión mensual y un término definido. Recibes todos los detalles por escrito antes de firmar. Los costos del préstamo y de terceros son independientes.</p></details>
+          <details class="faq"><summary data-i18n="faq.guaranteeQ">¿El financiamiento está garantizado?</summary><p class="faq__a" data-i18n="faq.guaranteeA">No. El prestamista evalúa al solicitante y cada propiedad. Owl Funding prepara la operación, pero no toma la decisión final.</p></details>
+          <details class="faq"><summary data-i18n="faq.riskQ">¿Qué riesgo tengo?</summary><p class="faq__a" data-i18n="faq.riskA">El valor de venta, los costos y los tiempos pueden cambiar. Intereses y gastos continúan si el proyecto se retrasa. Por eso analizamos escenarios antes de avanzar.</p></details>
+          <details class="faq"><summary data-i18n="faq.exitQ">¿Tengo que vender la propiedad?</summary><p class="faq__a" data-i18n="faq.exitA">No necesariamente. Puedes vender o evaluar un refinanciamiento para conservar y rentar, siempre que los números y la aprobación lo permitan.</p></details>
         </div>
       </div>
     </section>
 
-    <!-- ================= DISCLAIMER ================= -->
     <section class="section section--tight disclaimer" id="disclaimer">
       <div class="container">
-        <h4>Aviso de riesgo</h4>
-        <p>Este programa involucra riesgo financiero real. Los números son proyecciones basadas en datos de mercado, no garantías. Trabajamos contigo para minimizar exposición, no para eliminarla. Legacy by LeadPrime es un programa de membresía con inversión mensual, sujeto a aprobación.</p>
+        <h4 data-i18n="risk.title">Aviso de riesgo</h4>
+        <p data-i18n="risk.body">La inversión inmobiliaria involucra riesgo financiero. Los ejemplos son ilustrativos y no garantizan resultados. Legacy es un programa de membresía sujeto a evaluación y aprobación.</p>
       </div>
     </section>
   </main>
 
-  <!-- ================= FOOTER ================= -->
   <footer class="site-footer">
     <div class="container">
       <a href="#top" aria-label="Legacy by LeadPrime"><img class="footer__logo" src="/assets/img/brand/logo-official.png" alt="Legacy by LeadPrime" /></a>
       <hr class="footer__rule" />
       <div class="footer__links">
-        <a href="#quiz">Descubre tu ruta</a>
-        <a href="https://leadprime.chyrris.com" target="_blank" rel="noopener">leadprime.chyrris.com</a>
+        <a href="#quiz" data-i18n="cta.route">Descubre tu ruta</a>
+        <a href="https://leadprime.chyrris.com" target="_blank" rel="noopener">LeadPrime</a>
         <a href="mailto:info@chyrris.com">info@chyrris.com</a>
-        <a href="/privacidad">Privacidad</a>
-        <a href="/terminos">Términos</a>
+        <a href="/privacidad" data-i18n="footer.privacy">Privacidad</a>
+        <a href="/terminos" data-i18n="footer.terms">Términos</a>
       </div>
-      <p class="footer__meta">Programa de membresía premium · Sujeto a aprobación<br />Financiamiento estructurado por Owl Funding · 2026</p>
-      <p class="footer__legal">
-        © 2026 Legacy by LeadPrime · Operamos actualmente en California<br />
-        <a href="/privacidad">Aviso de privacidad</a> · <a href="/terminos">Términos y condiciones</a> · <a href="mailto:info@chyrris.com">info@chyrris.com</a>
-      </p>
+      <p class="footer__meta" data-i18n-html="footer.meta">Programa de membresía · Sujeto a aprobación<br />Financiamiento estructurado por Owl Funding · 2026</p>
+      <p class="footer__legal">© 2026 Legacy by LeadPrime · California</p>
     </div>
   </footer>
 
-  <a class="mobile-cta" href="#quiz">Descubre tu ruta <span>→</span></a>
-
+  <a class="mobile-cta" href="#quiz"><span data-i18n="cta.check">Quiero saber si califico →</span></a>
+  <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/quiz.js" defer></script>
 </body>
 </html>
