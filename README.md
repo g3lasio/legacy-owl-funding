@@ -1,4 +1,4 @@
-# Legacy by LeadPrime — legacy.chyrris.com
+# Legacy — legacy.chyrris.com
 
 Landing estático (HTML/CSS/JS, sin frameworks, sin build step) que funciona como
 **funnel de captura y agendamiento**: un **Quiz Router de 4 preguntas + contacto**
