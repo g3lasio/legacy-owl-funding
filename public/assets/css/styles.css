@@ -1,5 +1,5 @@
 /* ============================================================================
-   Legacy by LeadPrime — legacy.chyrris.com
+   Legacy — legacy.chyrris.com
    Dirección de arte v2 — "banca privada editorial":
    tinta profunda + papel marfil + oro champagne. Fraunces (display serif de
    alto contraste, itálica caligráfica) para headlines, Instrument Sans para
@@ -175,18 +175,9 @@ h1 em, h2 em, h3 em, .ital { font-style: italic; font-weight: 400; }
 }
 .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 
-.wordmark { display: flex; align-items: center; gap: 11px; line-height: 1; }
-.wordmark__logo { height: 40px; width: auto; flex: none; }
-.footer__logo { height: 76px; width: auto; }
-.wordmark__name {
-  font-family: var(--font-display); font-style: italic; font-weight: 500;
-  font-size: 1.7rem; color: var(--cream); letter-spacing: 0.01em;
-}
-.wordmark__by {
-  font-family: var(--font-mono); font-size: 0.58rem; font-weight: 500;
-  letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold);
-  transform: translateY(-2px);
-}
+.wordmark { display: flex; align-items: center; line-height: 1; }
+.wordmark__logo { height: 50px; width: auto; flex: none; }
+.footer__logo { height: 92px; width: auto; }
 
 .site-nav { display: flex; gap: 34px; }
 .site-nav a {
@@ -970,7 +961,7 @@ main { display: flex; flex-direction: column; }
 @media (max-width: 760px) {
   .v4 .section { padding: 70px 0; }
   .v4 .site-header { padding: 16px 0; }
-  .v4 .wordmark__by { display: none; }
+  .v4 .wordmark__logo { height: 42px; }
   .header-actions { gap: 8px; }
   .v4 .header-cta { display: none; }
   .language-switch__option { min-width: 34px; }
