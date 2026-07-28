@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 70 1120 360" role="img" aria-labelledby="title desc">
+  <title id="title">Legacy</title>
+  <desc id="desc">Logo oficial de Legacy para fondo oscuro.</desc>
+  <g transform="translate(62 56)">
+    <path fill="#F7F4EC" d="M34 350V309l25-13V91L150 35v225l-18 18v72H93v-87l-20 19v68H34zm35-221 26-16v40l-26 15v-39zm0 69 26-15v40l-26 15v-40z"/>
+    <path fill="#F7F4EC" d="M286 350v-41l-25-13V91l-91-56v225l18 18v72h39v-87l20 19v68h39zm-35-221-26-16v40l26 15v-39zm0 69-26-15v40l26 15v-40z"/>
+    <path fill="none" stroke="#C6A15B" stroke-width="17" stroke-linecap="square" stroke-linejoin="miter" d="M103 292l57-52 57 52"/>
+    <rect x="142" y="286" width="15" height="15" fill="#C6A15B"/>
+    <rect x="163" y="286" width="15" height="15" fill="#C6A15B"/>
+    <rect x="142" y="307" width="15" height="15" fill="#C6A15B"/>
+    <rect x="163" y="307" width="15" height="15" fill="#C6A15B"/>
+  </g>
+  <!-- Quantico Bold converted to vector outlines so the official wordmark never falls back to another font. -->
+  <g fill="#F7F4EC" aria-label="LEGACY">
+    <path d="M85 0L85 700L225 700L225 120L464 120L464 0Z" transform="translate(440.000 318) scale(0.164 -0.164)"/>
+    <path d="M225 300L225 120L504 120L504 0L85 0L85 700L504 700L504 580L225 580L225 420L444 420L444 300Z" transform="translate(534.196 318) scale(0.164 -0.164)"/>
+    <path d="M335 245L335 365L590 365L590 62L474 -5L191 -5L75 62L75 638L191 705L474 705L590 638L590 495L450 495L450 585L215 585L215 115L450 115L450 245Z" transform="translate(638.232 318) scale(0.164 -0.164)"/>
+    <path d="M409 700L659 0L521 0L468 151L206 151L153 0L15 0L265 700ZM336 524L248 271L425 271L338 524Z" transform="translate(761.292 318) scale(0.164 -0.164)"/>
+    <path d="M460 205L600 205L600 62L484 -5L201 -5L85 62L85 638L201 705L484 705L600 638L600 495L460 495L460 585L225 585L225 115L460 115Z" transform="translate(885.828 318) scale(0.164 -0.164)"/>
+    <path d="M240 0L240 299L15 700L167 700L309 438L311 438L454 700L606 700L380 298L380 0Z" transform="translate(1010.528 318) scale(0.164 -0.164)"/>
+  </g>
+</svg>
