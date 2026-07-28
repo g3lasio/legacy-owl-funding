@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Legacy</title>
+  <rect width="512" height="512" rx="88" fill="#061426"/>
+  <g transform="translate(70 42) scale(1.16)">
+    <path fill="#F7F4EC" d="M34 370V329l25-13V111L150 55v225l-18 18v72H93v-87l-20 19v68H34zm35-221 26-16v40l-26 15v-39zm0 69 26-15v40l-26 15v-40z"/>
+    <path fill="#F7F4EC" d="M286 370v-41l-25-13V111l-91-56v225l18 18v72h39v-87l20 19v68h39zm-35-221-26-16v40l26 15v-39zm0 69-26-15v40l26 15v-40z"/>
+    <path fill="none" stroke="#C6A15B" stroke-width="17" stroke-linecap="square" stroke-linejoin="miter" d="M103 312l57-52 57 52"/>
+    <rect x="142" y="306" width="15" height="15" fill="#C6A15B"/>
+    <rect x="163" y="306" width="15" height="15" fill="#C6A15B"/>
+    <rect x="142" y="327" width="15" height="15" fill="#C6A15B"/>
+    <rect x="163" y="327" width="15" height="15" fill="#C6A15B"/>
+  </g>
+</svg>
